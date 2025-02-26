@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">SmartGreenhouseApp</string>
+    <!-- App Information -->
+    <string name="app_name">Smart Greenhouse</string>
+    <string name="app_version">1.0</string>
+    <string name="app_description">Smart Greenhouse App</string>
+    <string name="app_author">DeepCode</string>
+
 </resources>
