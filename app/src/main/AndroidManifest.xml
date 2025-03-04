@@ -22,6 +22,42 @@
             android:name=".SplashScreen"
             android:exported="false" />
         <activity
+            android:name=".actualizar_usuario"
+            android:exported="false" />
+        <activity
+            android:name=".nuevo_usuario"
+            android:exported="false" />
+        <activity
+            android:name=".usuarios"
+            android:exported="false" />
+        <activity
+            android:name=".graficas"
+            android:exported="false" />
+        <activity
+            android:name=".ficha_plantacion"
+            android:exported="false" />
+        <activity
+            android:name=".control_de_emergencia"
+            android:exported="false" />
+        <activity
+            android:name=".ventilacion"
+            android:exported="false" />
+        <activity
+            android:name=".cultivaAI"
+            android:exported="false" />
+        <activity
+            android:name=".monitorizacion"
+            android:exported="false" />
+        <activity
+            android:name=".controladores"
+            android:exported="false" />
+        <activity
+            android:name=".menu_usuario"
+            android:exported="false" />
+        <activity
+            android:name=".menu_admin"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

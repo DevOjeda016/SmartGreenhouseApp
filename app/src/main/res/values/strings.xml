@@ -4,5 +4,18 @@
     <string name="app_version">1.0</string>
     <string name="app_description">Smart Greenhouse App</string>
     <string name="app_author">DeepCode</string>
+    <string name="UserAdmin">Usuario Admin</string>
+    <string name="Welcome">Bienvenido</string>
+    <string name="UserUser">Usuario</string>
+    <string name="Drivers">Controladores</string>
+    <string name="monitoring">Monitorización</string>
+    <string name="cultivaAI">Cultiva AI</string>
+    <string name="ventilation">Ventilación</string>
+    <string name="emergency_control">Control de \nemergencia</string>
+    <string name="ficha_plantacion">Ficha de Plantación</string>
+    <string name="graphics">Gráficas</string>
+    <string name="users">Usuarios</string>
+    <string name="new_users">Nuevo usuario</string>
+    <string name="update_users">Actualizar usuario</string>
 
 </resources>
