@@ -1,7 +1,7 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -20,5 +20,11 @@ public class menu_admin extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    // Método para manejar el clic en la tarjeta de Cultiva IA
+    public void onCardCultivaIAClicked(android.view.View view) {
+        Intent intent = new Intent(this, cultivaAI.class);
+        startActivity(intent);
     }
 }
