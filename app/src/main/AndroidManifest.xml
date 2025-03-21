@@ -57,10 +57,10 @@
             android:name=".menu_usuario"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".cultivaAI"
             android:exported="false" />
         <activity
-            android:name=".cultivaAI"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
