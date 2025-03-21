@@ -93,7 +93,7 @@
             </com.google.android.material.appbar.MaterialToolbar>
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/txtRegisterNewUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="92dp"
@@ -113,9 +113,9 @@
                 android:layout_marginTop="16dp"
                 android:text="Cortar suminsitro de energía"
                 app:iconTint="@color/md_theme_tertiaryFixedDim"
-                app:layout_constraintEnd_toEndOf="@+id/textView6"
-                app:layout_constraintStart_toStartOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="@+id/txtRegisterNewUser"
+                app:layout_constraintStart_toStartOf="@+id/txtRegisterNewUser"
+                app:layout_constraintTop_toBottomOf="@+id/txtRegisterNewUser"
                 android:backgroundTint="@color/md_theme_tertiaryFixedDim"/>
 
             <TextView

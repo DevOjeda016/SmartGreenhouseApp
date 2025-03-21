@@ -6,97 +6,133 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_theme_surfaceContainerHighest"
-    tools:context=".menu_admin">
+    tools:context=".ChatActivity">
 
-    <!-- ScrollView para permitir el desplazamiento -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!-- AppBar Superior -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/md_theme_onSecondaryFixedVariant"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Contenedor principal dentro del ScrollView -->
+        <!-- Contenedor principal personalizado -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            tools:layout_editor_absoluteX="16dp">
 
-            <!-- AppBar -->
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:background="@color/md_theme_onSecondaryFixedVariant"
-                android:elevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
+            <!-- Botón de retroceso -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/iconButton"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="30dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:icon="@drawable/flecha_atras"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="30dp"
+                app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtTitle"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <!-- Título de la pantalla -->
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="236dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/cultivaAI"
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_secondaryFixed"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Contenedor para iconos (derecha) -->
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <!-- Contenedor principal personalizado -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
-
-                    <!-- Título principal (UserAdmin) -->
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/iconButton"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginTop="30dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:scaleType="fitCenter"
-                        app:icon="@drawable/flecha_atras"
-                        app:iconGravity="textStart"
-                        app:iconPadding="0dp"
-                        app:iconSize="30dp"
-                        app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/txtTitle"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.166" />
-
-                    <TextView
-                        android:id="@+id/txtTitle"
-                        android:layout_width="236dp"
-                        android:layout_height="44dp"
-                        android:layout_marginTop="30dp"
-                        android:text="@string/cultivaAI"
-                        android:textAlignment="center"
-                        android:textColor="@color/md_theme_secondaryFixed"
-                        android:textSize="34sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <!-- Contenedor para iconos derecha -->
-                    <LinearLayout
-                        android:id="@+id/linearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.appbar.MaterialToolbar>
-
-            <!-- Espacio para agregar contenido adicional -->
-
-            <!-- Espacio para agregar más contenido -->
+                <!-- Botón para consultar el historial -->
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- ScrollView para el chat -->
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+        app:layout_constraintBottom_toTopOf="@+id/inputLayout">
+
+        <!-- Contenedor principal del chat -->
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"/>
     </ScrollView>
+
+    <!-- Contenedor para la entrada de texto y el botón de enviar -->
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@color/md_theme_surfaceContainerHigh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Campo de entrada de texto -->
+        <EditText
+            android:id="@+id/inputMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Escribe un mensaje..."
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@color/md_theme_outlineVariant" />
+
+        <!-- Botón de enviar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:textColor="@color/md_theme_onPrimaryContainer"
+            android:backgroundTint="@color/md_theme_primaryContainer"
+            android:layout_marginStart="8dp"
+            app:iconTint="@color/md_theme_onPrimaryContainer" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
