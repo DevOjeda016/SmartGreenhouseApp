@@ -5,100 +5,424 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_surfaceContainerHighest"
+    android:background="@color/md_theme_surfaceContainerHighest_mediumContrast"
     tools:context=".menu_admin">
 
     <!-- ScrollView para permitir el desplazamiento -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="414dp"
+        android:layout_height="93dp"
+        android:background="@color/md_theme_onSecondaryFixedVariant"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Contenedor principal dentro del ScrollView -->
+        <!-- Contenedor principal personalizado -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp">
 
-            <!-- AppBar -->
+            <!-- Título principal (UserAdmin) -->
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:background="@color/md_theme_onSecondaryFixedVariant"
-                android:elevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/iconButton"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="30dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:icon="@drawable/flecha_atras"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="30dp"
+                app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtTitle"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.166" />
+
+            <!-- Contenedor para iconos derecha -->
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="246dp"
+                android:layout_height="93dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/ficha_plantacion"
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_secondaryFixed"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintHorizontal_bias="0.416"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <!-- Contenedor principal personalizado -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
-
-                    <!-- Título principal (UserAdmin) -->
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/iconButton"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginTop="30dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:scaleType="fitCenter"
-                        app:icon="@drawable/flecha_atras"
-                        app:iconGravity="textStart"
-                        app:iconPadding="0dp"
-                        app:iconSize="30dp"
-                        app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/txtTitle"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.166" />
-
-                    <!-- Contenedor para iconos derecha -->
-
-                    <TextView
-                        android:id="@+id/txtTitle"
-                        android:layout_width="246dp"
-                        android:layout_height="93dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/ficha_plantacion"
-                        android:textAlignment="center"
-                        android:textColor="@color/md_theme_secondaryFixed"
-                        android:textSize="34sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-                        app:layout_constraintHorizontal_bias="0.416"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.appbar.MaterialToolbar>
-
-            <!-- Espacio para agregar contenido adicional -->
-
-            <!-- Espacio para agregar más contenido -->
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/md_theme_surfaceBright_mediumContrast"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🌾 Nombre del cultivo"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Maíz"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🔬 Nombre científico"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Zea mays"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🌾 Variedades"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Híbridos y criollos según clima y propósito (forrajero o grano)"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🌱 Tipo de suelo"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView35"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Suelo franco o franco-arenoso, con buen drenaje y pH entre 5.5 y 7.5"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="💧 Tipos de riego"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView36"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Goteo: Permite un uso eficiente del agua y reduce enfermedades"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🌿 Fertilización"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Alto requerimiento de nitrógeno, fósforo y potasio. Aplicar en etapas clave"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🐛 Control de plagas y enfermedades"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Plagas principales: Gusano cogollero, pulgones, barrenadores del tallo. Control con bioplaguicidas o insecticidas específicos.
+                                  Enfermedades comunes: Roya, mancha de asfalto y fusariosis. Se previenen con rotación de cultivos, y buen manejo del riego"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🌡️ Temperatura:"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView39"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Óptima: 18°C - 30°C. Mínima tolerable: 10°C (por debajo, afecta la germinación).
+Máxima tolerable: 35°C (reduce la producción y calidad del grano).
+Evitar heladas: El maíz es sensible a temperaturas bajo 0°C."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="💦 Humedad:"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView40"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Prefiere 60-80% de humedad relativa.
+Déficit hídrico en floración puede reducir el rendimiento hasta un 50%.
+Exceso de humedad puede causar pudrición de raíces y proliferación de hongos."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="☀️ Horas luz:"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Mínimo 6 horas de sol directo al día para un desarrollo óptimo.
+En días nublados prolongados, el crecimiento puede ralentizarse y afectar la producción."
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/md_theme_onPrimaryContainer_highContrast"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📌 Consejos:"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_onSecondaryContainer" />
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:text="Realizar siembra escalonada para minimizar riesgos por condiciones climáticas.
+Monitorear plagas y aplicar controles preventivos antes de que se propaguen.
+Mantener un buen nivel de materia orgánica en el suelo para mejorar la retención de nutrientes.
+"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
