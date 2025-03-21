@@ -321,11 +321,13 @@
                 android:paddingHorizontal="16dp">
 
                 <!-- Tarjeta grande 1 -->
+                <!-- Tarjeta grande 1 -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView5"
+                    android:id="@+id/cardCultivaIA"
                     android:layout_width="match_parent"
                     android:layout_height="92dp"
                     android:layout_marginTop="16dp"
+                    android:onClick="onCardCultivaIAClicked"
                     app:cardBackgroundColor="@color/md_theme_surfaceVariant"
                     app:cardElevation="4dp"
                     app:shapeAppearance="@style/RoundedCard"
@@ -342,7 +344,7 @@
                             android:id="@+id/cardTitle1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 1"
+                            android:text="@string/card_title_cultiva_ia"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -354,7 +356,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 1"
+                            android:text="@string/card_subtitle_cultiva_ia"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle1"
