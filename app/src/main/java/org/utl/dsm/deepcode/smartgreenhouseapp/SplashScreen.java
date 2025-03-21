@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
         });
         btnGoForm = findViewById(R.id.btnGoForm);
         btnGoForm.setOnClickListener(view -> {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });
     }
