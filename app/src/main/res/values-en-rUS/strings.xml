@@ -73,4 +73,22 @@
 
     <string name="users_title">Users</string>
     <string name="users_subtitle">Modify user</string>
+
+    <!-- Nombres TXT -->
+    <string name="first_name">First Name(s)</string>
+    <string name="last_name">Last Name</string>
+    <string name="admin_user">User</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="greenhouse_name">Greenhouse Name</string>
+    <string name="serial_number">Serial Number</string>
+    <string name="login_with_account">Sign in with your account</string>
+    <string name="create_new_account">Create a new account</string>
+    <string name="greenhouse_not_registered">Haven\'t registered your greenhouse yet? Register it here</string>
+    <string name="username">Username</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_user">Create User</string>
+    <string name="update_user">Update User</string>
+    <string name="registration_help_message">Having trouble registering? Contact us</string>
 </resources>
