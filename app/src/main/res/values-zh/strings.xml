@@ -83,4 +83,22 @@
 
     <string name="users_title">用户管理</string>
     <string name="users_subtitle">调节通风强度</string>
+
+    <!-- Nombres TXT -->
+    <string name="first_name">名字</string>
+    <string name="last_name">姓氏</string>
+    <string name="admin_user">管理员用户</string>
+    <string name="password">密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="greenhouse_name">温室名称</string>
+    <string name="serial_number">序列号</string>
+    <string name="login_with_account">用您的账号登录</string>
+    <string name="create_new_account">创建新账户</string>
+    <string name="greenhouse_not_registered">尚未注册您的温室？点击此处注册</string>
+    <string name="username">用户名</string>
+    <string name="sign_in">登录</string>
+    <string name="sign_up">注册</string>
+    <string name="create_user">创建用户</string>
+    <string name="update_user">更新用户</string>
+    <string name="registration_help_message">注册遇到问题？联系我们</string>
 </resources>

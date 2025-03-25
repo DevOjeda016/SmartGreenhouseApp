@@ -141,12 +141,12 @@
                             android:id="@+id/cardIcon"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerCrop"
                             android:src="@drawable/image"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/RoundedImageSmall" />
+                            app:shapeAppearanceOverlay="@style/RoundedImageSmall"
+                            app:srcCompat="@drawable/temperatura" />
 
                         <!-- Porcentaje derecha -->
                         <TextView
@@ -168,7 +168,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Progreso total"
+                            android:text="@string/header_temperature"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@id/percentageText"
@@ -200,12 +200,12 @@
                             android:id="@+id/cardIcon1"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerCrop"
                             android:src="@drawable/image"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/RoundedImageSmall" />
+                            app:shapeAppearanceOverlay="@style/RoundedImageSmall"
+                            app:srcCompat="@drawable/humedad" />
 
                         <!-- Porcentaje derecha -->
                         <TextView
@@ -228,7 +228,7 @@
                             android:layout_height="30dp"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="4dp"
-                            android:text="Progreso parcial"
+                            android:text="@string/header_humidity"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@id/percentageText1"
@@ -259,12 +259,12 @@
                             android:id="@+id/cardIcon2"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerCrop"
                             android:src="@drawable/image"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/RoundedImageSmall" />
+                            app:shapeAppearanceOverlay="@style/RoundedImageSmall"
+                            app:srcCompat="@drawable/contaminacion" />
 
                         <!-- Porcentaje derecha -->
                         <TextView
@@ -286,7 +286,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Progreso mínimo"
+                            android:text="@string/header_pollution"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@id/percentageText2"
@@ -300,13 +300,13 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="434dp"
+                android:layout_width="match_parent"
                 android:layout_height="38dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="10dp"
-                android:text="Ultima modificación: 12-feb-1970"
+                android:text="@string/last_modified"
                 android:textAlignment="textEnd"
                 android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast" />
 
@@ -337,7 +337,7 @@
                             android:id="@+id/cardTitle1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 1"
+                            android:text="@string/planting_card_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -349,7 +349,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 1"
+                            android:text="@string/planting_card_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle1"
@@ -361,12 +361,12 @@
                             android:id="@+id/logoView1"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ficha_plantacion" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -392,7 +392,7 @@
                             android:id="@+id/cardTitle2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 2"
+                            android:text="@string/cultival_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -401,10 +401,10 @@
 
                         <TextView
                             android:id="@+id/cardSubtitle2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="79dp"
+                            android:layout_height="37dp"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 2"
+                            android:text="@string/cultival_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle2"
@@ -416,12 +416,12 @@
                             android:id="@+id/logoView2"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/IA" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -447,7 +447,7 @@
                             android:id="@+id/cardTitle3"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 3"
+                            android:text="@string/monitor_sensors_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -459,7 +459,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 3"
+                            android:text="@string/monitor_sensors_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle3"
@@ -471,12 +471,12 @@
                             android:id="@+id/logoView3"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/monitoreo_sensores" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -502,7 +502,7 @@
                             android:id="@+id/cardTitle4"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 4"
+                            android:text="@string/graph_data_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -514,7 +514,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 4"
+                            android:text="@string/graph_data_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle4"
@@ -526,12 +526,12 @@
                             android:id="@+id/logoView4"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/grafica_barras" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 

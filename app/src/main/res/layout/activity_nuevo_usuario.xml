@@ -95,11 +95,135 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.appbar.MaterialToolbar>
 
-            <!-- Espacio para agregar contenido adicional -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtNombre"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/first_name"
+                app:layout_constraintEnd_toEndOf="@+id/topAppBar"
+                app:layout_constraintStart_toStartOf="@+id/topAppBar"
+                app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+                app:layout_constraintWidth_percent="0.8"
+                app:placeholderText="Ej. Greenhouse"
+                app:startIconDrawable="@drawable/icon_field"
+                app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 
-            <!-- Espacio para agregar más contenido -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorLink="@color/md_theme_onPrimaryContainer" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtApellidos"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/last_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+                app:layout_constraintWidth_percent="0.8"
+                app:placeholderText="Ej. Green House"
+                app:startIconDrawable="@drawable/icon_field"
+                app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etApellidos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorLink="@color/md_theme_onPrimaryContainer" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtAdmin"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/admin_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtApellidos"
+                app:layout_constraintWidth_percent="0.8"
+                app:placeholderText="Ej. Admin-Greenhouse"
+                app:startIconDrawable="@drawable/icon_field"
+                app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAdmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorLink="@color/md_theme_onPrimaryContainer" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtContrasenia"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/password"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtAdmin"
+                app:layout_constraintWidth_percent="0.8"
+                app:placeholderText="Ej. Admin-Greenhouse"
+                app:startIconDrawable="@drawable/icons_contra"
+                app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContrasenia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColorLink="@color/md_theme_onPrimaryContainer" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtConfirmarContrasenia"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/confirm_password"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtContrasenia"
+                app:layout_constraintWidth_percent="0.8"
+                app:placeholderText="Repite la contraseña"
+                app:startIconDrawable="@drawable/icons_contra"
+                app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmarContrasenia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColorLink="@color/md_theme_onPrimaryContainer" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnCrearUsuario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/create_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtConfirmarContrasenia"
+                app:layout_constraintWidth_percent="0.8" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

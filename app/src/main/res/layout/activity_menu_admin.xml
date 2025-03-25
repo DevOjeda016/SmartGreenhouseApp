@@ -149,12 +149,12 @@
                                 android:id="@+id/cardIcon"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@color/md_theme_outline_mediumContrast"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/image"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:shapeAppearanceOverlay="@style/RoundedImageSmall" />
+                                app:shapeAppearanceOverlay="@style/RoundedImageSmall"
+                                app:srcCompat="@drawable/temperatura" />
 
                             <!-- Porcentaje derecha -->
                             <TextView
@@ -210,12 +210,12 @@
                                 android:id="@+id/cardIcon1"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@color/md_theme_outline_mediumContrast"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/image"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:shapeAppearanceOverlay="@style/RoundedImageSmall" />
+                                app:shapeAppearanceOverlay="@style/RoundedImageSmall"
+                                app:srcCompat="@drawable/humedad" />
 
                             <!-- Porcentaje derecha -->
                             <TextView
@@ -271,12 +271,12 @@
                                 android:id="@+id/cardIcon2"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:background="@color/md_theme_outline_mediumContrast"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/image"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:shapeAppearanceOverlay="@style/RoundedImageSmall" />
+                                app:shapeAppearanceOverlay="@style/RoundedImageSmall"
+                                app:srcCompat="@drawable/contaminacion" />
 
                             <!-- Porcentaje derecha -->
                             <TextView
@@ -377,12 +377,12 @@
                             android:id="@+id/logoView1"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ficha_plantacion" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -436,12 +436,12 @@
                             android:id="@+id/logoView2"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/IA" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -494,12 +494,12 @@
                             android:id="@+id/logoView3"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/monitoreo_sensores" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -552,12 +552,12 @@
                             android:id="@+id/logoView4"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/control_sensores" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -610,12 +610,12 @@
                             android:id="@+id/logoView5"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/grafica_barras" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -668,7 +668,6 @@
                             android:id="@+id/logoView6"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -726,7 +725,6 @@
                             android:id="@+id/logoView7"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -784,12 +782,12 @@
                             android:id="@+id/logoView8"
                             android:layout_width="64dp"
                             android:layout_height="69dp"
-                            android:background="@color/md_theme_outline_mediumContrast"
                             android:scaleType="centerInside"
                             android:src="@drawable/image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/usuarios_" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
