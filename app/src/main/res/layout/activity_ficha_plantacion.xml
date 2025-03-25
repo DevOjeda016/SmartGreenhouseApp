@@ -111,7 +111,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🌾 Nombre del cultivo"
+                    android:text="@string/title_crop_name"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer"
                     android:textSize="14sp" />
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Maíz"
+                    android:text="@string/fp_nombre"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                     android:textSize="14sp" />
@@ -142,7 +142,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🔬 Nombre científico"
+                    android:text="@string/title_scientific_name"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer"
                     android:textSize="14sp" />
@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Zea mays"
+                    android:text="@string/fp_nombre_cientifico"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                     android:textSize="14sp" />
@@ -173,7 +173,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🌾 Variedades"
+                    android:text="@string/title_varieties"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Híbridos y criollos según clima y propósito (forrajero o grano)"
+                    android:text="@string/fp_variedades"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
@@ -201,7 +201,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🌱 Tipo de suelo"
+                    android:text="@string/title_soil_type"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -211,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Suelo franco o franco-arenoso, con buen drenaje y pH entre 5.5 y 7.5"
+                    android:text="@string/fp_tipo_suelo"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
@@ -229,7 +229,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="💧 Tipos de riego"
+                    android:text="@string/title_irrigation_types"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -239,7 +239,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Goteo: Permite un uso eficiente del agua y reduce enfermedades"
+                    android:text="@string/fp_riego"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
@@ -257,7 +257,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🌿 Fertilización"
+                    android:text="@string/title_fertilization"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -267,7 +267,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Alto requerimiento de nitrógeno, fósforo y potasio. Aplicar en etapas clave"
+                    android:text="@string/fp_fertilizacion"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
@@ -285,7 +285,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🐛 Control de plagas y enfermedades"
+                    android:text="@string/title_pest_disease_control"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -295,8 +295,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Plagas principales: Gusano cogollero, pulgones, barrenadores del tallo. Control con bioplaguicidas o insecticidas específicos.
-                                  Enfermedades comunes: Roya, mancha de asfalto y fusariosis. Se previenen con rotación de cultivos, y buen manejo del riego"
+                    android:text="@string/fp_plagas_enfermedades"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                     android:textSize="14sp" />
@@ -315,7 +314,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="🌡️ Temperatura:"
+                    android:text="@string/title_temperature"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -325,9 +324,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Óptima: 18°C - 30°C. Mínima tolerable: 10°C (por debajo, afecta la germinación).
-Máxima tolerable: 35°C (reduce la producción y calidad del grano).
-Evitar heladas: El maíz es sensible a temperaturas bajo 0°C."
+                    android:text="@string/fp_temperatura"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
@@ -345,7 +342,7 @@ Evitar heladas: El maíz es sensible a temperaturas bajo 0°C."
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="💦 Humedad:"
+                    android:text="@string/title_humidity"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -355,9 +352,7 @@ Evitar heladas: El maíz es sensible a temperaturas bajo 0°C."
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Prefiere 60-80% de humedad relativa.
-Déficit hídrico en floración puede reducir el rendimiento hasta un 50%.
-Exceso de humedad puede causar pudrición de raíces y proliferación de hongos."
+                    android:text="@string/fp_humedad"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
@@ -375,7 +370,7 @@ Exceso de humedad puede causar pudrición de raíces y proliferación de hongos.
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="☀️ Horas luz:"
+                    android:text="@string/title_light_hours"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -385,8 +380,7 @@ Exceso de humedad puede causar pudrición de raíces y proliferación de hongos.
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Mínimo 6 horas de sol directo al día para un desarrollo óptimo.
-En días nublados prolongados, el crecimiento puede ralentizarse y afectar la producción."
+                    android:text="@string/fp_luz"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
@@ -404,7 +398,7 @@ En días nublados prolongados, el crecimiento puede ralentizarse y afectar la pr
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="📌 Consejos:"
+                    android:text="@string/title_tips"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_onSecondaryContainer" />
 
@@ -414,10 +408,7 @@ En días nublados prolongados, el crecimiento puede ralentizarse y afectar la pr
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:paddingStart="20dp"
-                    android:text="Realizar siembra escalonada para minimizar riesgos por condiciones climáticas.
-Monitorear plagas y aplicar controles preventivos antes de que se propaguen.
-Mantener un buen nivel de materia orgánica en el suelo para mejorar la retención de nutrientes.
-"
+                    android:text="@string/fp_consejos"
                     android:textAlignment="viewStart"
                     android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>

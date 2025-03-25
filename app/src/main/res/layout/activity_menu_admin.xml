@@ -173,7 +173,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="Progreso total"
+                                android:text="@string/header_temperature"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
                                 android:textSize="12sp"
                                 app:layout_constraintEnd_toEndOf="@id/percentageText"
@@ -232,7 +232,7 @@
                                 android:layout_height="30dp"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="4dp"
-                                android:text="Progreso parcial"
+                                android:text="@string/header_humidity"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
                                 android:textSize="12sp"
                                 app:layout_constraintEnd_toEndOf="@id/percentageText1"
@@ -286,10 +286,10 @@
                             <!-- Texto inferior -->
                             <TextView
                                 android:id="@+id/cardLabel2"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_width="95dp"
+                                android:layout_height="28dp"
                                 android:layout_marginTop="4dp"
-                                android:text="Progreso mínimo"
+                                android:text="@string/header_pollution"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
                                 android:textSize="12sp"
                                 app:layout_constraintEnd_toEndOf="@id/percentageText2"
@@ -306,7 +306,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:paddingEnd="22dp"
-                    android:text="Ultima modificación: 12-feb-1970"
+                    android:text="@string/last_modified"
                     android:textAlignment="viewEnd"
                     android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast" />
             </LinearLayout>
@@ -321,13 +321,11 @@
                 android:paddingHorizontal="16dp">
 
                 <!-- Tarjeta grande 1 -->
-                <!-- Tarjeta grande 1 -->
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardCultivaIA"
+                    android:id="@+id/materialCardView5"
                     android:layout_width="match_parent"
                     android:layout_height="92dp"
                     android:layout_marginTop="16dp"
-                    android:onClick="onCardCultivaIAClicked"
                     app:cardBackgroundColor="@color/md_theme_surfaceVariant"
                     app:cardElevation="4dp"
                     app:shapeAppearance="@style/RoundedCard"
@@ -344,7 +342,7 @@
                             android:id="@+id/cardTitle1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/card_title_cultiva_ia"
+                            android:text="@string/planting_card_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -356,7 +354,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="@string/card_subtitle_cultiva_ia"
+                            android:text="@string/planting_card_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle1"
@@ -395,23 +393,25 @@
                         android:padding="16dp">
 
                         <!-- Textos -->
+
                         <TextView
                             android:id="@+id/cardTitle2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 2"
+                            android:text="@string/cultivaAI"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/cultival_title" />
 
                         <TextView
                             android:id="@+id/cardSubtitle2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="74dp"
+                            android:layout_height="48dp"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 2"
+                            android:text="@string/cultival_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle2"
@@ -454,7 +454,7 @@
                             android:id="@+id/cardTitle3"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 3"
+                            android:text="@string/monitor_sensors_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -466,7 +466,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 3"
+                            android:text="@string/control_sensors_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle3"
@@ -509,7 +509,7 @@
                             android:id="@+id/cardTitle4"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 4"
+                            android:text="@string/control_sensors_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -521,7 +521,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 4"
+                            android:text="@string/control_sensors_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle4"
@@ -564,7 +564,7 @@
                             android:id="@+id/cardTitle5"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 5"
+                            android:text="@string/graph_data_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -576,7 +576,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 5"
+                            android:text="@string/graph_data_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle5"
@@ -619,7 +619,7 @@
                             android:id="@+id/cardTitle6"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 6"
+                            android:text="@string/ventilation_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -631,7 +631,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 6"
+                            android:text="@string/ventilation_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle6"
@@ -674,7 +674,7 @@
                             android:id="@+id/cardTitle7"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Título Principal 7"
+                            android:text="@string/emergency_control_title"
                             android:textColor="@color/md_theme_onSurface_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -686,7 +686,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
-                            android:text="Subtítulo descriptivo con información adicional 7"
+                            android:text="@string/emergency_control_subtitle"
                             android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle7"
@@ -707,6 +707,59 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/materialCardView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="92dp"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/md_theme_surfaceVariant"
+                    app:cardElevation="4dp"
+                    app:shapeAppearance="@style/RoundedCard"
+                    app:strokeColor="#20000000"
+                    app:strokeWidth="1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <!-- Textos -->
+                        <TextView
+                            android:id="@+id/cardTitle8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/users_title"
+                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/cardSubtitle8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:text="@string/users_subtitle"
+                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="@id/cardTitle8"
+                            app:layout_constraintStart_toStartOf="@id/cardTitle8"
+                            app:layout_constraintTop_toBottomOf="@id/cardTitle8" />
+
+                        <!-- Imagen -->
+                        <ImageView
+                            android:id="@+id/logoView8"
+                            android:layout_width="64dp"
+                            android:layout_height="69dp"
+                            android:background="@color/md_theme_outline_mediumContrast"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/image"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
                 <!-- Texto de última modificación -->
             </LinearLayout>
         </LinearLayout>

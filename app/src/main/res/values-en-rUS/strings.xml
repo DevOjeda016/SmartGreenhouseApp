@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Information -->
+    <string name="app_name">Smart Greenhouse</string>
+    <string name="app_version">1.0</string>
+    <string name="app_description">Smart Greenhouse App</string>
+    <string name="app_author">DeepCode</string>
+    <string name="UserAdmin">Admin User</string>
+    <string name="Welcome">Welcome</string>
+    <string name="UserUser">User</string>
+    <string name="Drivers">Drivers</string>
+    <string name="monitoring">Monitoring</string>
+    <string name="cultivaAI">Cultiva AI</string>
+    <string name="ventilation">Ventilation</string>
+    <string name="emergency_control">Emergency \nControl</string>
+    <string name="ficha_plantacion">plantation sheet</string>
+    <string name="graphics">Graphics</string>
+    <string name="users">Users</string>
+    <string name="new_users">New User</string>
+    <string name="update_users">Update User</string>
+
+    <!-- Fincha de plantación -->
+    <string name="fp_nombre">Corn</string>
+    <string name="fp_nombre_cientifico">Zea mays</string>
+    <string name="fp_variedades">Hybrids and landraces depending on climate and purpose (forage or grain)</string>
+    <string name="fp_tipo_suelo">Loamy or sandy-loam soil, with good drainage and pH between 5.5 and 7.5</string>
+    <string name="fp_riego">Drip: Allows efficient water use and reduces diseases</string>
+    <string name="fp_fertilizacion">High nitrogen, phosphorus, and potassium requirements. Apply at key stages</string>
+    <string name="fp_plagas_enfermedades">Main pests: Fall armyworm, aphids, stem borers. Control with biopesticides or specific insecticides.</string>
+    <string name="fp_temperatura">Optimal: 18°C - 30°C. Minimum tolerable: 10°C (below this, germination is affected).</string>
+    <string name="fp_humedad">Prefers 60-80% relative humidity.</string>
+    <string name="fp_luz">Minimum 6 hours of direct sunlight per day for optimal development.</string>
+    <string name="fp_consejos">Stagger planting to minimize risks from weather conditions.</string>
+    <string name="title_crop_name">🌾 Crop Name</string>
+    <string name="title_scientific_name">🔬 Scientific Name</string>
+    <string name="title_varieties">🌾 Varieties</string>
+    <string name="title_soil_type">🌱 Soil Type</string>
+    <string name="title_irrigation_types">💧 Irrigation Types</string>
+    <string name="title_fertilization">🌿 Fertilization</string>
+    <string name="title_pest_disease_control">🐛 Pest and Disease Control</string>
+    <string name="title_temperature">🌡️ Temperature:</string>
+    <string name="title_humidity">💦 Humidity:</string>
+    <string name="title_light_hours">☀️ Light Hours:</string>
+    <string name="title_tips">📌 Tips:</string>
+
+    <!-- Usuario Admin -->
+    <string name="header_percentage">22.2%</string>
+    <string name="header_temperature">Temperature</string>
+    <string name="header_humidity">Humidity</string>
+    <string name="header_pollution">Pollution</string>
+    <string name="last_modified">Last modified: </string>
+
+    <string name="planting_card_title">plantation sheet</string>
+    <string name="planting_card_subtitle">Learn more about your crop</string>
+
+    <string name="cultival_title">CultivalA</string>
+    <string name="cultival_subtitle">Chat with an agronomic AI</string>
+
+    <string name="monitor_sensors_title">Monitor Sensors</string>
+    <string name="monitor_sensors_subtitle">Humidity 95% Temperature 22</string>
+
+    <string name="control_sensors_title">Sensors and Actuators Control</string>
+    <string name="control_sensors_subtitle">Humidity 95% Temperature 22</string>
+
+    <string name="graph_data_title">Graph Data</string>
+    <string name="graph_data_subtitle">Graph data from a specific date</string>
+
+    <string name="ventilation_title">Ventilation</string>
+    <string name="ventilation_subtitle">Adjust ventilation intensity</string>
+
+    <string name="emergency_control_title">Emergency Control</string>
+    <string name="emergency_control_subtitle">Controls emergency alarms</string>
+
+    <string name="users_title">Users</string>
+    <string name="users_subtitle">Modify user</string>
+</resources>

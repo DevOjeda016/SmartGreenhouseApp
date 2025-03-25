@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Information -->
+    <string name="app_name">智能温室</string>
+    <string name="app_version">1.0</string>
+    <string name="app_description">智能温室应用</string>
+    <string name="app_author">DeepCode</string>
+    <string name="UserAdmin">管理员用户</string>
+    <string name="Welcome">欢迎</string>
+    <string name="UserUser">用户</string>
+    <string name="Drivers">驱动器</string>
+    <string name="monitoring">监控</string>
+    <string name="cultivaAI">Cultiva AI</string>
+    <string name="ventilation">通风</string>
+    <string name="emergency_control">紧急\n控制</string>
+    <string name="ficha_plantacion">种植记录</string>
+    <string name="graphics">图表</string>
+    <string name="users">用户</string>
+    <string name="new_users">新用户</string>
+    <string name="update_users">更新用户</string>
+
+
+    <!-- Fincha de plantación -->
+    <string name="fp_nombre">玉米</string>
+    <string name="fp_nombre_cientifico">玉蜀黍 (Zea mays)</string>
+    <string name="fp_variedades">根据气候和用途（饲料或谷物）的杂交和本地品种</string>
+    <string name="fp_tipo_suelo">壤土或砂壤土，排水良好，pH值在5.5至7.5之间</string>
+    <string name="fp_riego">滴灌：高效利用水资源并减少病害</string>
+    <string name="fp_fertilizacion">对氮、磷、钾需求高。在关键阶段施肥</string>
+    <string name="fp_plagas_enfermedades">主要害虫：草地贪夜蛾、蚜虫、茎蛀虫。使用生物农药或特定杀虫剂控制。
+                                  常见病害：锈病、炭疽病、镰刀菌病。通过轮作和良好的灌溉管理预防</string>
+    <string name="fp_temperatura">最佳：18°C - 30°C。最低耐受：10°C（低于此温度会影响发芽）。
+                                  最高耐受：35°C（降低产量和谷物质量）。
+                                  避免霜冻：玉米对0°C以下的温度敏感。</string>
+    <string name="fp_humedad">偏好60-80%的相对湿度。
+                             开花期缺水可使产量减少高达50%。
+                             湿度过高会导致根腐病和真菌滋生。</string>
+    <string name="fp_luz">每天至少6小时的直射阳光以确保最佳生长。
+                         长时间阴天会减缓生长并影响产量。</string>
+    <string name="fp_consejos">进行分期播种以降低气候条件带来的风险。
+                               监控害虫并在其扩散前采取预防措施。
+                               保持土壤中有机质含量以改善养分保持。</string>
+
+    <string name="title_crop_name">🌾 作物名称</string>
+    <string name="title_scientific_name">🔬 学名</string>
+    <string name="title_varieties">🌾 品种</string>
+    <string name="title_soil_type">🌱 土壤类型</string>
+    <string name="title_irrigation_types">💧 灌溉类型</string>
+    <string name="title_fertilization">🌿 施肥</string>
+    <string name="title_pest_disease_control">🐛 病虫害防治</string>
+    <string name="title_temperature">🌡️ 温度：</string>
+    <string name="title_humidity">💦 湿度：</string>
+    <string name="title_light_hours">☀️ 光照时间：</string>
+    <string name="title_tips">📌 建议：</string>
+
+    <!-- Usuario Admin -->
+    <string name="header_percentage">22.2%</string>
+    <string name="header_temperature">温度</string>
+    <string name="header_humidity">湿度</string>
+    <string name="header_pollution">污染度</string>
+    <string name="last_modified">最后修改: </string>
+
+    <string name="planting_card_title">种植档案</string>
+    <string name="planting_card_subtitle">了解更多作物信息</string>
+
+    <string name="cultival_title">CultivalA</string>
+    <string name="cultival_subtitle">与农业AI对话</string>
+
+    <string name="monitor_sensors_title">监测传感器</string>
+    <string name="monitor_sensors_subtitle">湿度95% 温度22°C</string>
+
+    <string name="control_sensors_title">传感器与执行器控制</string>
+    <string name="control_sensors_subtitle">湿度95% 温度22°C</string>
+
+    <string name="graph_data_title">数据图表</string>
+    <string name="graph_data_subtitle">查看特定日期数据图表</string>
+
+    <string name="ventilation_title">通风系统</string>
+    <string name="ventilation_subtitle">调节通风强度</string>
+
+    <string name="emergency_control_title">紧急控制</string>
+    <string name="emergency_control_subtitle">调节通风强度</string>
+
+    <string name="users_title">用户管理</string>
+    <string name="users_subtitle">调节通风强度</string>
+</resources>

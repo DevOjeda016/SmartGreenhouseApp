@@ -19,4 +19,71 @@
     <string name="card_title_cultiva_ia">Cultiva IA</string>
     <string name="card_subtitle_cultiva_ia">Una IA experta en agronomía para optimizar tus cultivos
     </string>
+
+    <!-- Fincha de plantación -->
+    <string name="fp_nombre">Maíz</string>
+    <string name="fp_nombre_cientifico">Zea mays</string>
+    <string name="fp_variedades">Híbridos y criollos según clima y propósito (forrajero o grano)</string>
+    <string name="fp_tipo_suelo">Suelo franco o franco-arenoso, con buen drenaje y pH entre 5.5 y 7.5</string>
+    <string name="fp_riego">Goteo: Permite un uso eficiente del agua y reduce enfermedades</string>
+    <string name="fp_fertilizacion">Alto requerimiento de nitrógeno, fósforo y potasio. Aplicar en etapas clave</string>
+    <string name="fp_plagas_enfermedades">Plagas principales: Gusano cogollero, pulgones, barrenadores del tallo. Control con bioplaguicidas o insecticidas específicos.
+                                          Enfermedades comunes: Roya, mancha de asfalto y fusariosis. Se previenen con rotación de cultivos, y buen manejo del riego</string>
+    <string name="fp_temperatura">Óptima: 18°C - 30°C. Mínima tolerable: 10°C (por debajo, afecta la germinación).
+                                  Máxima tolerable: 35°C (reduce la producción y calidad del grano).
+                                  Evitar heladas: El maíz es sensible a temperaturas bajo 0°C.</string>
+    <string name="fp_humedad">Prefiere 60-80% de humedad relativa.
+                              Déficit hídrico en floración puede reducir el rendimiento hasta un 50%.
+                              Exceso de humedad puede causar pudrición de raíces y proliferación de hongos.</string>
+    <string name="fp_luz">Mínimo 6 horas de sol directo al día para un desarrollo óptimo.
+                          En días nublados prolongados, el crecimiento puede ralentizarse y afectar la producción.</string>
+    <string name="fp_consejos">Realizar siembra escalonada para minimizar riesgos por condiciones climáticas.
+                               Monitorear plagas y aplicar controles preventivos antes de que se propaguen.
+                               Mantener un buen nivel de materia orgánica en el suelo para mejorar la retención de nutrientes.</string>
+    <string name="title_crop_name">🌾 Nombre del cultivo</string>
+    <string name="title_scientific_name">🔬 Nombre científico</string>
+    <string name="title_varieties">🌾 Variedades</string>
+    <string name="title_soil_type">🌱 Tipo de suelo</string>
+    <string name="title_irrigation_types">💧 Tipos de riego</string>
+    <string name="title_fertilization">🌿 Fertilización</string>
+    <string name="title_pest_disease_control">🐛 Control de plagas y enfermedades</string>
+    <string name="title_temperature">🌡️ Temperatura:</string>
+    <string name="title_humidity">💦 Humedad:</string>
+    <string name="title_light_hours">☀️ Horas luz:</string>
+    <string name="title_tips">📌 Consejos:</string>
+
+    <!-- Usuario Admin -->
+    <string name="header_percentage">22.2%</string>
+    <string name="header_temperature">Temperatura</string>
+    <string name="header_humidity">Humedad</string>
+    <string name="header_pollution">Contaminación</string>
+    <string name="last_modified">Ultima modificación: </string>
+
+    <string name="planting_card_title">Ficha de plantación</string>
+    <string name="planting_card_subtitle">Conoce más sobre tu cultivo</string>
+
+    <string name="cultival_title">CultivalA</string>
+    <string name="cultival_subtitle">Conversa con una IA agrónoma</string>
+
+    <string name="monitor_sensors_title">Monitorear sensores</string>
+    <string name="monitor_sensors_subtitle">Humedad 95% Temperatura 22</string>
+
+    <string name="control_sensors_title">Control de sensores y actuadores</string>
+    <string name="control_sensors_subtitle">Humedad 95% Temperatura 22</string>
+
+    <string name="graph_data_title">Graficar datos</string>
+    <string name="graph_data_subtitle">Grafica datos de una fecha específica</string>
+
+    <string name="ventilation_title">Ventilación</string>
+    <string name="ventilation_subtitle">Modifica la intensidad de ventilación</string>
+
+    <string name="emergency_control_title">Control de emergencia</string>
+    <string name="emergency_control_subtitle">Controla las alarmas de emergencia</string>
+
+    <string name="users_title">Usuarios</string>
+    <string name="users_subtitle">Modificar usuario</string>
+
+
+
+
 </resources>
