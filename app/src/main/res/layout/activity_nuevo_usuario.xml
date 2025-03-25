@@ -106,7 +106,7 @@
                 app:layout_constraintStart_toStartOf="@+id/topAppBar"
                 app:layout_constraintTop_toBottomOf="@+id/topAppBar"
                 app:layout_constraintWidth_percent="0.8"
-                app:placeholderText="Ej. Greenhouse"
+                app:placeholderText="@string/example_greenhouse"
                 app:startIconDrawable="@drawable/icon_field"
                 app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 
@@ -128,7 +128,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtNombre"
                 app:layout_constraintWidth_percent="0.8"
-                app:placeholderText="Ej. Green House"
+                app:placeholderText="@string/example_green_house"
                 app:startIconDrawable="@drawable/icon_field"
                 app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 
@@ -150,7 +150,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtApellidos"
                 app:layout_constraintWidth_percent="0.8"
-                app:placeholderText="Ej. Admin-Greenhouse"
+                app:placeholderText="@string/example_admin_greenhouse"
                 app:startIconDrawable="@drawable/icon_field"
                 app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 
@@ -173,7 +173,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtAdmin"
                 app:layout_constraintWidth_percent="0.8"
-                app:placeholderText="Ej. Admin-Greenhouse"
+                app:placeholderText="@string/example_admin_greenhouse"
                 app:startIconDrawable="@drawable/icons_contra"
                 app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 
@@ -197,7 +197,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtContrasenia"
                 app:layout_constraintWidth_percent="0.8"
-                app:placeholderText="Repite la contraseña"
+                app:placeholderText="@string/repeat_password"
                 app:startIconDrawable="@drawable/icons_contra"
                 app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 

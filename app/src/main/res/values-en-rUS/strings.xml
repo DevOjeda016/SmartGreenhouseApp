@@ -91,4 +91,12 @@
     <string name="create_user">Create User</string>
     <string name="update_user">Update User</string>
     <string name="registration_help_message">Having trouble registering? Contact us</string>
+
+    <!-- PlaceHolder -->
+    <string name="example_greenhouse">E.g. Greenhouse</string>
+    <string name="example_green_house">E.g. Green House</string>
+    <string name="example_admin_greenhouse">E.g. Admin-Greenhouse</string>
+    <string name="example_leon_greenhouse">E.g. León Greenhouse</string>
+    <string name="example_serial_number">E.g. DCSGH-123455</string>
+    <string name="repeat_password">Repeat password</string>
 </resources>

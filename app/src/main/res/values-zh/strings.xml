@@ -101,4 +101,12 @@
     <string name="create_user">创建用户</string>
     <string name="update_user">更新用户</string>
     <string name="registration_help_message">注册遇到问题？联系我们</string>
+
+    <!-- PlaceHolder -->
+    <string name="example_greenhouse">例如：温室</string>
+    <string name="example_green_house">例如：绿色小屋</string>
+    <string name="example_admin_greenhouse">例如：管理温室</string>
+    <string name="example_leon_greenhouse">例如：莱昂温室</string>
+    <string name="example_serial_number">例如：DCSGH-123455</string>
+    <string name="repeat_password">重复密码</string>
 </resources>

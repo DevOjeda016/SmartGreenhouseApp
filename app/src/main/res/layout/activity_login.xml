@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintWidth_percent="0.8"
-        app:placeholderText="Ej. Admin-Greenhouse"
+        app:placeholderText="@string/example_admin_greenhouse"
         app:startIconDrawable="@drawable/icon_field"
         app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 
@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNombreUsu"
         app:layout_constraintWidth_percent="0.8"
-        app:placeholderText="Ej. Admin-Greenhouse"
+        app:placeholderText="@string/example_admin_greenhouse"
         app:startIconDrawable="@drawable/icons_contra"
         app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
 

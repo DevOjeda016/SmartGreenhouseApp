@@ -101,6 +101,14 @@
     <string name="update_user">Actualizar usuario</string>
     <string name="registration_help_message">¿Tienes algún problema al registrar? Contáctanos</string>
 
+    <!-- PlaceHolder -->
+    <string name="example_greenhouse">Ej. Invernadero</string>
+    <string name="example_green_house">Ej. Green House</string>
+    <string name="example_admin_greenhouse">Ej. Admin-Invernadero</string>
+    <string name="example_leon_greenhouse">Ej. Invernadero León</string>
+    <string name="example_serial_number">Ej. DCSGH-123455</string>
+    <string name="repeat_password">Repite la contraseña</string>
+
 
 
 
