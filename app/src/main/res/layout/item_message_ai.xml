@@ -12,7 +12,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="12dp"
-        android:src="@drawable/ic_bot"
+        android:src="@drawable/ic_chatbot"
         android:contentDescription="AI Avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/messageText"
