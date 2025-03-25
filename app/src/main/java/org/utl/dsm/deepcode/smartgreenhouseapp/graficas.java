@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.EntryXComparator;
 import com.github.mikephil.charting.animation.Easing;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.SensorApiService;
+import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.MeasureResponse;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.Measure;
 
@@ -73,7 +74,7 @@ public class graficas extends AppCompatActivity {
 
         // Configurar Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.100.7:8080/SmartGreenhouse/api/") // URL base de la API
+                .baseUrl(Globals.BASE_URL) // URL base de la API
                 .addConverterFactory(GsonConverterFactory.create()) // Conversor de JSON a objetos Java
                 .build();
 

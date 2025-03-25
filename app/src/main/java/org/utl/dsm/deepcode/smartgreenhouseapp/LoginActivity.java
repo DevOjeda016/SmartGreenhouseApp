@@ -17,6 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
+import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.LoginRequest;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.LoginResponse;
 
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
     private void performLogin(String username, String password) {
         // Configurar Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.16.30.174:8080/SmartGreenhouse/api/") // Asegúrate de que termine con /
+                .baseUrl(Globals.BASE_URL) // Asegúrate de que termine con /
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

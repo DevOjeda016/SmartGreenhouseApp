@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.SensorApiService;
+import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.SensorDTO;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.SensorResponse;
 
@@ -66,7 +67,7 @@ public class controladores extends AppCompatActivity {
 
     private void getLimits() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.100.7:8080/SmartGreenhouse/api/")
+                .baseUrl(Globals.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SensorApiService apiService = retrofit.create(SensorApiService.class);
@@ -130,7 +131,7 @@ public class controladores extends AppCompatActivity {
 
     private void updateLimits(String tipoSensor, float newLowerLimit, float newUpperLimit) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.100.7:8080/SmartGreenhouse/api/")
+                .baseUrl(Globals.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SensorApiService service = retrofit.create(SensorApiService.class);

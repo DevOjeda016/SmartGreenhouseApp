@@ -10,8 +10,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
-import org.utl.dsm.deepcode.smartgreenhouseapp.model.ApiResponse;
+import org.utl.dsm.deepcode.smartgreenhouseapp.api.SensorApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.Sensor;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.SensorDTO;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.SensorResponse;
 
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class MonitoringActivity extends AppCompatActivity {
     private Button btnActualizarDatos;
 
     // Variables para almacenar los datos actuales
-    private List<Sensor> sensores;
+    private SensorResponse sensores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,41 +60,28 @@ public class MonitoringActivity extends AppCompatActivity {
      */
     private void obtenerDatosSensores() {
         // Crear instancia de ApiService usando SmartGreenhouseClient
-        ApiService apiService = SmartGreenhouseClient.getClient().create(ApiService.class);
+        SensorApiService apiService = SmartGreenhouseClient.getClient().create(SensorApiService.class);
 
         // Realizar la llamada a la API
-        Call<ApiResponse<List<Sensor>>> call = apiService.getSensores();
+        Call<SensorResponse> call = apiService.getSensorData();
 
-        call.enqueue(new Callback<ApiResponse<List<Sensor>>>() {
+        call.enqueue(new Callback<SensorResponse>() {
+
             @Override
-            public void onResponse(Call<ApiResponse<List<Sensor>>> call, Response<ApiResponse<List<Sensor>>> response) {
+            public void onResponse(Call<SensorResponse> call, Response<SensorResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    ApiResponse<List<Sensor>> apiResponse = response.body();
-
-                    if (apiResponse.getStatus() == 200) {
-                        sensores = apiResponse.getData();
-                        actualizarInterfazSensores(sensores);
-                    } else {
-                        // Manejar respuesta de error del servidor
-                        Toast.makeText(MonitoringActivity.this,
-                                "Error: " + apiResponse.getMessage(),
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    // Actualizar la interfaz con los datos de los sensores
+                    sensores = response.body();
+                    actualizarInterfazSensores(sensores.getData());
                 } else {
-                    // Manejar error de respuesta
-                    Toast.makeText(MonitoringActivity.this,
-                            "Error en la respuesta del servidor",
-                            Toast.LENGTH_SHORT).show();
+                    // Mostrar mensaje de error si la respuesta no es exitosa
+                    Toast.makeText(MonitoringActivity.this, "Error al obtener los datos de los sensores", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<ApiResponse<List<Sensor>>> call, Throwable t) {
-                // Manejar error de conexión
-                Log.e("API_ERROR", "Error: " + t.getMessage());
-                Toast.makeText(MonitoringActivity.this,
-                        "Error de conexión: " + t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<SensorResponse> call, Throwable t) {
+
             }
         });
     }
@@ -100,7 +89,7 @@ public class MonitoringActivity extends AppCompatActivity {
     /**
      * Método para actualizar la interfaz con los datos de los sensores
      */
-    private void actualizarInterfazSensores(List<Sensor> sensores) {
+    private void actualizarInterfazSensores(List<SensorDTO> sensores) {
         if (sensores == null || sensores.isEmpty()) {
             return;
         }
@@ -112,7 +101,7 @@ public class MonitoringActivity extends AppCompatActivity {
         int contaminacionActual = 95;
 
         // Recorrer la lista de sensores y actualizar la interfaz según el tipo
-        for (Sensor sensor : sensores) {
+        for (SensorDTO sensor : sensores) {
             switch (sensor.getTipoSensor()) {
                 case "TEMPERATURA":
                     // Mostrar datos de temperatura con límites
