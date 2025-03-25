@@ -1,8 +1,11 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -33,6 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.Random;
 
 public class cultivaAI extends AppCompatActivity {
+    private LinearLayout inputLayout; // <-- Añade esta línea
     private Button sendButton;
     private EditText inputMessage;
     private LinearLayout chatContainer;
@@ -41,9 +45,11 @@ public class cultivaAI extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
         setContentView(R.layout.activity_cultiva_ai);
 
-        // Habilitar el modo EdgeToEdge
         EdgeToEdge.enable(this);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -52,10 +58,22 @@ public class cultivaAI extends AppCompatActivity {
         });
 
         // Inicializar vistas
+        inputLayout = findViewById(R.id.inputLayout); // <-- Añade esta línea
         sendButton = findViewById(R.id.sendButton);
         inputMessage = findViewById(R.id.inputMessage);
         chatContainer = findViewById(R.id.chatContainer);
         scrollView = findViewById(R.id.scrollView2);
+
+        // Estilizar el campo de entrada
+        styleInputField();
+
+        // Configurar focus listener para el input
+        inputMessage.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                // Desplaza hacia abajo cuando el EditText obtiene foco
+                scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
+            }
+        });
 
         // Configurar el botón de enviar
         sendButton.setOnClickListener(v -> {
@@ -72,7 +90,7 @@ public class cultivaAI extends AppCompatActivity {
             }
         });
 
-        String welcomeMessage = "👋 ¡Hola! Soy un experto en agronomía e invernaderos. 🌱\n" +
+        String welcomeMessage = "👋 ¡Hola! mi nombre es CultivaIA y soy un experto en agronomía e invernaderos. 🌱\n" +
                 "Puedo ayudarte con:\n" +
                 "- 🌿 Cultivos en invernadero\n" +
                 "- 🌡️ Control climático\n" +
@@ -81,7 +99,15 @@ public class cultivaAI extends AppCompatActivity {
                 "- 🌱 Nutrición vegetal\n\n" +
                 "Si tu pregunta no está relacionada, te avisaré amablemente. 😊";
         addAIMessage(welcomeMessage);
+
+        // Configurar listener para detectar cambios en el layout cuando aparece el teclado
     }
+
+    // Método para estilizar el campo de entrada
+    private void styleInputField() {
+        inputMessage.setBackgroundResource(R.drawable.bg_input_field);
+    }
+
 
     // Método para agregar un mensaje del usuario
     private void addUserMessage(String message) {
@@ -104,7 +130,7 @@ public class cultivaAI extends AppCompatActivity {
 
     // Método para llamar a la API de chat
     private void callChatAPI(String userMessage) {
-        String systemMessage = "Eres un experto en agronomía e invernaderos. Responde solo preguntas relacionadas con:\n" +
+        String systemMessage = "Eres un experto en agronomía e invernaderos, te llamas CultiaIA. Responde solo preguntas relacionadas con:\n" +
                 "- Cultivos en invernadero\n" +
                 "- Control climático\n" +
                 "- Riego automatizado\n" +
@@ -189,5 +215,10 @@ public class cultivaAI extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }
