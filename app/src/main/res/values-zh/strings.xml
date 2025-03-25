@@ -52,4 +52,35 @@
     <string name="title_humidity">💦 湿度：</string>
     <string name="title_light_hours">☀️ 光照时间：</string>
     <string name="title_tips">📌 建议：</string>
+
+    <!-- Usuario Admin -->
+    <string name="header_percentage">22.2%</string>
+    <string name="header_temperature">温度</string>
+    <string name="header_humidity">湿度</string>
+    <string name="header_pollution">污染度</string>
+    <string name="last_modified">最后修改: </string>
+
+    <string name="planting_card_title">种植档案</string>
+    <string name="planting_card_subtitle">了解更多作物信息</string>
+
+    <string name="cultival_title">CultivalA</string>
+    <string name="cultival_subtitle">与农业AI对话</string>
+
+    <string name="monitor_sensors_title">监测传感器</string>
+    <string name="monitor_sensors_subtitle">湿度95% 温度22°C</string>
+
+    <string name="control_sensors_title">传感器与执行器控制</string>
+    <string name="control_sensors_subtitle">湿度95% 温度22°C</string>
+
+    <string name="graph_data_title">数据图表</string>
+    <string name="graph_data_subtitle">查看特定日期数据图表</string>
+
+    <string name="ventilation_title">通风系统</string>
+    <string name="ventilation_subtitle">调节通风强度</string>
+
+    <string name="emergency_control_title">紧急控制</string>
+    <string name="emergency_control_subtitle">调节通风强度</string>
+
+    <string name="users_title">用户管理</string>
+    <string name="users_subtitle">调节通风强度</string>
 </resources>

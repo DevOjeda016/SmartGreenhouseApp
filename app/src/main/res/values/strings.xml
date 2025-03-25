@@ -50,6 +50,36 @@
     <string name="title_light_hours">☀️ Horas luz:</string>
     <string name="title_tips">📌 Consejos:</string>
 
+    <!-- Usuario Admin -->
+    <string name="header_percentage">22.2%</string>
+    <string name="header_temperature">Temperatura</string>
+    <string name="header_humidity">Humedad</string>
+    <string name="header_pollution">Contaminación</string>
+    <string name="last_modified">Ultima modificación: </string>
+
+    <string name="planting_card_title">Ficha de plantación</string>
+    <string name="planting_card_subtitle">Conoce más sobre tu cultivo</string>
+
+    <string name="cultival_title">CultivalA</string>
+    <string name="cultival_subtitle">Conversa con una IA agrónoma</string>
+
+    <string name="monitor_sensors_title">Monitorear sensores</string>
+    <string name="monitor_sensors_subtitle">Humedad 95% Temperatura 22</string>
+
+    <string name="control_sensors_title">Control de sensores y actuadores</string>
+    <string name="control_sensors_subtitle">Humedad 95% Temperatura 22</string>
+
+    <string name="graph_data_title">Graficar datos</string>
+    <string name="graph_data_subtitle">Grafica datos de una fecha específica</string>
+
+    <string name="ventilation_title">Ventilación</string>
+    <string name="ventilation_subtitle">Modifica la intensidad de ventilación</string>
+
+    <string name="emergency_control_title">Control de emergencia</string>
+    <string name="emergency_control_subtitle">Controla las alarmas de emergencia</string>
+
+    <string name="users_title">Usuarios</string>
+    <string name="users_subtitle">Modificar usuario</string>
 
 
 

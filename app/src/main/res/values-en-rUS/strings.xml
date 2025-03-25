@@ -13,7 +13,7 @@
     <string name="cultivaAI">Cultiva AI</string>
     <string name="ventilation">Ventilation</string>
     <string name="emergency_control">Emergency \nControl</string>
-    <string name="ficha_plantacion">Plantation Record</string>
+    <string name="ficha_plantacion">plantation sheet</string>
     <string name="graphics">Graphics</string>
     <string name="users">Users</string>
     <string name="new_users">New User</string>
@@ -42,4 +42,35 @@
     <string name="title_humidity">💦 Humidity:</string>
     <string name="title_light_hours">☀️ Light Hours:</string>
     <string name="title_tips">📌 Tips:</string>
+
+    <!-- Usuario Admin -->
+    <string name="header_percentage">22.2%</string>
+    <string name="header_temperature">Temperature</string>
+    <string name="header_humidity">Humidity</string>
+    <string name="header_pollution">Pollution</string>
+    <string name="last_modified">Last modified: </string>
+
+    <string name="planting_card_title">plantation sheet</string>
+    <string name="planting_card_subtitle">Learn more about your crop</string>
+
+    <string name="cultival_title">CultivalA</string>
+    <string name="cultival_subtitle">Chat with an agronomic AI</string>
+
+    <string name="monitor_sensors_title">Monitor Sensors</string>
+    <string name="monitor_sensors_subtitle">Humidity 95% Temperature 22</string>
+
+    <string name="control_sensors_title">Sensors and Actuators Control</string>
+    <string name="control_sensors_subtitle">Humidity 95% Temperature 22</string>
+
+    <string name="graph_data_title">Graph Data</string>
+    <string name="graph_data_subtitle">Graph data from a specific date</string>
+
+    <string name="ventilation_title">Ventilation</string>
+    <string name="ventilation_subtitle">Adjust ventilation intensity</string>
+
+    <string name="emergency_control_title">Emergency Control</string>
+    <string name="emergency_control_subtitle">Controls emergency alarms</string>
+
+    <string name="users_title">Users</string>
+    <string name="users_subtitle">Modify user</string>
 </resources>
