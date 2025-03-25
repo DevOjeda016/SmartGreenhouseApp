@@ -1,18 +1,21 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp.model;
 
 public class Sensor {
+    private int id;
     private String tipoSensor;
-    private int limiteInferior;
-    private int limiteSuperior;
-
-    // Constructor
-    public Sensor(String tipoSensor, int limiteInferior, int limiteSuperior) {
-        this.tipoSensor = tipoSensor;
-        this.limiteInferior = limiteInferior;
-        this.limiteSuperior = limiteSuperior;
-    }
+    private float limiteInferior;
+    private float limiteSuperior;
+    private Invernadero invernadero;
 
     // Getters y setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTipoSensor() {
         return tipoSensor;
     }
@@ -21,19 +24,27 @@ public class Sensor {
         this.tipoSensor = tipoSensor;
     }
 
-    public int getLimiteInferior() {
+    public float getLimiteInferior() {
         return limiteInferior;
     }
 
-    public void setLimiteInferior(int limiteInferior) {
+    public void setLimiteInferior(float limiteInferior) {
         this.limiteInferior = limiteInferior;
     }
 
-    public int getLimiteSuperior() {
+    public float getLimiteSuperior() {
         return limiteSuperior;
     }
 
-    public void setLimiteSuperior(int limiteSuperior) {
+    public void setLimiteSuperior(float limiteSuperior) {
         this.limiteSuperior = limiteSuperior;
+    }
+
+    public Invernadero getInvernadero() {
+        return invernadero;
+    }
+
+    public void setInvernadero(Invernadero invernadero) {
+        this.invernadero = invernadero;
     }
 }
