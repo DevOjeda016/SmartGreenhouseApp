@@ -36,6 +36,13 @@ public class controladores extends AppCompatActivity {
     TextView txtCurrentUpperLimitTemperature;
     TextView txtCurrentLowerLimitHumidity;
     TextView txtCurrentUpperLimitHumidity;
+
+    TextView txtCurrentLowerLimitGas;
+    TextView txtCurrentUpperLimitGas;
+
+    EditText editTextNewLowerLimitGas;
+    EditText editTextNewUpperLimitGas;
+    Button btnUpdateGasLimits;
     SensorResponse sensorResponse;
 
 
@@ -60,9 +67,15 @@ public class controladores extends AppCompatActivity {
         txtCurrentUpperLimitTemperature = findViewById(R.id.txtCurrentUpperLimitTemperature);
         txtCurrentLowerLimitHumidity = findViewById(R.id.txtCurrentLowerLimitHumidity);
         txtCurrentUpperLimitHumidity = findViewById(R.id.txtCurrentUpperLimitHumidity);
+        txtCurrentLowerLimitGas = findViewById(R.id.txtCurrentLowerLimitGas);
+        txtCurrentUpperLimitGas = findViewById(R.id.txtCurrentUpperLimitGas);
+        editTextNewLowerLimitGas = findViewById(R.id.editTextNewLowerLimitGas);
+        editTextNewUpperLimitGas = findViewById(R.id.editTextNewUpperLimitGas);
+        btnUpdateGasLimits = findViewById(R.id.btnUpdateGasLimits);
         getLimits();
         btnUpdateTemperatureLimits.setOnClickListener(v -> sendLimitsTemperature());
         btnUpdateHumidityLimits.setOnClickListener(v -> sendLimitsHumidity());
+        btnUpdateGasLimits.setOnClickListener(v -> sendLimitsGas());
     }
 
     private void getLimits() {
@@ -154,5 +167,21 @@ public class controladores extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void sendLimitsGas() {
+        float newLowerLimitGas;
+        float newUpperLimitGas;
+        if (editTextNewLowerLimitGas.getText().toString().isEmpty()) {
+            newLowerLimitGas = sensorResponse.getData().get(2).getLimiteInferior();
+        } else {
+            newLowerLimitGas = Float.parseFloat(editTextNewLowerLimitGas.getText().toString());
+        }
+        if (editTextNewUpperLimitGas.getText().toString().isEmpty()) {
+            newUpperLimitGas = sensorResponse.getData().get(2).getLimiteSuperior();
+        } else {
+            newUpperLimitGas = Float.parseFloat(editTextNewUpperLimitGas.getText().toString());
+        }
+        updateLimits("GAS", newLowerLimitGas, newUpperLimitGas);
     }
 }
