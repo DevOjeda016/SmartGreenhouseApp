@@ -97,6 +97,9 @@ public class controladores extends AppCompatActivity {
                     txtCurrentUpperLimitTemperature.setText("Limite superior actual: " + sensorResponse.getData().get(0).getLimiteSuperior() + " °C");
                     txtCurrentLowerLimitHumidity.setText("Limite inferior actual: " + sensorResponse.getData().get(1).getLimiteInferior() + " %");
                     txtCurrentUpperLimitHumidity.setText("Limite superior actual: " + sensorResponse.getData().get(1).getLimiteSuperior() + " %");
+                    txtCurrentLowerLimitGas.setText("Limite inferior actual: " + sensorResponse.getData().get(2).getLimiteInferior() + " ppm");
+                    txtCurrentUpperLimitGas.setText("Limite superior actual: " + sensorResponse.getData().get(2).getLimiteSuperior() + " ppm");
+
 
                 }
             }
