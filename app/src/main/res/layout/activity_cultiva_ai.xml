@@ -13,25 +13,26 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:background="@color/md_theme_onSecondaryFixedVariant"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Contenido del header (botón de retroceso, título, etc.) -->
+        <!-- Contenedor principal personalizado -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="16dp">
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="7dp">
 
-            <!-- Botón de retroceso -->
+            <!-- Título principal (UserAdmin) -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/iconButton"
                 android:layout_width="33dp"
                 android:layout_height="33dp"
-                android:layout_marginTop="30dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:padding="0dp"
@@ -42,40 +43,22 @@
                 app:iconSize="30dp"
                 app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/txtTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.166" />
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Título de la pantalla -->
+            <!-- Contenedor para iconos derecha -->
             <TextView
                 android:id="@+id/txtTitle"
-                android:layout_width="236dp"
-                android:layout_height="44dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/cultivaAI"
                 android:textAlignment="center"
                 android:textColor="@color/md_theme_secondaryFixed"
-                android:textSize="34sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <!-- Contenedor para iconos (derecha) -->
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <!-- Botón para consultar el historial -->
-            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.MaterialToolbar>
