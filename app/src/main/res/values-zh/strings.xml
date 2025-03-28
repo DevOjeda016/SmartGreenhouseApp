@@ -109,4 +109,18 @@
     <string name="example_leon_greenhouse">例如：莱昂温室</string>
     <string name="example_serial_number">例如：DCSGH-123455</string>
     <string name="repeat_password">重复密码</string>
+
+    <!-- Usuarios -->
+    <!-- Profile Header -->
+    <string name="profile_title">我的资料</string>
+
+    <!-- User Info Section -->
+    <string name="profile_username">用户名</string>
+    <string name="profile_name">全名</string>
+
+    <!-- Users Section -->
+    <string name="users_section_title">用户</string>
+    <string name="user_item_username">用户名</string>
+    <string name="user_item_name">全名</string>
+    <string name="change_password">更改密码</string>
 </resources>

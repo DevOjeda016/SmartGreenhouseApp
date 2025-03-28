@@ -99,4 +99,18 @@
     <string name="example_leon_greenhouse">E.g. León Greenhouse</string>
     <string name="example_serial_number">E.g. DCSGH-123455</string>
     <string name="repeat_password">Repeat password</string>
+
+    <!-- Usuarios -->
+    <!-- Profile Header -->
+    <string name="profile_title">My Profile</string>
+
+    <!-- User Info Section -->
+    <string name="profile_username">Username</string>
+    <string name="profile_name">Full name</string>
+
+    <!-- Users Section -->
+    <string name="users_section_title">Users</string>
+    <string name="user_item_username">Username</string>
+    <string name="user_item_name">Full name</string>
+    <string name="change_password">Change password</string>
 </resources>

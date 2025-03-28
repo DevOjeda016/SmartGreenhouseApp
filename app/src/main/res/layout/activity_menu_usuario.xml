@@ -99,15 +99,17 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        android:background="@color/md_theme_surfaceBright_mediumContrast"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/topAppBar">
 
         <!-- Contenedor principal dentro del ScrollView -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/md_theme_surfaceBright_mediumContrast"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -116,6 +118,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/md_theme_surfaceBright_mediumContrast"
                 android:orientation="horizontal">
 
                 <!-- Tarjeta pequeña 1 -->
@@ -134,6 +137,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="8dp">
 
                         <!-- Imagen izquierda -->
@@ -156,7 +160,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:text="75%"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@id/cardIcon"
@@ -169,7 +173,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="@string/header_temperature"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@id/percentageText"
                             app:layout_constraintStart_toStartOf="@id/cardIcon"
@@ -193,6 +197,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="8dp">
 
                         <!-- Imagen izquierda -->
@@ -215,7 +220,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:text="50%"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@id/cardIcon1"
@@ -229,7 +234,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="4dp"
                             android:text="@string/header_humidity"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@id/percentageText1"
                             app:layout_constraintStart_toStartOf="@id/cardIcon1"
@@ -252,6 +257,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="8dp">
 
                         <!-- Imagen izquierda -->
@@ -274,7 +280,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:text="25%"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@id/cardIcon2"
@@ -283,13 +289,14 @@
                         <!-- Texto inferior -->
                         <TextView
                             android:id="@+id/cardLabel2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="94dp"
+                            android:layout_height="33dp"
                             android:layout_marginTop="4dp"
                             android:text="@string/header_pollution"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="12sp"
                             app:layout_constraintEnd_toEndOf="@id/percentageText2"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="@id/cardIcon2"
                             app:layout_constraintTop_toBottomOf="@id/cardIcon2" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -308,7 +315,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/last_modified"
                 android:textAlignment="textEnd"
-                android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast" />
+                android:textColor="@color/md_theme_scrim_highContrast" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -330,6 +337,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -338,7 +346,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/planting_card_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -350,7 +358,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/planting_card_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle1"
                             app:layout_constraintStart_toStartOf="@id/cardTitle1"
@@ -385,6 +393,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -393,25 +402,26 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/cultival_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <!-- Imagen -->
                         <TextView
                             android:id="@+id/cardSubtitle2"
                             android:layout_width="79dp"
                             android:layout_height="37dp"
                             android:maxLines="2"
                             android:text="@string/cultival_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle2"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="@id/cardTitle2"
                             app:layout_constraintTop_toBottomOf="@id/cardTitle2" />
 
-                        <!-- Imagen -->
                         <ImageView
                             android:id="@+id/logoView2"
                             android:layout_width="64dp"
@@ -440,6 +450,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -448,7 +459,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/monitor_sensors_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -460,7 +471,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/monitor_sensors_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle3"
                             app:layout_constraintStart_toStartOf="@id/cardTitle3"
@@ -495,6 +506,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -503,7 +515,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/graph_data_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -515,7 +527,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/graph_data_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_scrim_highContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle4"
                             app:layout_constraintStart_toStartOf="@id/cardTitle4"

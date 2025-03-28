@@ -109,18 +109,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/md_theme_surfaceBright_mediumContrast"
             android:orientation="vertical">
 
             <!-- LinearLayout horizontal para las tarjetas pequeñas -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/md_theme_surfaceBright_mediumContrast"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
+                    android:background="@color/md_theme_onPrimaryContainer_highContrast"
                     android:orientation="horizontal"
                     android:paddingHorizontal="16dp">
 
@@ -142,6 +145,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/md_theme_onPrimaryContainer_highContrast"
                             android:padding="8dp">
 
                             <!-- Imagen izquierda -->
@@ -164,7 +168,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginTop="8dp"
                                 android:text="75%"
-                                android:textColor="@color/md_theme_onSurface_highContrast"
+                                android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
                                 app:layout_constraintStart_toEndOf="@id/cardIcon"
@@ -177,7 +181,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:text="@string/header_temperature"
-                                android:textColor="@color/md_theme_onSurface_highContrast"
+                                android:textColor="@color/md_theme_onSecondaryContainer"
                                 android:textSize="12sp"
                                 app:layout_constraintEnd_toEndOf="@id/percentageText"
                                 app:layout_constraintStart_toStartOf="@id/cardIcon"
@@ -203,6 +207,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/md_theme_onPrimaryContainer_highContrast"
                             android:padding="8dp">
 
                             <!-- Imagen izquierda -->
@@ -225,7 +230,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginTop="8dp"
                                 android:text="50%"
-                                android:textColor="@color/md_theme_onSurface_highContrast"
+                                android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
                                 app:layout_constraintStart_toEndOf="@id/cardIcon1"
@@ -239,7 +244,7 @@
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="4dp"
                                 android:text="@string/header_humidity"
-                                android:textColor="@color/md_theme_onSurface_highContrast"
+                                android:textColor="@color/md_theme_onSecondaryContainer"
                                 android:textSize="12sp"
                                 app:layout_constraintEnd_toEndOf="@id/percentageText1"
                                 app:layout_constraintStart_toStartOf="@id/cardIcon1"
@@ -264,6 +269,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/md_theme_onPrimaryContainer_highContrast"
                             android:padding="8dp">
 
                             <!-- Imagen izquierda -->
@@ -286,7 +292,7 @@
                                 android:layout_marginStart="8dp"
                                 android:layout_marginTop="8dp"
                                 android:text="25%"
-                                android:textColor="@color/md_theme_onSurface_highContrast"
+                                android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
                                 app:layout_constraintStart_toEndOf="@id/cardIcon2"
@@ -299,7 +305,7 @@
                                 android:layout_height="28dp"
                                 android:layout_marginTop="4dp"
                                 android:text="@string/header_pollution"
-                                android:textColor="@color/md_theme_onSurface_highContrast"
+                                android:textColor="@color/md_theme_onSecondaryContainer"
                                 android:textSize="12sp"
                                 app:layout_constraintEnd_toEndOf="@id/percentageText2"
                                 app:layout_constraintStart_toStartOf="@id/cardIcon2"
@@ -317,7 +323,7 @@
                     android:paddingEnd="22dp"
                     android:text="@string/last_modified"
                     android:textAlignment="viewEnd"
-                    android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast" />
+                    android:textColor="@color/md_theme_tertiaryContainer_mediumContrast" />
             </LinearLayout>
 
             <!-- LinearLayout vertical para las tarjetas grandes -->
@@ -346,6 +352,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -354,7 +361,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/planting_card_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -366,7 +373,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/planting_card_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle1"
                             app:layout_constraintStart_toStartOf="@id/cardTitle1"
@@ -404,6 +411,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -412,26 +420,27 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/cultivaAI"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             tools:text="@string/cultival_title" />
 
+                        <!-- Imagen -->
                         <TextView
                             android:id="@+id/cardSubtitle2"
                             android:layout_width="74dp"
                             android:layout_height="48dp"
                             android:maxLines="2"
                             android:text="@string/cultival_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle2"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="@id/cardTitle2"
                             app:layout_constraintTop_toBottomOf="@id/cardTitle2" />
 
-                        <!-- Imagen -->
                         <ImageView
                             android:id="@+id/logoView2"
                             android:layout_width="64dp"
@@ -463,6 +472,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -471,7 +481,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/monitor_sensors_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -483,7 +493,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/control_sensors_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle3"
                             app:layout_constraintStart_toStartOf="@id/cardTitle3"
@@ -521,6 +531,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -529,7 +540,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/control_sensors_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -541,7 +552,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/control_sensors_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle4"
                             app:layout_constraintStart_toStartOf="@id/cardTitle4"
@@ -579,6 +590,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -587,7 +599,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/graph_data_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -599,7 +611,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/graph_data_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle5"
                             app:layout_constraintStart_toStartOf="@id/cardTitle5"
@@ -637,6 +649,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -645,7 +658,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/ventilation_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -657,7 +670,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/ventilation_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle6"
                             app:layout_constraintStart_toStartOf="@id/cardTitle6"
@@ -694,6 +707,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -702,7 +716,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/emergency_control_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -714,7 +728,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/emergency_control_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle7"
                             app:layout_constraintStart_toStartOf="@id/cardTitle7"
@@ -751,6 +765,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/md_theme_onPrimaryContainer_highContrast"
                         android:padding="16dp">
 
                         <!-- Textos -->
@@ -759,7 +774,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="@string/users_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
+                            android:textColor="@color/md_theme_onSecondaryContainer"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -771,7 +786,7 @@
                             android:layout_height="wrap_content"
                             android:maxLines="2"
                             android:text="@string/users_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
+                            android:textColor="@color/md_theme_tertiaryContainer_mediumContrast"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toEndOf="@id/cardTitle8"
                             app:layout_constraintStart_toStartOf="@id/cardTitle8"

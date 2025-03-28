@@ -109,6 +109,15 @@
     <string name="example_serial_number">Ej. DCSGH-123455</string>
     <string name="repeat_password">Repite la contraseña</string>
 
+    <!-- Usuarios -->
+    <string name="profile_title">Mi perfil</string>
+    <string name="profile_username">Nombre de usuario</string>
+    <string name="profile_name">Nombre y apellido</string>
+    <string name="users_section_title">Usuarios</string>
+    <string name="user_item_username">Nombre de usuario</string>
+    <string name="user_item_name">Nombre completo</string>
+    <string name="change_password">Cambiar contraseña</string>
+
 
 
 
