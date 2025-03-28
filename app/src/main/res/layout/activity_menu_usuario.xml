@@ -146,7 +146,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/image"
+                            android:src="@drawable/temperatura"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:shapeAppearanceOverlay="@style/RoundedImageSmall"
@@ -206,11 +206,12 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/image"
+                            android:src="@drawable/humedad"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:shapeAppearanceOverlay="@style/RoundedImageSmall"
-                            app:srcCompat="@drawable/humedad" />
+                            app:srcCompat="@drawable/humedad"
+                            tools:srcCompat="@drawable/humedad" />
 
                         <!-- Porcentaje derecha -->
                         <TextView
@@ -270,7 +271,8 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:shapeAppearanceOverlay="@style/RoundedImageSmall"
-                            app:srcCompat="@drawable/contaminacion" />
+                            app:srcCompat="@drawable/contaminacion"
+                            tools:srcCompat="@drawable/contaminacion" />
 
                         <!-- Porcentaje derecha -->
                         <TextView

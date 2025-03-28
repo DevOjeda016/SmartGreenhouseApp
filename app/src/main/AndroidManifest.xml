@@ -48,7 +48,7 @@
             android:name=".menu_admin"
             android:exported="false" />
         <activity
-            android:name=".monitorizacion"
+            android:name=".MonitoringActivity"
             android:exported="false" />
         <activity
             android:name=".controladores"

@@ -21,6 +21,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
+import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.Invernadero;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.Persona;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.SignupRequest;
@@ -67,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
         etNumSerie = findViewById(R.id.etNumSerie);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.16.30.174:8080/SmartGreenhouse/api/")
+                .baseUrl(Globals.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

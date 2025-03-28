@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_theme_surfaceContainerHighest"
-    tools:context=".menu_admin">
+    tools:context=".MonitoringActivity">
 
     <!-- ScrollView para permitir el desplazamiento -->
     <ScrollView
