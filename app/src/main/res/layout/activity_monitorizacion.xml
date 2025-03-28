@@ -1,95 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_surfaceContainerHighest"
+    android:background="@color/md_theme_surfaceBright_mediumContrast"
+    android:orientation="vertical"
     tools:context=".MonitoringActivity">
 
-    <!-- ScrollView para permitir el desplazamiento -->
-    <ScrollView
+    <!-- Updated TopBar with ConstraintLayout -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_onSecondaryFixedVariant"
+        android:elevation="4dp">
 
-        <!-- Contenedor principal dentro del ScrollView -->
+        <!-- Contenedor principal personalizado -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="7dp">
 
-            <!-- AppBar -->
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
+            <!-- Botón de retroceso -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/iconButton"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:icon="@drawable/flecha_atras"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="30dp"
+                app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Título principal -->
+            <TextView
+                android:id="@+id/txtTitle"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:background="@color/md_theme_onSecondaryFixedVariant"
-                android:elevation="4dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/cultivaAI"
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_secondaryFixed"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <!-- Contenedor principal personalizado -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
 
-                    <!-- Botón de regreso -->
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/iconButton"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginTop="30dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:scaleType="fitCenter"
-                        app:icon="@drawable/flecha_atras"
-                        app:iconGravity="textStart"
-                        app:iconPadding="0dp"
-                        app:iconSize="30dp"
-                        app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/txtTitle"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.166" />
-
-                    <!-- Título principal (Monitorización) -->
-                    <TextView
-                        android:id="@+id/txtTitle"
-                        android:layout_width="236dp"
-                        android:layout_height="44dp"
-                        android:layout_marginTop="30dp"
-                        android:text="@string/monitoring"
-                        android:textAlignment="center"
-                        android:textColor="@color/md_theme_secondaryFixed"
-                        android:textSize="34sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <!-- Contenedor para iconos derecha -->
-                    <LinearLayout
-                        android:id="@+id/linearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.appbar.MaterialToolbar>
-
-            <!-- Contenido principal: Sensores, Actuadores y Alarmas -->
+    <!-- Rest of the layout remains the same as in the previous version -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <!-- ... (rest of the content) ... -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <!-- Tarjeta de Sensores -->
             <com.google.android.material.card.MaterialCardView
@@ -98,11 +78,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="@color/md_theme_onPrimaryContainer_highContrast"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topAppBar">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -131,8 +109,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de temperatura" />
+                            android:contentDescription="Icono de temperatura"
+                            android:src="@drawable/image" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -169,8 +147,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de humedad" />
+                            android:contentDescription="Icono de humedad"
+                            android:src="@drawable/image" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -207,8 +185,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de gas" />
+                            android:contentDescription="Icono de gas"
+                            android:src="@drawable/image" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -254,11 +232,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="@color/md_theme_onPrimaryContainer_highContrast"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardSensores">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -287,8 +263,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de humidificador" />
+                            android:contentDescription="Icono de humidificador"
+                            android:src="@drawable/image" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -319,8 +295,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de ventilación" />
+                            android:contentDescription="Icono de ventilación"
+                            android:src="@drawable/image" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -348,8 +324,8 @@
                         android:layout_gravity="end"
                         android:layout_marginTop="8dp"
                         android:text="Última actualización: --/--/---- --:--"
-                        android:textSize="12sp"
-                        android:textColor="@android:color/darker_gray" />
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -360,11 +336,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="@color/md_theme_onPrimaryContainer_highContrast"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardActuadores">
+                app:cardElevation="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -393,8 +367,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de alarma de temperatura" />
+                            android:contentDescription="Icono de alarma de temperatura"
+                            android:src="@drawable/image" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -426,8 +400,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de alarma de humedad" />
+                            android:contentDescription="Icono de alarma de humedad"
+                            android:src="@drawable/image" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -459,8 +433,8 @@
                         <ImageView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:src="@drawable/image"
-                            android:contentDescription="Icono de alarma de gas" />
+                            android:contentDescription="Icono de alarma de gas"
+                            android:src="@drawable/image" />
 
                         <TextView
                             android:layout_width="0dp"
@@ -489,8 +463,8 @@
                         android:layout_gravity="end"
                         android:layout_marginTop="8dp"
                         android:text="Última actualización: --/--/---- --:--"
-                        android:textSize="12sp"
-                        android:textColor="@android:color/darker_gray" />
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -507,12 +481,7 @@
                 android:text="Actualizar datos"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                app:cornerRadius="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardAlarmas" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:cornerRadius="24dp" />
+        </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
