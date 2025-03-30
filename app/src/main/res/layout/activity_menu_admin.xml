@@ -147,10 +147,11 @@
                             <!-- Imagen izquierda -->
                             <ImageView
                                 android:id="@+id/cardIcon"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/temperatura"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:shapeAppearanceOverlay="@style/RoundedImageSmall"
@@ -161,30 +162,29 @@
                                 android:id="@+id/percentageText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
+                                android:layout_marginTop="5dp"
                                 android:text="75%"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/cardIcon"
-                                app:layout_constraintTop_toTopOf="@id/cardIcon" />
+                                app:layout_constraintEnd_toEndOf="@+id/cardIcon"
+                                app:layout_constraintStart_toStartOf="@+id/cardIcon"
+                                app:layout_constraintTop_toBottomOf="@+id/cardIcon" />
 
                             <!-- Texto inferior -->
                             <TextView
                                 android:id="@+id/cardLabel"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
                                 android:text="@string/header_temperature"
                                 android:textAlignment="center"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
                                 android:textSize="10sp"
                                 android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/cardIcon" />
+                                app:layout_constraintTop_toBottomOf="@+id/percentageText" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -211,10 +211,11 @@
                             <!-- Imagen izquierda -->
                             <ImageView
                                 android:id="@+id/cardIcon1"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/humedad"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:shapeAppearanceOverlay="@style/RoundedImageSmall"
@@ -225,30 +226,29 @@
                                 android:id="@+id/percentageText1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
+                                android:layout_marginTop="5dp"
                                 android:text="50%"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/cardIcon1"
-                                app:layout_constraintTop_toTopOf="@id/cardIcon1" />
+                                app:layout_constraintEnd_toEndOf="@+id/cardIcon1"
+                                app:layout_constraintStart_toStartOf="@+id/cardIcon1"
+                                app:layout_constraintTop_toBottomOf="@+id/cardIcon1" />
 
                             <!-- Texto inferior -->
                             <TextView
                                 android:id="@+id/cardLabel1"
                                 android:layout_width="84dp"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="4dp"
+                                android:layout_height="wrap_content"
                                 android:text="@string/header_humidity"
                                 android:textAlignment="center"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
                                 android:textSize="10sp"
                                 android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/cardIcon1" />
+                                app:layout_constraintTop_toBottomOf="@+id/percentageText1" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -274,10 +274,11 @@
                             <!-- Imagen izquierda -->
                             <ImageView
                                 android:id="@+id/cardIcon2"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:scaleType="centerCrop"
                                 android:src="@drawable/contaminacion"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:shapeAppearanceOverlay="@style/RoundedImageSmall"
@@ -288,30 +289,29 @@
                                 android:id="@+id/percentageText2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
+                                android:layout_marginTop="4dp"
                                 android:text="25%"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/cardIcon2"
-                                app:layout_constraintTop_toTopOf="@id/cardIcon2" />
+                                app:layout_constraintEnd_toEndOf="@+id/cardIcon2"
+                                app:layout_constraintStart_toStartOf="@+id/cardIcon2"
+                                app:layout_constraintTop_toBottomOf="@+id/cardIcon2" />
 
                             <!-- Texto inferior -->
                             <TextView
                                 android:id="@+id/cardLabel2"
                                 android:layout_width="wrap_content"
-                                android:layout_height="28dp"
-                                android:layout_marginTop="4dp"
+                                android:layout_height="wrap_content"
                                 android:text="@string/header_pollution"
                                 android:textAlignment="center"
                                 android:textColor="@color/md_theme_onSurface_highContrast"
                                 android:textSize="10sp"
                                 android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/cardIcon2" />
+                                app:layout_constraintTop_toBottomOf="@+id/percentageText2" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
