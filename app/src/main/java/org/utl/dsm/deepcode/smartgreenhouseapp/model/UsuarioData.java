@@ -1,6 +1,8 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp.model;
 
-public class UsuarioData {
+import java.io.Serializable;
+
+public class UsuarioData implements Serializable {
     private int id;
     private String nombreUsuario;
     private String contrasenia;

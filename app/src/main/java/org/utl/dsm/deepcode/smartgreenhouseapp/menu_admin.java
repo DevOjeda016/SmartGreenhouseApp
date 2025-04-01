@@ -75,7 +75,7 @@ public class menu_admin extends AppCompatActivity {
         // Tarjeta de usuarios
         MaterialCardView usersCard = findViewById(R.id.materialCardView12);
         usersCard.setOnClickListener(v -> {
-            startActivity(new Intent(this, usuarios.class));
+            startActivity(new Intent(this, UsuariosActivity.class));
         });
     }
 }

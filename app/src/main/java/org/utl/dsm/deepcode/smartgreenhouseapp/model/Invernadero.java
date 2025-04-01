@@ -1,6 +1,8 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp.model;
 
-public class Invernadero {
+import java.io.Serializable;
+
+public class Invernadero implements Serializable {
     private String nombre;
     private String numSerie;
     private String modelo;
