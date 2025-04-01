@@ -136,4 +136,11 @@
     <string name="typing_message_4">Un momento, estoy buscando la mejor respuesta… 🌱</string>
     <string name="typing_message_5">Procesando tu consulta, espera un instante… ⏳</string>
     <string name="system_message">Eres un experto en agronomía e invernaderos, te llamas CultivaIA. Responde solo preguntas relacionadas con:\n- Cultivos en invernadero\n- Control climático\n- Riego automatizado\n- Manejo de plagas\n- Nutrición vegetal\n- Temperatura, humedad, luz, CO2\n\nSi la pregunta está fuera de estos temas, responde que no puedes responder de manera amable y con emojis amigables.</string>
+
+
+    <!-- Perfil -->
+    <string name="personal_info">Información personal</string>
+    <string name="greenhouse_info">Información del invernadero</string>
+    <string name="update">Actualizar</string>
+    <string name="logout">Cerrar sesión</string>
 </resources>
