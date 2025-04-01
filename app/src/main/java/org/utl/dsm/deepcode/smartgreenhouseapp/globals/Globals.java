@@ -1,6 +1,9 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp.globals;
 
 public class Globals {
-    public static final String BASE_URL = "https://ec3d-201-163-190-4.ngrok-free.app/SmartGreenhouse/api/";
+    public static final String BASE_URL = "http://10.16.30.189:8080/SmartGreenhouse/api/";
+    public static final String DEEPSEEK_API_KEY = "sk-02598b6112a44b568786f00b804a84c3";
+    public static final String DEEPSEEK_MODEL = "deepseek-chat";
+
 
 }

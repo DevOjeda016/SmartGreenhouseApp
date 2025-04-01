@@ -123,4 +123,57 @@
     <string name="user_item_username">用户名</string>
     <string name="user_item_name">全名</string>
     <string name="change_password">更改密码</string>
+    <string name="welcome_message">👋 你好！我是CultivaIA，一名农业与温室栽培专家。🌱\n\n
+        我可以为您提供以下帮助：\n
+        🌿 温室作物栽培\n
+        🌡️ 气候控制\n
+        💧 自动化灌溉\n
+        🐜 害虫管理\n
+        🌱 植物营养\n
+        如果问题不相关，我会友好地提醒您。😊</string>
+
+    <string name="typing_message_1">让我想一想… 🧠</string>
+    <string name="typing_message_2">为你培育完美的答案… 🌿</string>
+    <string name="typing_message_3">浇灌灵感，给你最好的解决方案… 💧</string>
+    <string name="typing_message_4">稍等，我正在寻找最佳答案… 🌱</string>
+    <string name="typing_message_5">正在处理你的请求，请稍候… ⏳</string>    <string name="system_message">你是一名农业和温室栽培专家，名叫CultivaIA。只回答以下相关问题：\n- 温室作物栽培\n- 气候控制\n- 自动化灌溉\n- 害虫管理\n- 植物营养\n- 温度、湿度、光照、二氧化碳\n\n如果问题超出这些范围，请友好地用表情符号回复无法回答。</string>
+
+    <!-- Perfil -->
+    <string name="personal_info">个人信息</string>
+    <string name="greenhouse_info">温室信息</string>
+    <string name="update">更新</string>
+    <string name="logout">退出登录</string>
+
+    <!-- Control de Emergencias -->
+    <string name="emergency_shutdown_system">紧急关闭系统</string>
+    <string name="cut_power_supply">切断电源</string>
+    <string name="warning_label">警告</string>
+
+    <!-- Controladores -->
+    <string name="gas_header">气体</string>
+    <string name="set_lower_limit">设置新的下限:</string>
+    <string name="set_upper_limit">设置新的上限:</string>
+    <string name="update_limits">更新限制</string>
+
+    <!-- Graficas -->
+    <string name="last_measurement">最后测量:</string>
+    <string name="last_update">最后更新:</string>
+
+    <!-- Monitorizacion -->
+    <string name="sensors">传感器</string>
+    <string name="loading">加载中...</string>
+    <string name="actuators">执行器</string>
+    <string name="humidifier">加湿器</string>
+    <string name="ventila">通风</string>
+    <string name="alarms">警报</string>
+    <string name="off">关闭</string>
+    <string name="level_1">级别1</string>
+    <string name="refresh_data">更新数据</string>
+
+    <!-- Splash Screen -->
+    <string name="developed_by">由 Deep Code 开发</string>
+    <string name="app_versio">版本 1.0.0</string>
+    <string name="start">开始</string>
+
+
 </resources>

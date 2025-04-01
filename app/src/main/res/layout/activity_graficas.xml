@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/ficha_plantacion"
+                android:text="@string/graphics"
                 android:textAlignment="center"
                 android:textColor="@color/md_theme_secondaryFixed"
                 android:textSize="24sp"
@@ -93,7 +93,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="8dp"
-                        android:text="Temperatura"
+                        android:text="@string/header_temperature"
                         android:textAlignment="center"
                         android:textColor="@color/md_theme_onPrimaryContainer"
                         android:textSize="18sp"
@@ -109,9 +109,9 @@
                         android:id="@+id/txtUltimaTemperatura"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Última medición: -"
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:text="@string/last_measurement"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -133,7 +133,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="8dp"
-                        android:text="Humedad"
+                        android:text="@string/header_humidity"
                         android:textAlignment="center"
                         android:textColor="@color/md_theme_onPrimaryContainer"
                         android:textSize="18sp"
@@ -149,9 +149,9 @@
                         android:id="@+id/txtUltimaHumedad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Última medición: -"
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:text="@string/last_measurement"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -173,7 +173,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="8dp"
-                        android:text="Gas"
+                        android:text="@string/gas_header"
                         android:textAlignment="center"
                         android:textColor="@color/md_theme_onPrimaryContainer"
                         android:textSize="18sp"
@@ -189,9 +189,9 @@
                         android:id="@+id/txtUltimaGas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Última medición: -"
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
+                        android:layout_marginTop="8dp"
+                        android:text="@string/last_measurement"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -202,17 +202,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:text="Actualizar" />
+                android:text="@string/update" />
 
             <!-- TextView para mostrar la fecha de la última actualización -->
             <TextView
                 android:id="@+id/txtUltimaActualizacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Última actualización: -"
-                android:textSize="14sp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:text="@string/last_update"
+                android:textSize="14sp" />
         </LinearLayout>
     </ScrollView>
 

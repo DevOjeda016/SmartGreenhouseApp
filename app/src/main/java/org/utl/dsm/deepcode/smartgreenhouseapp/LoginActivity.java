@@ -97,7 +97,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     LoginResponse loginResponse = response.body();
-                    Intent intent = new Intent(LoginActivity.this, menu_admin.class);
+                    Intent intent = new Intent(
+                            LoginActivity.this,
+                            loginResponse.getdata().getIdRol() == 1
+                                    ? menu_admin.class
+                                    : menu_usuario.class
+                    );
+                    intent.putExtra("id", loginResponse.getdata().getId());
+                    intent.putExtra("nombre", loginResponse.getdata().getNombre());
+                    intent.putExtra("aPaterno", loginResponse.getdata().getaPaterno());
+                    intent.putExtra("idRol", loginResponse.getdata().getIdRol());
                     startActivity(intent);
                     finish();
                 } else {

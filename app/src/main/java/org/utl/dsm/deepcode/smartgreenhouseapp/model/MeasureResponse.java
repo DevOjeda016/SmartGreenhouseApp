@@ -5,7 +5,7 @@ import java.util.List;
 public class MeasureResponse {
     private int status;
     private String message;
-    private List<Measure> data;
+    private List<MedicionDTO> data;
 
     // Getters y setters
     public int getStatus() {
@@ -24,11 +24,11 @@ public class MeasureResponse {
         this.message = message;
     }
 
-    public List<Measure> getData() {
+    public List<MedicionDTO> getData() {
         return data;
     }
 
-    public void setMeasure(List<Measure> data) {
+    public void setMeasure(List<MedicionDTO> data) {
         this.data = data;
     }
 }

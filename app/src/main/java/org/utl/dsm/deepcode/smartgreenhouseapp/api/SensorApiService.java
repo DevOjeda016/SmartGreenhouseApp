@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface SensorApiService {
     @GET("sensor/measure") // Endpoint de la API
@@ -19,5 +20,6 @@ public interface SensorApiService {
     @POST("sensor/limits")
     Call<SensorDTO> createSensor(@Body SensorDTO sensor);
 
-
+    @GET("sensor/measure/{sensorType}")
+    Call<MeasureResponse> getMeasureData(@Path("sensorType") String sensorType);
 }

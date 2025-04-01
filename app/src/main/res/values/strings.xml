@@ -16,7 +16,7 @@
     <string name="users">Usuarios</string>
     <string name="new_users">Nuevo usuario</string>
     <string name="update_users">Actualizar usuario</string>
-    <string name="card_title_cultiva_ia">Cultiva IA</string>
+    <string name="card_title_cultiva_ia">CultivaIA</string>
     <string name="card_subtitle_cultiva_ia">Una IA experta en agronomía para optimizar tus cultivos
     </string>
 
@@ -118,6 +118,62 @@
     <string name="user_item_name">Nombre completo</string>
     <string name="change_password">Cambiar contraseña</string>
 
+
+    <!-- Chat CultivaIA -->
+    <string name="welcome_message">👋 ¡Hola! mi nombre es CultivaIA y soy un experto en agronomía e invernaderos. 🌱\n\n
+        Puedo ayudarte con:\n
+        🌿 Cultivos en invernadero\n
+        🌡️ Control climático\n
+        💧 Riego automatizado\n
+        🐜 Manejo de plagas\n
+        🌱 Nutrición vegetal\n\n
+        Si tu pregunta no está relacionada, te avisaré amablemente. 😊
+    </string>
+
+    <string name="typing_message_1">Déjame pensar en eso… 🧠</string>
+    <string name="typing_message_2">Cultivando la respuesta perfecta para ti… 🌿</string>
+    <string name="typing_message_3">Regando las ideas para darte la mejor solución… 💧</string>
+    <string name="typing_message_4">Un momento, estoy buscando la mejor respuesta… 🌱</string>
+    <string name="typing_message_5">Procesando tu consulta, espera un instante… ⏳</string>
+    <string name="system_message">Eres un experto en agronomía e invernaderos, te llamas CultivaIA. Responde solo preguntas relacionadas con:\n- Cultivos en invernadero\n- Control climático\n- Riego automatizado\n- Manejo de plagas\n- Nutrición vegetal\n- Temperatura, humedad, luz, CO2\n\nSi la pregunta está fuera de estos temas, responde que no puedes responder de manera amable y con emojis amigables.</string>
+
+
+    <!-- Perfil -->
+    <string name="personal_info">Información personal</string>
+    <string name="greenhouse_info">Información del invernadero</string>
+    <string name="update">Actualizar</string>
+    <string name="logout">Cerrar sesión</string>
+
+    <!-- Control de Emergencias -->
+    <string name="emergency_shutdown_system">Sistema de apagado de emergencia</string>
+    <string name="cut_power_supply">Cortar suministro de energía</string>
+    <string name="warning_label">ADVERTENCIA</string>
+
+    <!-- Controladores -->
+    <string name="gas_header">Gas</string>
+    <string name="set_lower_limit">Configurar nuevo límite inferior:</string>
+    <string name="set_upper_limit">Configurar nuevo límite superior:</string>
+    <string name="update_limits">Actualizar límites</string>
+
+    <!-- Graficas -->
+    <string name="last_measurement">Última medición:</string>
+    <string name="last_update">Última actualización:</string>
+
+    <!-- Monitorizacion -->
+    <string name="sensors">Sensores</string>
+    <string name="loading">Cargando...</string>
+    <string name="actuators">Actuadores</string>
+    <string name="humidifier">Humidificador</string>
+    <string name="ventila">Ventilación</string>
+    <string name="alarms">Alarmas</string>
+    <string name="off">OFF</string>
+    <string name="level_1">Nivel 1</string>
+    <string name="refresh_data">Actualizar datos</string>
+
+    <!-- Splash Screen -->
+    <string name="developed_by">Desarrollado por Deep Code</string>
+    <string name="app_versio">Versión 1.0.0</string>
+    <string name="start">Comenzar</string>
 
 
 

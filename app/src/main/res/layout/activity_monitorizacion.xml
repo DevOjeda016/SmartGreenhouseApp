@@ -48,7 +48,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/cultivaAI"
+                android:text="@string/monitoring"
                 android:textAlignment="center"
                 android:textColor="@color/md_theme_secondaryFixed"
                 android:textSize="24sp"
@@ -93,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Sensores"
+                        android:text="@string/sensors"
                         android:textColor="@color/md_theme_primary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -122,7 +122,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Temperatura:"
+                                android:text="@string/header_temperature"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -130,7 +130,7 @@
                                 android:id="@+id/txtTemperatura"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Cargando..."
+                                android:text="@string/loading"
                                 android:textColor="@color/md_theme_onSurface_mediumContrast"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -160,7 +160,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Humedad:"
+                                android:text="@string/header_humidity"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -168,7 +168,7 @@
                                 android:id="@+id/txtHumedad"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Cargando..."
+                                android:text="@string/loading"
                                 android:textColor="@color/md_theme_onSurface_mediumContrast"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -198,7 +198,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Gas:"
+                                android:text="@string/gas_header"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -206,7 +206,7 @@
                                 android:id="@+id/txtContaminacion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Cargando..."
+                                android:text="@string/loading"
                                 android:textColor="@color/md_theme_onSurface_mediumContrast"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -219,7 +219,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:layout_marginTop="8dp"
-                        android:text="Última actualización: --/--/---- --:--"
+                        android:text="@string/last_update"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -247,7 +247,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Actuadores"
+                        android:text="@string/actuators"
                         android:textColor="@color/md_theme_primary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -279,7 +279,7 @@
                             android:id="@+id/txtEstadoHumidificador"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="OFF"
+                            android:text="@string/off"
                             android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -311,7 +311,7 @@
                             android:id="@+id/txtEstadoVentilacion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nivel 1"
+                            android:text="@string/level_1"
                             android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -323,7 +323,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:layout_marginTop="8dp"
-                        android:text="Última actualización: --/--/---- --:--"
+                        android:text="@string/last_update"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -351,7 +351,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Alarmas"
+                        android:text="@string/alarms"
                         android:textColor="@color/md_theme_primary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -375,7 +375,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="Temperatura"
+                            android:text="@string/header_temperature"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -383,7 +383,7 @@
                             android:id="@+id/txtEstadoAlarmaTemp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="OFF"
+                            android:text="@string/off"
                             android:textColor="@color/md_theme_error"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -408,7 +408,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="Humedad"
+                            android:text="@string/header_humidity"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -416,7 +416,7 @@
                             android:id="@+id/txtEstadoAlarmaHumedad"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="OFF"
+                            android:text="@string/off"
                             android:textColor="@color/md_theme_error"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -441,7 +441,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="Gas"
+                            android:text="@string/gas_header"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -449,7 +449,7 @@
                             android:id="@+id/txtEstadoAlarmaGas"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="OFF"
+                            android:text="@string/off"
                             android:textColor="@color/md_theme_error"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -462,7 +462,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:layout_marginTop="8dp"
-                        android:text="Última actualización: --/--/---- --:--"
+                        android:text="@string/last_update"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -478,7 +478,7 @@
                 android:layout_marginBottom="24dp"
                 android:backgroundTint="@color/md_theme_primary"
                 android:padding="12dp"
-                android:text="Actualizar datos"
+                android:text="@string/refresh_data"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 app:cornerRadius="24dp" />

@@ -4,6 +4,8 @@ public class LoginResponse {
     private int status;
     private String message;
 
+    private UsuarioDTO data;
+
     // Getters y setters
     public int getStatus() {
         return status;
@@ -19,5 +21,20 @@ public class LoginResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+    public UsuarioDTO getdata() {
+        return data;
+    }
+    public void setdata(UsuarioDTO data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginResponse{" +
+                "status=" + status +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
