@@ -99,7 +99,7 @@
                 android:layout_marginStart="92dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="92dp"
-                android:text="Sistema de apagado de emergencia"
+                android:text="@string/emergency_shutdown_system"
                 android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/topAppBar"
@@ -111,19 +111,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Cortar suminsitro de energía"
+                android:backgroundTint="@color/md_theme_tertiaryFixedDim"
+                android:text="@string/cut_power_supply"
                 app:iconTint="@color/md_theme_tertiaryFixedDim"
                 app:layout_constraintEnd_toEndOf="@+id/txtRegisterNewUser"
                 app:layout_constraintStart_toStartOf="@+id/txtRegisterNewUser"
-                app:layout_constraintTop_toBottomOf="@+id/txtRegisterNewUser"
-                android:backgroundTint="@color/md_theme_tertiaryFixedDim"/>
+                app:layout_constraintTop_toBottomOf="@+id/txtRegisterNewUser" />
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="ADVERTENCIA "
+                android:text="@string/warning_label"
                 android:textColor="@color/md_theme_onSurfaceVariant_highContrast"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/btnControlEmergencia"

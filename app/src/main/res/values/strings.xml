@@ -143,4 +143,38 @@
     <string name="greenhouse_info">Información del invernadero</string>
     <string name="update">Actualizar</string>
     <string name="logout">Cerrar sesión</string>
+
+    <!-- Control de Emergencias -->
+    <string name="emergency_shutdown_system">Sistema de apagado de emergencia</string>
+    <string name="cut_power_supply">Cortar suministro de energía</string>
+    <string name="warning_label">ADVERTENCIA</string>
+
+    <!-- Controladores -->
+    <string name="gas_header">Gas</string>
+    <string name="set_lower_limit">Configurar nuevo límite inferior:</string>
+    <string name="set_upper_limit">Configurar nuevo límite superior:</string>
+    <string name="update_limits">Actualizar límites</string>
+
+    <!-- Graficas -->
+    <string name="last_measurement">Última medición:</string>
+    <string name="last_update">Última actualización:</string>
+
+    <!-- Monitorizacion -->
+    <string name="sensors">Sensores</string>
+    <string name="loading">Cargando...</string>
+    <string name="actuators">Actuadores</string>
+    <string name="humidifier">Humidificador</string>
+    <string name="ventila">Ventilación</string>
+    <string name="alarms">Alarmas</string>
+    <string name="off">OFF</string>
+    <string name="level_1">Nivel 1</string>
+    <string name="refresh_data">Actualizar datos</string>
+
+    <!-- Splash Screen -->
+    <string name="developed_by">Desarrollado por Deep Code</string>
+    <string name="app_versio">Versión 1.0.0</string>
+    <string name="start">Comenzar</string>
+
+
+
 </resources>
