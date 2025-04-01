@@ -13,6 +13,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -20,6 +21,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.DeepSeekApiService;
+import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.DeepSeekRequest;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.DeepSeekResponse;
 
@@ -90,14 +92,7 @@ public class cultivaAI extends AppCompatActivity {
             }
         });
 
-        String welcomeMessage = "👋 ¡Hola! mi nombre es CultivaIA y soy un experto en agronomía e invernaderos. 🌱\n" +
-                "Puedo ayudarte con:\n" +
-                "- 🌿 Cultivos en invernadero\n" +
-                "- 🌡️ Control climático\n" +
-                "- 💧 Riego automatizado\n" +
-                "- 🐜 Manejo de plagas\n" +
-                "- 🌱 Nutrición vegetal\n\n" +
-                "Si tu pregunta no está relacionada, te avisaré amablemente. 😊";
+        String welcomeMessage = getString(R.string.welcome_message);
         addAIMessage(welcomeMessage);
 
         // Configurar listener para detectar cambios en el layout cuando aparece el teclado
@@ -130,21 +125,14 @@ public class cultivaAI extends AppCompatActivity {
 
     // Método para llamar a la API de chat
     private void callChatAPI(String userMessage) {
-        String systemMessage = "Eres un experto en agronomía e invernaderos, te llamas CultiaIA. Responde solo preguntas relacionadas con:\n" +
-                "- Cultivos en invernadero\n" +
-                "- Control climático\n" +
-                "- Riego automatizado\n" +
-                "- Manejo de plagas\n" +
-                "- Nutrición vegetal\n" +
-                "- Temperatura, humedad, luz, CO2\n" +
-                "Si la pregunta está fuera de estos temas, responde que no puedes responder de manera amable y con emojis amigables'.";
+        String systemMessage = getString(R.string.system_message);
 
         String[] typingMessages = {
-                "Déjame pensar en eso... 🧠",
-                "Cultivando la respuesta perfecta para ti... 🌿",
-                "Regando las ideas para darte la mejor solución... 💧",
-                "Un momento, estoy buscando la mejor respuesta... 🌱",
-                "Procesando tu consulta, espera un instante... ⏳"
+                getString(R.string.typing_message_1),
+                getString(R.string.typing_message_2),
+                getString(R.string.typing_message_3),
+                getString(R.string.typing_message_4),
+                getString(R.string.typing_message_5)
         };
 
         String typingMessage = getRandomTypingMessage(typingMessages);
@@ -165,10 +153,10 @@ public class cultivaAI extends AppCompatActivity {
 
         // Crear la solicitud
         DeepSeekRequest.Message message = new DeepSeekRequest.Message("user", systemMessage + userMessage);
-        DeepSeekRequest request = new DeepSeekRequest("deepseek-chat", List.of(message)); // Reemplaza "deepseek-chat" con el modelo correcto
+        DeepSeekRequest request = new DeepSeekRequest(Globals.DEEPSEEK_MODEL, List.of(message)); // Reemplaza "deepseek-chat" con el modelo correcto
 
         // Llamar a la API
-        apiService.sendMessage("Bearer sk-02598b6112a44b568786f00b804a84c3", request).enqueue(new Callback<DeepSeekResponse>() {
+        apiService.sendMessage("Bearer " + Globals.DEEPSEEK_API_KEY, request).enqueue(new Callback<DeepSeekResponse>() {
             @Override
             public void onResponse(Call<DeepSeekResponse> call, Response<DeepSeekResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -209,7 +197,7 @@ public class cultivaAI extends AppCompatActivity {
                 // Metodo para actualizar la interfaz de la UI
                 runOnUiThread(() -> messageText.setText(response.toString()));
                 try {
-                    Thread.sleep(50); // Simula el tiempo de escritura
+                    Thread.sleep(10); // Simula el tiempo de escritura
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

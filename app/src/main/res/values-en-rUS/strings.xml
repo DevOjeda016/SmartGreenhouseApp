@@ -113,4 +113,19 @@
     <string name="user_item_username">Username</string>
     <string name="user_item_name">Full name</string>
     <string name="change_password">Change password</string>
+    <string name="welcome_message">👋 Hi! My name is CultivaIA, and I’m an expert in agronomy and greenhouses.🌱\n\n
+        I can help you with:\n
+        🌿 Greenhouse crop cultivation\n
+        🌡️ Climate control\n
+        💧 Automated irrigation\n
+        🐜 Pest management\n
+        🌱 Plant nutrition\n\n
+        If your question is unrelated, I’ll kindly let you know. 😊</string>
+
+    <string name="typing_message_1">Let me think about that… 🧠</string>
+    <string name="typing_message_2">Cultivating the perfect answer for you… 🌿</string>
+    <string name="typing_message_3">Watering ideas to give you the best solution… 💧</string>
+    <string name="typing_message_4">One moment, I\'m searching for the best answer… 🌱</string>
+    <string name="typing_message_5">Processing your request, please wait… ⏳</string>
+    <string name="system_message">You are an expert in agronomy and greenhouses, your name is CultivaIA. Only answer questions related to:\n- Greenhouse crops\n- Climate control\n- Automated irrigation\n- Pest management\n- Plant nutrition\n- Temperature, humidity, light, CO2\n\nIf the question is outside these topics, politely respond that you can\'t answer with friendly emojis.</string>
 </resources>

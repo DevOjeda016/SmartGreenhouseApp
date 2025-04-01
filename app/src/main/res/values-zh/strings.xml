@@ -123,4 +123,18 @@
     <string name="user_item_username">用户名</string>
     <string name="user_item_name">全名</string>
     <string name="change_password">更改密码</string>
+    <string name="welcome_message">👋 你好！我是CultivaIA，一名农业与温室栽培专家。🌱\n\n
+        我可以为您提供以下帮助：\n
+        🌿 温室作物栽培\n
+        🌡️ 气候控制\n
+        💧 自动化灌溉\n
+        🐜 害虫管理\n
+        🌱 植物营养\n
+        如果问题不相关，我会友好地提醒您。😊</string>
+
+    <string name="typing_message_1">让我想一想… 🧠</string>
+    <string name="typing_message_2">为你培育完美的答案… 🌿</string>
+    <string name="typing_message_3">浇灌灵感，给你最好的解决方案… 💧</string>
+    <string name="typing_message_4">稍等，我正在寻找最佳答案… 🌱</string>
+    <string name="typing_message_5">正在处理你的请求，请稍候… ⏳</string>    <string name="system_message">你是一名农业和温室栽培专家，名叫CultivaIA。只回答以下相关问题：\n- 温室作物栽培\n- 气候控制\n- 自动化灌溉\n- 害虫管理\n- 植物营养\n- 温度、湿度、光照、二氧化碳\n\n如果问题超出这些范围，请友好地用表情符号回复无法回答。</string>
 </resources>
