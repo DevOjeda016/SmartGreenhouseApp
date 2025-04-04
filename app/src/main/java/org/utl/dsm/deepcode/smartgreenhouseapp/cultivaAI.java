@@ -19,6 +19,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.button.MaterialButton;
+
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.DeepSeekApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
@@ -43,6 +45,7 @@ public class cultivaAI extends AppCompatActivity {
     private EditText inputMessage;
     private LinearLayout chatContainer;
     private ScrollView scrollView;
+    MaterialButton iconButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,8 @@ public class cultivaAI extends AppCompatActivity {
         inputMessage = findViewById(R.id.inputMessage);
         chatContainer = findViewById(R.id.chatContainer);
         scrollView = findViewById(R.id.scrollView2);
+        iconButton = findViewById(R.id.iconButton);
+        iconButton.setOnClickListener(v -> finish());
 
         // Estilizar el campo de entrada
         styleInputField();
