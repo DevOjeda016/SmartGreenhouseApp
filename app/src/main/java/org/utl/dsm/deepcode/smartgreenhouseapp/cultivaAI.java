@@ -1,8 +1,14 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp;
 
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -39,6 +45,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class cultivaAI extends AppCompatActivity {
     private LinearLayout inputLayout;
@@ -91,17 +99,31 @@ public class cultivaAI extends AppCompatActivity {
         setupKeyboardVisibilityDetector();
     }
 
+    /**
+     * Configura los insets del sistema para ajustar el padding de las vistas.
+     * Este método maneja los insets de la barra del sistema, la barra de navegación
+     * y el teclado (IME) para asegurar que la interfaz de usuario se vea correctamente
+     * en diferentes situaciones.
+     */
     private void setupSystemInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0); // Quitamos el padding inferior
-
-            // Configurar insets para inputLayout para que esté por encima del teclado
+            Insets navigationBars = insets.getInsets(WindowInsetsCompat.Type.navigationBars());
             Insets imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime());
-            inputLayout.setPadding(inputLayout.getPaddingLeft(),
+
+            // Aplicar insets superiores de la barra del sistema
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
+
+            // Para el diseño de entrada, asegurar que siempre esté por encima de
+            // las barras de navegación y también respetar el teclado cuando esté visible
+            int bottomPadding = Math.max(navigationBars.bottom, imeInsets.bottom);
+
+            // Aplicar el padding al diseño de entrada
+            inputLayout.setPadding(
+                    inputLayout.getPaddingLeft(),
                     inputLayout.getPaddingTop(),
                     inputLayout.getPaddingRight(),
-                    imeInsets.bottom);
+                    bottomPadding);
 
             return insets;
         });
@@ -265,11 +287,15 @@ public class cultivaAI extends AppCompatActivity {
 
     private void simulateTyping(String message, TextView messageText) {
         new Thread(() -> {
-            StringBuilder response = new StringBuilder();
+            StringBuilder plainTextBuilder = new StringBuilder();
             for (char c : message.toCharArray()) {
-                response.append(c);
-                // Metodo para actualizar la interfaz de la UI
-                runOnUiThread(() -> messageText.setText(response.toString()));
+                plainTextBuilder.append(c);
+                final String currentText = plainTextBuilder.toString();
+
+                // Aplicar formato y remover caracteres Markdown
+                final CharSequence formattedText = renderMarkdown(currentText);
+
+                runOnUiThread(() -> messageText.setText(formattedText));
                 try {
                     Thread.sleep(10); // Simula el tiempo de escritura
                 } catch (InterruptedException e) {
@@ -279,8 +305,92 @@ public class cultivaAI extends AppCompatActivity {
         }).start();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    /**
+     * Renderiza texto Markdown aplicando estilos y eliminando caracteres de formato
+     */
+    private CharSequence renderMarkdown(String text) {
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        String[] lines = text.split("\n");
+
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i];
+            SpannableStringBuilder spannableLine;
+
+            // Procesar encabezados
+            if (line.matches("^###\\s+.*")) {
+                // Heading 3
+                String cleanLine = line.replaceFirst("^###\\s+", "");
+                spannableLine = new SpannableStringBuilder(cleanLine);
+                spannableLine.setSpan(new StyleSpan(Typeface.BOLD), 0, cleanLine.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableLine.setSpan(new RelativeSizeSpan(1.2f), 0, cleanLine.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            } else if (line.matches("^##\\s+.*")) {
+                // Heading 2
+                String cleanLine = line.replaceFirst("^##\\s+", "");
+                spannableLine = new SpannableStringBuilder(cleanLine);
+                spannableLine.setSpan(new StyleSpan(Typeface.BOLD), 0, cleanLine.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableLine.setSpan(new RelativeSizeSpan(1.3f), 0, cleanLine.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            } else if (line.matches("^#\\s+.*")) {
+                // Heading 1
+                String cleanLine = line.replaceFirst("^#\\s+", "");
+                spannableLine = new SpannableStringBuilder(cleanLine);
+                spannableLine.setSpan(new StyleSpan(Typeface.BOLD), 0, cleanLine.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableLine.setSpan(new RelativeSizeSpan(1.4f), 0, cleanLine.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            } else if (line.matches("^-\\s+.*")) {
+                // Elemento de lista
+                String cleanLine = line.replaceFirst("^-\\s+", "• ");
+                spannableLine = new SpannableStringBuilder(cleanLine);
+            } else {
+                // Línea normal
+                spannableLine = new SpannableStringBuilder(line);
+            }
+
+            // Procesar negritas e itálicas dentro de la línea
+            processBoldAndItalic(spannableLine);
+
+            // Agregar la línea procesada al builder
+            builder.append(spannableLine);
+
+            // Agregar salto de línea excepto en la última línea
+            if (i < lines.length - 1) {
+                builder.append("\n");
+            }
+        }
+
+        return builder;
     }
+
+    private void processBoldAndItalic(SpannableStringBuilder spannable) {
+        // Procesar negritas (**texto**)
+        Pattern boldPattern = Pattern.compile("\\*\\*(.*?)\\*\\*");
+        Matcher boldMatcher = boldPattern.matcher(spannable);
+
+        while (boldMatcher.find()) {
+            int start = boldMatcher.start();
+            int end = boldMatcher.end();
+            String boldText = boldMatcher.group(1);
+
+            spannable.replace(start, end, boldText);
+            spannable.setSpan(new StyleSpan(Typeface.BOLD), start, start + boldText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            // Reiniciar el matcher con el nuevo contenido
+            boldMatcher = boldPattern.matcher(spannable);
+        }
+
+        // Procesar itálicas (*texto*)
+        Pattern italicPattern = Pattern.compile("\\*(.*?)\\*");
+        Matcher italicMatcher = italicPattern.matcher(spannable);
+
+        while (italicMatcher.find()) {
+            int start = italicMatcher.start();
+            int end = italicMatcher.end();
+            String italicText = italicMatcher.group(1);
+
+            spannable.replace(start, end, italicText);
+            spannable.setSpan(new StyleSpan(Typeface.ITALIC), start, start + italicText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            // Reiniciar el matcher con el nuevo contenido
+            italicMatcher = italicPattern.matcher(spannable);
+        }
+    }
+
 }
