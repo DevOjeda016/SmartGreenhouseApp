@@ -19,7 +19,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.LoginRequest;
-import org.utl.dsm.deepcode.smartgreenhouseapp.model.LoginResponse;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.ApiResponse;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.UsuarioDTO;
 
 import java.io.IOException;
 
@@ -61,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // Configurar el botón de login
         btnLogin.setOnClickListener(view -> {
-            String username = etUsername.getText().toString();
-            String password = etPassword.getText().toString();
+            String username = etUsername.getText().toString().trim();
+            String password = etPassword.getText().toString().trim();
 
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
@@ -81,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
     private void performLogin(String username, String password) {
         // Configurar Retrofit
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Globals.BASE_URL) // Asegúrate de que termine con /
+                .baseUrl(Globals.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -91,42 +92,63 @@ public class LoginActivity extends AppCompatActivity {
         LoginRequest loginRequest = new LoginRequest(username, password);
 
         // Realizar la solicitud
-        Call<LoginResponse> call = apiService.login(loginRequest);
-        call.enqueue(new Callback<LoginResponse>() {
+        Call<ApiResponse<UsuarioDTO>> call = apiService.login(loginRequest);
+        call.enqueue(new Callback<ApiResponse<UsuarioDTO>>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+            public void onResponse(Call<ApiResponse<UsuarioDTO>> call, Response<ApiResponse<UsuarioDTO>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    LoginResponse loginResponse = response.body();
-                    Intent intent = new Intent(
-                            LoginActivity.this,
-                            loginResponse.getdata().getIdRol() == 1
-                                    ? menu_admin.class
-                                    : menu_usuario.class
-                    );
-                    intent.putExtra("id", loginResponse.getdata().getId());
-                    intent.putExtra("nombre", loginResponse.getdata().getNombre());
-                    intent.putExtra("aPaterno", loginResponse.getdata().getaPaterno());
-                    intent.putExtra("idRol", loginResponse.getdata().getIdRol());
-                    startActivity(intent);
-                    finish();
+                    ApiResponse<UsuarioDTO> apiResponse = response.body();
+
+                    // Verificar que la respuesta contiene datos
+                    if (apiResponse.getData() != null) {
+                        UsuarioDTO usuario = apiResponse.getData();
+
+                        // Verificar que el rol no es 0
+                        if (usuario.getIdRol() != 0) {
+                            // Redirigir según el rol
+                            Intent intent = new Intent(
+                                    LoginActivity.this,
+                                    usuario.getIdRol() == 1
+                                            ? menu_admin.class
+                                            : menu_usuario.class
+                                    );
+
+                            // Pasar datos del usuario
+                            intent.putExtra("id", usuario.getId());
+                            intent.putExtra("nombre", usuario.getNombre());
+                            intent.putExtra("aPaterno", usuario.getaPaterno());
+                            intent.putExtra("idRol", usuario.getIdRol());
+
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Rol de usuario no válido", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        // Mostrar mensaje de error de la API o uno por defecto
+                        String errorMsg = apiResponse.getMessage() != null ?
+                                apiResponse.getMessage() : "Credenciales incorrectas";
+                        Toast.makeText(LoginActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    // Error en la respuesta
+                    // Manejar errores de la API
                     try {
-                        String errorBody = response.errorBody() != null ? response.errorBody().string() : "Error desconocido";
-                        Log.e("LoginActivity", "Error en la respuesta del servidor: " + errorBody);
-                        Toast.makeText(LoginActivity.this, "Error en la respuesta del servidor: " + errorBody, Toast.LENGTH_SHORT).show();
+                        String errorBody = response.errorBody() != null ?
+                                response.errorBody().string() : "Error desconocido";
+                        Log.e("LoginActivity", "Error del servidor: " + errorBody);
+                        Toast.makeText(LoginActivity.this, "Error: " + errorBody, Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        Log.e("LoginActivity", "Error al leer respuesta", e);
+                        Toast.makeText(LoginActivity.this, "Error al procesar respuesta", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
+            public void onFailure(Call<ApiResponse<UsuarioDTO>> call, Throwable t) {
                 // Error de conexión
                 Log.e("LoginActivity", "Error de conexión: " + t.getMessage());
-                Toast.makeText(LoginActivity.this, "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
+                Toast.makeText(LoginActivity.this, "Error de conexión. Verifica tu internet.", Toast.LENGTH_SHORT).show();
             }
         });
     }

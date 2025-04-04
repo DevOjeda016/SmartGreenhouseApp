@@ -2,6 +2,7 @@ package org.utl.dsm.deepcode.smartgreenhouseapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.utl.dsm.deepcode.smartgreenhouseapp.model.ApiResponse;
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.UsuarioApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.ApiResponse;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.UsuarioData;
 
 import java.util.ArrayList;
@@ -34,35 +35,44 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UsuariosActivity extends AppCompatActivity {
 
-    // Componentes de UI
+    private static final int REQUEST_EDIT_USER = 1;
+
     private RecyclerView recyclerView;
-    private View progressBar;
     private TextView tvError;
     private MaterialButton backButton;
     private FloatingActionButton fabAddUser;
+    private View progressBar;
 
-    // Servicios y adaptador
     private UsuarioAdapter adapter;
     private UsuarioApiService apiService;
+    private List<UsuarioData> usuarios = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuarios);
 
-        setupViews();
+        initViews();
         setupRetrofit();
         setupRecyclerView();
         setupListeners();
         loadUsuarios();
     }
 
-    private void setupViews() {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Recargar lista cada vez que se vuelve a esta actividad
+        // Esto captura actualizaciones hechas en otros módulos
+        loadUsuarios();
+    }
+
+    private void initViews() {
         recyclerView = findViewById(R.id.recyclerViewUsers);
-        progressBar = findViewById(R.id.progressBar);
         tvError = findViewById(R.id.tvError);
         backButton = findViewById(R.id.iconButton);
         fabAddUser = findViewById(R.id.fabAddUser);
+        progressBar = findViewById(R.id.progressBar);
     }
 
     private void setupRetrofit() {
@@ -74,7 +84,7 @@ public class UsuariosActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        adapter = new UsuarioAdapter(new UsuarioAdapter.OnUsuarioClickListener() {
+        adapter = new UsuarioAdapter(usuarios, new UsuarioAdapter.OnUsuarioClickListener() {
             @Override
             public void onEditClick(UsuarioData usuario) {
                 handleEditUser(usuario);
@@ -92,21 +102,28 @@ public class UsuariosActivity extends AppCompatActivity {
 
     private void setupListeners() {
         backButton.setOnClickListener(v -> finish());
-        fabAddUser.setOnClickListener(v -> handleAddUser());
+        fabAddUser.setOnClickListener(v -> {
+            // Deshabilitado según requerimiento
+            Toast.makeText(this, "Función deshabilitada", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void loadUsuarios() {
         showLoading(true);
 
-        apiService.getUsuarios().enqueue(new Callback<ApiResponse>() {
+        apiService.getUsuarios().enqueue(new Callback<ApiResponse<List<UsuarioData>>>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<ApiResponse<List<UsuarioData>>> call, Response<ApiResponse<List<UsuarioData>>> response) {
                 showLoading(false);
 
                 if (response.isSuccessful() && response.body() != null) {
-                    List<UsuarioData> usuarios = response.body().getData();
-                    if (usuarios != null && !usuarios.isEmpty()) {
-                        adapter.setUsuarios(usuarios); // Cambiado de updateUsuarios a setUsuarios
+                    List<UsuarioData> nuevosUsuarios = response.body().getData();
+                    if (nuevosUsuarios != null && !nuevosUsuarios.isEmpty()) {
+                        usuarios.clear();
+                        usuarios.addAll(nuevosUsuarios);
+                        adapter.notifyDataSetChanged();
+                        recyclerView.setVisibility(View.VISIBLE);
+                        tvError.setVisibility(View.GONE);
                     } else {
                         showEmptyState();
                     }
@@ -116,9 +133,10 @@ public class UsuariosActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<ApiResponse<List<UsuarioData>>> call, Throwable t) {
                 showLoading(false);
                 showError("Error de conexión: " + t.getMessage());
+                Log.e("UsuariosActivity", "Error al cargar usuarios", t);
             }
         });
     }
@@ -135,27 +153,66 @@ public class UsuariosActivity extends AppCompatActivity {
     private void deleteUsuario(UsuarioData usuario) {
         showLoading(true);
 
-        apiService.deleteUsuario(usuario.getId()).enqueue(new Callback<ApiResponse>() {
+        apiService.deleteUsuario(usuario.getId()).enqueue(new Callback<ApiResponse<Void>>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<ApiResponse<Void>> call, Response<ApiResponse<Void>> response) {
+                showLoading(false);
+
                 if (response.isSuccessful() && response.body() != null) {
                     Toast.makeText(UsuariosActivity.this,
                             "Usuario eliminado correctamente",
                             Toast.LENGTH_SHORT).show();
-                    // Recargar la lista de usuarios
-                    loadUsuarios();
+
+                    // Eliminar localmente sin recargar toda la lista
+                    int position = findUsuarioPosition(usuario.getId());
+                    if (position != -1) {
+                        usuarios.remove(position);
+                        adapter.notifyItemRemoved(position);
+
+                        // Verificar si la lista está vacía después de eliminar
+                        if (usuarios.isEmpty()) {
+                            showEmptyState();
+                        }
+                    }
                 } else {
-                    showLoading(false);
                     showError("Error al eliminar usuario: " + response.code());
                 }
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
+            public void onFailure(Call<ApiResponse<Void>> call, Throwable t) {
                 showLoading(false);
                 showError("Error de conexión: " + t.getMessage());
+                Log.e("UsuariosActivity", "Error al eliminar usuario", t);
             }
         });
+    }
+
+    private void handleEditUser(UsuarioData usuario) {
+        Intent intent = new Intent(this, PerfilActivity.class);
+        intent.putExtra("usuario", usuario);
+        intent.putExtra("isEditing", true); // Indicador de edición
+        startActivityForResult(intent, REQUEST_EDIT_USER);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_EDIT_USER) {
+            // Recargar lista sin importar el resultado
+            // Esto asegura que cualquier cambio se refleje
+            loadUsuarios();
+        }
+    }
+
+    private int findUsuarioPosition(int idUsuario) {
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getId() == idUsuario) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private void showLoading(boolean show) {
@@ -176,25 +233,7 @@ public class UsuariosActivity extends AppCompatActivity {
         recyclerView.setVisibility(View.GONE);
     }
 
-    private void handleEditUser(UsuarioData usuario) {
-        // Crear Intent para redirigir a ActualizarUsuarioActivity
-        Intent intent = new Intent(UsuariosActivity.this, actualizar_usuario.class);
-
-        // Pasar el objeto usuario como extra (asegúrate que UsuarioData implementa Serializable)
-        intent.putExtra("usuario", usuario);
-
-        // Iniciar la actividad
-        startActivity(intent);
-    }
-
-    private void handleAddUser() {
-        Toast.makeText(this, "Agregar nuevo usuario", Toast.LENGTH_SHORT).show();
-        // Lógica para añadir usuario
-    }
-
-    /**
-     * Clase Adapter como clase interna
-     */
+    // Clase Adapter interna
     private static class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuarioViewHolder> {
 
         private List<UsuarioData> usuarios;
@@ -205,8 +244,8 @@ public class UsuariosActivity extends AppCompatActivity {
             void onDeleteClick(UsuarioData usuario);
         }
 
-        UsuarioAdapter(OnUsuarioClickListener listener) {
-            this.usuarios = new ArrayList<>();
+        public UsuarioAdapter(List<UsuarioData> usuarios, OnUsuarioClickListener listener) {
+            this.usuarios = usuarios;
             this.listener = listener;
         }
 
@@ -221,22 +260,30 @@ public class UsuariosActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull UsuarioViewHolder holder, int position) {
             UsuarioData usuario = usuarios.get(position);
-            if (usuario == null) return;
 
-            // Configurar vistas con datos del usuario
-            holder.tvUsername.setText(usuario.getNombreUsuario() != null ? usuario.getNombreUsuario() : "N/A");
+            holder.tvUsername.setText(usuario.getNombreUsuario());
 
-            String fullName = formatFullName(usuario);
-            holder.tvFullName.setText(fullName.isEmpty() ? "Nombre no disponible" : fullName);
+            String nombreCompleto = usuario.getPersona().getNombre() + " " +
+                    usuario.getPersona().getAPaterno() + " " +
+                    usuario.getPersona().getAMaterno();
+            holder.tvFullName.setText(nombreCompleto);
 
-            holder.tvRol.setText("Rol: " + (usuario.getRol() != null ? usuario.getRol() : "N/A"));
+            // Mostrar el rol del usuario si existe
+            if (usuario.getRol() != null && usuario.getRol() != null) {
+                holder.tvRol.setText("Rol: " + usuario.getRol());
+                holder.tvRol.setVisibility(View.VISIBLE);
+            } else {
+                holder.tvRol.setVisibility(View.GONE);
+            }
 
-            String invernadero = "Invernadero: " +
-                    (usuario.getInvernadero() != null && usuario.getInvernadero().getNombre() != null ?
-                            usuario.getInvernadero().getNombre() : "No asignado");
-            holder.tvInvernadero.setText(invernadero);
+            // Mostrar el nombre del invernadero si existe
+            if (usuario.getInvernadero() != null && usuario.getInvernadero().getNombre() != null) {
+                holder.tvInvernadero.setText("Invernadero: " + usuario.getInvernadero().getNombre());
+                holder.tvInvernadero.setVisibility(View.VISIBLE);
+            } else {
+                holder.tvInvernadero.setVisibility(View.GONE);
+            }
 
-            // Configurar listeners de botones
             holder.btnEdit.setOnClickListener(v -> listener.onEditClick(usuario));
             holder.btnDelete.setOnClickListener(v -> listener.onDeleteClick(usuario));
         }
@@ -246,26 +293,11 @@ public class UsuariosActivity extends AppCompatActivity {
             return usuarios.size();
         }
 
-        public void setUsuarios(List<UsuarioData> usuarios) {
-            this.usuarios = usuarios != null ? usuarios : new ArrayList<>();
-            notifyDataSetChanged();
-        }
-
-        private String formatFullName(UsuarioData usuario) {
-            if (usuario.getPersona() == null) return "";
-
-            return String.format("%s %s %s",
-                    usuario.getPersona().getNombre() != null ? usuario.getPersona().getNombre() : "",
-                    usuario.getPersona().getAPaterno() != null ? usuario.getPersona().getAPaterno() : "",
-                    usuario.getPersona().getAMaterno() != null ? usuario.getPersona().getAMaterno() : ""
-            ).trim();
-        }
-
         static class UsuarioViewHolder extends RecyclerView.ViewHolder {
             TextView tvUsername, tvFullName, tvRol, tvInvernadero;
             ImageButton btnEdit, btnDelete;
 
-            UsuarioViewHolder(@NonNull View itemView) {
+            public UsuarioViewHolder(@NonNull View itemView) {
                 super(itemView);
                 tvUsername = itemView.findViewById(R.id.tvUsername);
                 tvFullName = itemView.findViewById(R.id.tvFullName);
@@ -276,5 +308,4 @@ public class UsuariosActivity extends AppCompatActivity {
             }
         }
     }
-
 }
