@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_surfaceContainerHighest"
+    android:background="@color/md_theme_onSecondaryFixedVariant"
     tools:context=".graficas">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -72,14 +72,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:background="@color/md_theme_surfaceBright_mediumContrast"
+            android:orientation="vertical">
 
             <!-- Tarjeta para la gráfica de Temperatura -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_margin="16dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
@@ -102,7 +102,7 @@
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chartTemperatura"
                         android:layout_width="match_parent"
-                        android:layout_height="250dp"/>
+                        android:layout_height="250dp" />
 
                     <!-- TextView para la última medición de Temperatura -->
                     <TextView
@@ -119,7 +119,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_margin="16dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
@@ -142,7 +142,7 @@
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chartHumedad"
                         android:layout_width="match_parent"
-                        android:layout_height="250dp"/>
+                        android:layout_height="250dp" />
 
                     <!-- TextView para la última medición de Humedad -->
                     <TextView
@@ -159,7 +159,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_margin="16dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
@@ -182,7 +182,7 @@
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chartGas"
                         android:layout_width="match_parent"
-                        android:layout_height="250dp"/>
+                        android:layout_height="250dp" />
 
                     <!-- TextView para la última medición de Gas -->
                     <TextView
@@ -201,7 +201,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:text="@string/update" />
 
             <!-- TextView para mostrar la fecha de la última actualización -->
@@ -211,6 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/last_update"
                 android:textSize="14sp" />
         </LinearLayout>
