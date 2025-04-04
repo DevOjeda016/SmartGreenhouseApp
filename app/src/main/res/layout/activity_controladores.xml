@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -26,7 +27,7 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="7dp">
 
-            <!-- Título principal (UserAdmin) -->
+            <!-- Botón de ícono -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/iconButton"
                 android:layout_width="33dp"
@@ -43,7 +44,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Contenedor para iconos derecha -->
+            <!-- Título centrado -->
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="0dp"
@@ -65,23 +66,25 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:fitsSystemWindows="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingTop="65dp"
+            android:orientation="vertical">
 
             <!-- Carta para Controladores -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardTemperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
@@ -99,6 +102,7 @@
                         android:layout_height="wrap_content"
                         android:paddingBottom="10dp"
                         android:text="@string/header_temperature"
+                        android:textColor="@color/md_theme_primary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -118,7 +122,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/set_upper_limit" />
+                            android:text="@string/set_lower_limit" />
 
                         <EditText
                             android:id="@+id/editTextNewLowerLimitTemperature"
@@ -154,7 +158,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/set_lower_limit" />
+                            android:text="@string/set_upper_limit" />
 
                         <EditText
                             android:id="@+id/editTextNewUpperLimitTemperature"
@@ -190,7 +194,7 @@
                 android:id="@+id/cardHumidity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_margin="16dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
@@ -206,6 +210,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/header_humidity"
+                        android:textColor="@color/md_theme_primary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -225,7 +230,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/set_upper_limit" />
+                            android:text="@string/set_lower_limit" />
 
                         <EditText
                             android:id="@+id/editTextNewLowerLimitHumidity"
@@ -261,7 +266,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/set_lower_limit" />
+                            android:text="@string/set_upper_limit" />
 
                         <EditText
                             android:id="@+id/editTextNewUpperLimitHumidity"
@@ -292,12 +297,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Carta para Gas-->
+            <!-- Carta para Gas -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardGas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_margin="16dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
@@ -313,6 +318,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/gas_header"
+                        android:textColor="@color/md_theme_primary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -332,7 +338,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/set_upper_limit" />
+                            android:text="@string/set_lower_limit" />
 
                         <EditText
                             android:id="@+id/editTextNewLowerLimitGas"
@@ -368,7 +374,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/set_lower_limit" />
+                            android:text="@string/set_upper_limit" />
 
                         <EditText
                             android:id="@+id/editTextNewUpperLimitGas"
