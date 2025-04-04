@@ -24,6 +24,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.EntryXComparator;
 import com.github.mikephil.charting.animation.Easing;
+import com.google.android.material.button.MaterialButton;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.SensorApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
@@ -49,6 +50,8 @@ public class graficas extends AppCompatActivity {
     private LineChart chartTemperatura, chartHumedad, chartGas;
     private TextView txtUltimaActualizacion, txtUltimaTemperatura, txtUltimaHumedad, txtUltimaGas;
     private Button btnActualizar;
+
+    private MaterialButton iconButton;
     private String ultimaFechaActualizacion = "-";
 
     // Límites de los sensores
@@ -87,6 +90,8 @@ public class graficas extends AppCompatActivity {
         txtUltimaHumedad = findViewById(R.id.txtUltimaHumedad);
         txtUltimaGas = findViewById(R.id.txtUltimaGas);
         btnActualizar = findViewById(R.id.btnActualizar);
+        iconButton = findViewById(R.id.iconButton);
+        iconButton.setOnClickListener(v -> finish());
 
         // Configurar Retrofit
         Retrofit retrofit = new Retrofit.Builder()
