@@ -1,18 +1,34 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp.model;
 
-public class Invernadero {
+import java.io.Serializable;
+
+public class Invernadero implements Serializable {
+    private int id;
     private String nombre;
     private String numSerie;
     private String modelo;
 
-    // Constructor
+    // Constructor por defecto REQUERIDO
+    public Invernadero() {
+    }
+
+    // Constructor con parámetros
     public Invernadero(String nombre, String numSerie, String modelo) {
+        this.id = id;
         this.nombre = nombre;
         this.numSerie = numSerie;
         this.modelo = modelo;
     }
 
     // Getters y setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
