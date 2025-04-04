@@ -64,6 +64,7 @@
             android:exported="false" />
         <activity
             android:name=".cultivaAI"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
