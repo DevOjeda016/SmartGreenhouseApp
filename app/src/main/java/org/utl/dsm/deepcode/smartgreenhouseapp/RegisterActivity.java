@@ -22,10 +22,12 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.ApiResponse;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.Invernadero;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.Persona;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.SignupRequest;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.SignupResponse;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.UsuarioDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -248,14 +250,14 @@ public class RegisterActivity extends AppCompatActivity {
     private void performSignup(String nombreUsuario, String contrasenia, Persona persona, String rol, Invernadero invernadero) {
         SignupRequest signupRequest = new SignupRequest(nombreUsuario, contrasenia, persona, rol, invernadero);
 
-        apiService.signup(signupRequest).enqueue(new Callback<SignupResponse>() {
+        apiService.signup(signupRequest).enqueue(new Callback<ApiResponse<UsuarioDTO>>() {
             @Override
-            public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
+            public void onResponse(Call<ApiResponse<UsuarioDTO>> call, Response<ApiResponse<UsuarioDTO>> response) {
                 handleSignupResponse(response);
             }
 
             @Override
-            public void onFailure(Call<SignupResponse> call, Throwable t) {
+            public void onFailure(Call<ApiResponse<UsuarioDTO>> call, Throwable t) {
                 Toast.makeText(RegisterActivity.this, "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -264,9 +266,9 @@ public class RegisterActivity extends AppCompatActivity {
     /**
      * Maneja la respuesta de la API luego de intentar el registro.
      */
-    private void handleSignupResponse(Response<SignupResponse> response) {
+    private void handleSignupResponse(Response<ApiResponse<UsuarioDTO>> response) {
         if (response.isSuccessful() && response.body() != null) {
-            SignupResponse signupResponse = response.body();
+            ApiResponse<UsuarioDTO> signupResponse = response.body();
             switch (signupResponse.getStatus()) {
                 case 201:
                     startActivity(new Intent(this, LoginActivity.class));
