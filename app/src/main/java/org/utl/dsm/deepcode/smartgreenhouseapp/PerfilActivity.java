@@ -47,6 +47,7 @@ public class PerfilActivity extends AppCompatActivity {
     private UsuarioData usuario;
     private UsuarioApiService apiService;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private boolean isEditing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,23 @@ public class PerfilActivity extends AppCompatActivity {
         // 2. Inicializar vistas
         initViews();
 
-        // 3. Cargar datos del usuario desde la API
-        loadUserDataFromApi();
+        // 3. Verificar si hay datos del usuario en el Intent
+        if (getIntent().hasExtra("usuario")) {
+            usuario = (UsuarioData) getIntent().getSerializableExtra("usuario");
+            isEditing = getIntent().getBooleanExtra("isEditing", false);
+
+            // Cargar los datos del usuario recibido
+            if (usuario != null) {
+                Log.d(TAG, "Usuario recibido via Intent - ID: " + usuario.getId());
+                loadUserDataToUI();
+            } else {
+                // Si por alguna razón el usuario es null, cargar desde API
+                loadUserDataFromApi();
+            }
+        } else {
+            // Si no hay usuario en el intent, cargar desde API (comportamiento anterior)
+            loadUserDataFromApi();
+        }
 
         // 4. Configurar listeners
         setupListeners();
@@ -99,11 +115,11 @@ public class PerfilActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     ApiResponse<List<UsuarioData>> apiResponse = response.body();
                     if (apiResponse.getStatus() == 200 && !apiResponse.getData().isEmpty()) {
-                        // Tomar el primer usuario (ajusta según tu lógica de negocio)
+                        // Tomar el primer usuario si no estamos en modo edición
                         usuario = apiResponse.getData().get(0);
 
                         // Log para verificar IDs
-                        Log.d(TAG, "Usuario ID cargado: " + usuario.getId());
+                        Log.d(TAG, "Usuario ID cargado desde API: " + usuario.getId());
                         if (usuario.getPersona() != null) {
                             Log.d(TAG, "Persona ID cargada: " + usuario.getPersona().getId());
                         }
@@ -146,6 +162,8 @@ public class PerfilActivity extends AppCompatActivity {
                     (usuario.getPersona().getAMaterno() != null && !usuario.getPersona().getAMaterno().isEmpty() ?
                             " " + usuario.getPersona().getAMaterno() : "");
             etLastName.setText(apellidos.trim());
+        } else {
+            Log.w(TAG, "Objeto Persona es null para usuario ID: " + usuario.getId());
         }
 
         // Datos del invernadero
@@ -153,6 +171,14 @@ public class PerfilActivity extends AppCompatActivity {
             etGreenhouseName.setText(usuario.getInvernadero().getNombre());
             etSerialNumber.setText(usuario.getInvernadero().getNumSerie());
             etModel.setText(usuario.getInvernadero().getModelo());
+        } else {
+            Log.w(TAG, "Objeto Invernadero es null para usuario ID: " + usuario.getId());
+        }
+
+        // Actualizar título o indicador si estamos en modo edición
+        if (isEditing) {
+            setTitle("Editar Usuario");
+            btnUpdate.setText("Guardar Cambios");
         }
     }
 
@@ -285,6 +311,11 @@ public class PerfilActivity extends AppCompatActivity {
                         Intent resultIntent = new Intent();
                         resultIntent.putExtra("usuarioActualizado", usuario);
                         setResult(RESULT_OK, resultIntent);
+
+                        // Si estamos en modo edición, finalizar la actividad después de actualizar
+                        if (isEditing) {
+                            finish();
+                        }
                     } else {
                         runOnUiThread(() -> {
                             try {
