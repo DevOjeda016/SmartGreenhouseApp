@@ -10,9 +10,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,10 +42,7 @@ public class UsuariosActivity extends AppCompatActivity {
     private static final int REQUEST_EDIT_USER = 1;
 
     private RecyclerView recyclerView;
-    private TextView tvError;
-    private MaterialButton backButton;
-    private FloatingActionButton fabAddUser;
-    private View progressBar;
+    private MaterialButton iconButton;
 
     private UsuarioAdapter adapter;
     private UsuarioApiService apiService;
@@ -50,12 +51,17 @@ public class UsuariosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_usuarios);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         initViews();
         setupRetrofit();
         setupRecyclerView();
-        setupListeners();
         loadUsuarios();
     }
 
@@ -69,10 +75,8 @@ public class UsuariosActivity extends AppCompatActivity {
 
     private void initViews() {
         recyclerView = findViewById(R.id.recyclerViewUsers);
-        tvError = findViewById(R.id.tvError);
-        backButton = findViewById(R.id.iconButton);
-        fabAddUser = findViewById(R.id.fabAddUser);
-        progressBar = findViewById(R.id.progressBar);
+        iconButton = findViewById(R.id.iconButton);
+        iconButton.setOnClickListener(v -> finish());
     }
 
     private void setupRetrofit() {
@@ -100,14 +104,6 @@ public class UsuariosActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void setupListeners() {
-        backButton.setOnClickListener(v -> finish());
-        fabAddUser.setOnClickListener(v -> {
-            // Deshabilitado según requerimiento
-            Toast.makeText(this, "Función deshabilitada", Toast.LENGTH_SHORT).show();
-        });
-    }
-
     private void loadUsuarios() {
         showLoading(true);
 
@@ -123,7 +119,6 @@ public class UsuariosActivity extends AppCompatActivity {
                         usuarios.addAll(nuevosUsuarios);
                         adapter.notifyDataSetChanged();
                         recyclerView.setVisibility(View.VISIBLE);
-                        tvError.setVisibility(View.GONE);
                     } else {
                         showEmptyState();
                     }
@@ -216,20 +211,14 @@ public class UsuariosActivity extends AppCompatActivity {
     }
 
     private void showLoading(boolean show) {
-        progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
         recyclerView.setVisibility(show ? View.GONE : View.VISIBLE);
-        tvError.setVisibility(View.GONE);
     }
 
     private void showEmptyState() {
-        tvError.setText("No hay usuarios registrados");
-        tvError.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.GONE);
     }
 
     private void showError(String message) {
-        tvError.setText(message);
-        tvError.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.GONE);
     }
 

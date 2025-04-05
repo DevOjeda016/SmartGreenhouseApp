@@ -10,13 +10,14 @@
     <string name="UserUser">用户</string>
     <string name="Drivers">驱动器</string>
     <string name="monitoring">监控</string>
-    <string name="cultivaAI">Cultiva AI</string>
+    <string name="cultivaAI">CultivaIA</string>
     <string name="ventilation">通风</string>
     <string name="emergency_control">紧急\n控制</string>
     <string name="ficha_plantacion">种植记录</string>
     <string name="graphics">图表</string>
     <string name="users">用户</string>
     <string name="new_users">新用户</string>
+    <string name="profile">个人资料</string>
     <string name="update_users">更新用户</string>
 
 
@@ -63,7 +64,7 @@
     <string name="planting_card_title">种植档案</string>
     <string name="planting_card_subtitle">了解更多作物信息</string>
 
-    <string name="cultival_title">CultivalA</string>
+    <string name="cultival_title">CultivaIA</string>
     <string name="cultival_subtitle">与农业AI对话</string>
 
     <string name="monitor_sensors_title">监测传感器</string>
