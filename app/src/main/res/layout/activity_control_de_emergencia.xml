@@ -1,158 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Aquí puedes añadir el comentario si lo necesitas -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_surfaceContainerHighest"
-    tools:context=".MenuAdmin">
+    android:background="@color/md_theme_surfaceBright_mediumContrast">
 
-    <!-- ScrollView para permitir el desplazamiento -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_onSecondaryFixedVariant"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Contenedor principal dentro del ScrollView -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!-- AppBar -->
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:background="@color/md_theme_onSecondaryFixedVariant"
-                android:elevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <!-- Contenedor principal personalizado -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="16dp">
-
-                    <!-- Título principal (UserAdmin) -->
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/iconButton"
-                        android:layout_width="33dp"
-                        android:layout_height="33dp"
-                        android:layout_marginTop="30dp"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:scaleType="fitCenter"
-                        app:icon="@drawable/flecha_atras"
-                        app:iconGravity="textStart"
-                        app:iconPadding="0dp"
-                        app:iconSize="30dp"
-                        app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/txtTitle"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.166" />
-
-                    <!-- Contenedor para iconos derecha -->
-
-                    <TextView
-                        android:id="@+id/txtTitle"
-                        android:layout_width="246dp"
-                        android:layout_height="93dp"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/emergency_control"
-                        android:textAlignment="center"
-                        android:textColor="@color/md_theme_secondaryFixed"
-                        android:textSize="34sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-                        app:layout_constraintHorizontal_bias="0.416"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.appbar.MaterialToolbar>
-
-            <TextView
-                android:id="@+id/txtRegisterNewUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="92dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="92dp"
-                android:text="@string/emergency_shutdown_system"
-                android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/topAppBar"
-                app:layout_constraintStart_toStartOf="@+id/topAppBar"
-                app:layout_constraintTop_toBottomOf="@+id/topAppBar" />
-
-            <Button
-                android:id="@+id/btnControlEmergencia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@color/md_theme_tertiaryFixedDim"
-                android:text="@string/cut_power_supply"
-                app:iconTint="@color/md_theme_tertiaryFixedDim"
-                app:layout_constraintEnd_toEndOf="@+id/txtRegisterNewUser"
-                app:layout_constraintStart_toStartOf="@+id/txtRegisterNewUser"
-                app:layout_constraintTop_toBottomOf="@+id/txtRegisterNewUser" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/warning_label"
-                android:textColor="@color/md_theme_onSurfaceVariant_highContrast"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/btnControlEmergencia"
-                app:layout_constraintStart_toStartOf="@+id/btnControlEmergencia"
-                app:layout_constraintTop_toBottomOf="@+id/btnControlEmergencia" />
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/advertencia"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
+                android:id="@+id/iconButton"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:padding="0dp"
-                android:rotationY="72"
                 android:scaleType="fitCenter"
-                app:icon="@drawable/usuario"
+                app:icon="@drawable/flecha_atras"
                 app:iconGravity="textStart"
                 app:iconPadding="0dp"
                 app:iconSize="30dp"
                 app:iconTint="@color/md_theme_onPrimaryContainer_mediumContrast"
-                app:layout_constraintEnd_toEndOf="@+id/textView7"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/emergency_control"
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_secondaryFixed"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </com.google.android.material.appbar.MaterialToolbar>
 
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar">
 
+        <!-- Sistema de apagado de emergencia -->
+        <TextView
+            android:id="@+id/tvSystemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            android:text="@string/emergency_control_title"
+            android:textColor="@color/md_theme_onSurface_highContrast"
+            android:textSize="18sp" />
+
+        <!-- Botón de emergencia -->
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cortar suministro" />
+
+        <!-- Advertencia título con icono -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="32dp"
+            android:paddingBottom="24dp">
+
+            <ImageView
+                android:id="@+id/ivWarningIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_warning"
+                android:contentDescription="Ícono de advertencia" />
+
+            <TextView
+                android:id="@+id/tvWarningTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADVERTENCIA"
+                android:textColor="@color/md_theme_onSurface_highContrast"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Texto de advertencia -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:id="@+id/tvWarningText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:text="Presionar este botón apagará todo el sistema del invernadero, incluyendo control de temperatura, riego, iluminación y ventilación."
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_onSurface_highContrast"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvWarningUse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solo usar en caso de emergencia o mantenimiento autorizado. Podría causar daños a los cultivos si se activa accidentalmente."
+                android:textAlignment="center"
+                android:textColor="@color/md_theme_onSurface_highContrast"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
