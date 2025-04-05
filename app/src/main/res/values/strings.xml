@@ -8,12 +8,13 @@
     <string name="UserUser">Usuario</string>
     <string name="Drivers">Controladores</string>
     <string name="monitoring">Monitorización</string>
-    <string name="cultivaAI">Cultiva AI</string>
+    <string name="cultivaAI">CultivaIA</string>
     <string name="ventilation">Ventilación</string>
     <string name="emergency_control">Control de \nemergencia</string>
     <string name="ficha_plantacion">Ficha de Plantación</string>
     <string name="graphics">Gráficas</string>
     <string name="users">Usuarios</string>
+    <string name="profile">Perfil</string>
     <string name="new_users">Nuevo usuario</string>
     <string name="update_users">Actualizar usuario</string>
     <string name="card_title_cultiva_ia">CultivaIA</string>

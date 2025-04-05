@@ -9,7 +9,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -40,7 +44,7 @@ public class PerfilActivity extends AppCompatActivity {
     private TextView tvUsername, tvRole;
     private TextInputEditText etFirstName, etLastName, etUsername,
             etGreenhouseName, etSerialNumber, etModel;
-    private MaterialButton btnUpdate, btnLogout;
+    private MaterialButton btnUpdate, btnLogout, iconButton;
     private ProgressBar progressBar;
 
     // Datos
@@ -52,6 +56,12 @@ public class PerfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+        EdgeToEdge.enable(this);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         // 1. Configurar Retrofit
         setupRetrofit();
@@ -87,6 +97,8 @@ public class PerfilActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btn_update);
         btnLogout = findViewById(R.id.btn_logout);
         progressBar = findViewById(R.id.progressBar);
+        iconButton = findViewById(R.id.iconButton);
+        iconButton.setOnClickListener(v -> finish());
     }
 
     private void loadUserDataFromApi() {

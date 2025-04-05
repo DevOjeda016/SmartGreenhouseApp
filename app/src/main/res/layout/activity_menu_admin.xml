@@ -638,63 +638,6 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Tarjeta grande 6 -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="92dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/md_theme_onPrimaryContainer_highContrast"
-                    app:cardElevation="4dp"
-                    app:rippleColor="@color/md_theme_onPrimaryContainer_mediumContrast"
-                    app:shapeAppearance="@style/RoundedCard"
-                    app:strokeColor="#20000000"
-                    app:strokeWidth="1dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="16dp">
-
-                        <!-- Textos -->
-                        <TextView
-                            android:id="@+id/cardTitle6"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/ventilation_title"
-                            android:textColor="@color/md_theme_onSurface_highContrast"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/cardSubtitle6"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:maxLines="2"
-                            android:text="@string/ventilation_subtitle"
-                            android:textColor="@color/md_theme_onSurfaceVariant_mediumContrast"
-                            android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="@id/cardTitle6"
-                            app:layout_constraintStart_toStartOf="@id/cardTitle6"
-                            app:layout_constraintTop_toBottomOf="@id/cardTitle6" />
-
-                        <!-- Imagen -->
-                        <ImageView
-                            android:id="@+id/logoView6"
-                            android:layout_width="64dp"
-                            android:layout_height="69dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/image"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Tarjeta grande 7 -->
                 <com.google.android.material.card.MaterialCardView
@@ -747,7 +690,7 @@
                             android:layout_width="64dp"
                             android:layout_height="69dp"
                             android:scaleType="centerInside"
-                            android:src="@drawable/image"
+                            android:src="@drawable/emeregency"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />

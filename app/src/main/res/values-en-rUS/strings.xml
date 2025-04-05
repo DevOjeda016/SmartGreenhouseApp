@@ -10,13 +10,14 @@
     <string name="UserUser">User</string>
     <string name="Drivers">Drivers</string>
     <string name="monitoring">Monitoring</string>
-    <string name="cultivaAI">Cultiva AI</string>
+    <string name="cultivaAI">CultivaIA</string>
     <string name="ventilation">Ventilation</string>
     <string name="emergency_control">Emergency \nControl</string>
     <string name="ficha_plantacion">plantation sheet</string>
     <string name="graphics">Graphics</string>
     <string name="users">Users</string>
     <string name="new_users">New User</string>
+    <string name="profile">Profile</string>
     <string name="update_users">Update User</string>
 
     <!-- Fincha de plantación -->

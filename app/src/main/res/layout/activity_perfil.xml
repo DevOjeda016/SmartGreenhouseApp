@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/ficha_plantacion"
+                android:text="@string/profile"
                 android:textAlignment="center"
                 android:textColor="@color/md_theme_secondaryFixed"
                 android:textSize="24sp"
@@ -72,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/md_theme_surfaceBright_mediumContrast"
             android:padding="16dp">
 
             <!-- Header con imagen de perfil -->
