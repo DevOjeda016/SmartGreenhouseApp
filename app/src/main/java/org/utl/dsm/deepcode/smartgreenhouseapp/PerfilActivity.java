@@ -1,11 +1,15 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +21,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -45,11 +50,14 @@ public class PerfilActivity extends AppCompatActivity {
     private TextView tvUsername, tvRole;
     private TextInputEditText etFirstName, etLastName, etUsername,
             etGreenhouseName, etSerialNumber, etModel;
+    private TextInputLayout tilFirstName, tilLastName, tilUsername, tilGreenhouseName, tilSerialNumber, tilModel;
+
     private MaterialButton btnUpdate, btnLogout, iconButton;
     private ProgressBar progressBar;
 
     // Datos
     private UsuarioData usuario;
+    private ScrollView scrollView;
     private UsuarioApiService apiService;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private boolean isEditing = false;
@@ -106,6 +114,7 @@ public class PerfilActivity extends AppCompatActivity {
                 etModel.setEnabled(false);
             }
         }
+        setupScrollView();
     }
 
     private void setupRetrofit() {
@@ -117,6 +126,7 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        scrollView = findViewById(R.id.scrollView);
         profileImage = findViewById(R.id.profile_image);
         tvUsername = findViewById(R.id.tv_username);
         tvRole = findViewById(R.id.tv_role);
@@ -126,6 +136,25 @@ public class PerfilActivity extends AppCompatActivity {
         etGreenhouseName = findViewById(R.id.et_greenhouse_name);
         etSerialNumber = findViewById(R.id.et_serial_number);
         etModel = findViewById(R.id.et_model);
+        tilFirstName = findViewById(R.id.til_first_name);
+        tilLastName = findViewById(R.id.til_last_name);
+        tilUsername = findViewById(R.id.til_username);
+        tilGreenhouseName = findViewById(R.id.til_greenhouse_name);
+        tilSerialNumber = findViewById(R.id.til_serial_number);
+        tilModel = findViewById(R.id.til_model);
+        inputChanged(etUsername, tilUsername);
+        inputChanged(etFirstName, tilFirstName);
+        inputChanged(etLastName, tilLastName);
+        inputChanged(etGreenhouseName, tilGreenhouseName);
+        inputChanged(etSerialNumber, tilSerialNumber);
+        inputChanged(etModel, tilModel);
+        setupErrorCleaner(etUsername, tilUsername);
+        setupErrorCleaner(etFirstName, tilFirstName);
+        setupErrorCleaner(etLastName, tilLastName);
+        setupErrorCleaner(etGreenhouseName, tilGreenhouseName);
+        setupErrorCleaner(etSerialNumber, tilSerialNumber);
+        setupErrorCleaner(etModel, tilModel);
+        tilModel = findViewById(R.id.til_model);
         btnUpdate = findViewById(R.id.btn_update);
         btnLogout = findViewById(R.id.btn_logout);
         progressBar = findViewById(R.id.progressBar);
@@ -134,12 +163,12 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
     private void loadUserDataFromApi() {
-        showProgress(true);
+        //showProgress(true);
         Call<ApiResponse<List<UsuarioData>>> call = apiService.getUsuarios();
         call.enqueue(new Callback<ApiResponse<List<UsuarioData>>>() {
             @Override
             public void onResponse(Call<ApiResponse<List<UsuarioData>>> call, Response<ApiResponse<List<UsuarioData>>> response) {
-                showProgress(false);
+                //showProgress(false);
                 if (response.isSuccessful() && response.body() != null) {
                     ApiResponse<List<UsuarioData>> apiResponse = response.body();
                     if (apiResponse.getStatus() == 200 && !apiResponse.getData().isEmpty()) {
@@ -168,7 +197,7 @@ public class PerfilActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse<List<UsuarioData>>> call, Throwable t) {
-                showProgress(false);
+                //showProgress(false);
                 Toast.makeText(PerfilActivity.this, "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 finish();
             }
@@ -206,9 +235,10 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void setupListeners() {
         btnUpdate.setOnClickListener(v -> {
-            if (validateFields()) {
-                updateUser();
+            if (!validateFields()) {
+                return;
             }
+            updateUser();
         });
 
         btnLogout.setOnClickListener(v -> {
@@ -225,21 +255,84 @@ public class PerfilActivity extends AppCompatActivity {
         boolean isValid = true;
 
         if (etUsername.getText().toString().trim().isEmpty()) {
-            etUsername.setError("Nombre de usuario requerido");
+            tilUsername.setError("Nombre de usuario requerido");
             isValid = false;
         }
 
         if (etFirstName.getText().toString().trim().isEmpty()) {
-            etFirstName.setError("Nombre requerido");
+            tilFirstName.setError("Nombre requerido");
             isValid = false;
         }
 
         if (etLastName.getText().toString().trim().isEmpty()) {
-            etLastName.setError("Apellidos requeridos");
+            tilLastName.setError("Apellidos requeridos");
+            isValid = false;
+        }
+
+        if (etGreenhouseName.getText().toString().trim().isEmpty()) {
+            tilGreenhouseName.setError("Nombre del invernadero requerido");
+            isValid = false;
+        }
+
+        if (etSerialNumber.getText().toString().trim().isEmpty()) {
+            tilSerialNumber.setError("Número de serie requerido");
+            isValid = false;
+        }
+
+        if (etModel.getText().toString().trim().isEmpty()) {
+            tilModel.setError("Modelo requerido");
             isValid = false;
         }
 
         return isValid;
+    }
+
+    private void inputChanged(TextInputEditText editText, TextInputLayout layout) {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se requiere acción antes del cambio.
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No se requiere acción durante el cambio.
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Validación en tiempo real del campo
+                validateSingleField(s.toString(), layout);
+            }
+        });
+    }
+
+    private void validateSingleField(String value, TextInputLayout layout) {
+        if (value.isEmpty()) {
+            layout.setError("Este campo es obligatorio");
+        } else {
+            layout.setError(null);
+        }
+    }
+
+    private void setupErrorCleaner(TextInputEditText editText, TextInputLayout layout) {
+        editText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                layout.setError(null);
+            } else {
+                validateField(editText, layout, "Este campo es obligatorio");
+            }
+        });
+    }
+
+    private boolean validateField(TextInputEditText editText, TextInputLayout layout, String errorMessage) {
+        String value = editText.getText().toString().trim();
+        if (value.isEmpty()) {
+            layout.setError(errorMessage);
+            return false;
+        }
+        layout.setError(null);
+        return true;
     }
 
     private void updateUser() {
@@ -296,12 +389,12 @@ public class PerfilActivity extends AppCompatActivity {
         }
 
         // Llamada a la API para actualizar
-        showProgress(true);
+        //showProgress(true);
         Call<ApiResponse<UsuarioData>> call = apiService.actualizarUsuario(usuario);
         call.enqueue(new Callback<ApiResponse<UsuarioData>>() {
             @Override
             public void onResponse(Call<ApiResponse<UsuarioData>> call, Response<ApiResponse<UsuarioData>> response) {
-                showProgress(false);
+                //showProgress(false);
 
                 if (response.isSuccessful() && response.body() != null) {
                     ApiResponse<UsuarioData> apiResponse = response.body();
@@ -370,7 +463,7 @@ public class PerfilActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse<UsuarioData>> call, Throwable t) {
-                showProgress(false);
+                //showProgress(false);
                 Log.e("ERROR_CONEXION", "Fallo en la conexión", t);
 
                 runOnUiThread(() -> {
@@ -384,15 +477,81 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
-    private void showProgress(boolean show) {
-        progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
-        btnUpdate.setEnabled(!show);
-        btnLogout.setEnabled(!show);
+    /**
+     * Ajusta el scroll para que el campo enfocado sea visible al aparecer el teclado
+     * y gestiona el espacio adecuadamente.
+     * TODO: Falta ajuste con la tecla next para que vaya bajando dependiendo de la altura del teclado.
+     */
+    private void setupScrollView() {
+        // Ajusta el padding para dar espacio al teclado
+        ViewCompat.setOnApplyWindowInsetsListener(scrollView, (v, insets) -> {
+            int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+            scrollView.setPadding(0, 0, 0, imeHeight);
+
+            // Forzar scroll al elemento enfocado después de aplicar el padding
+            View focusedView = getCurrentFocus();
+            if (focusedView != null) {
+                // Añadir una pequeña demora para que se aplique el padding primero
+                focusedView.post(() -> {
+                    // Calcular la posición del campo enfocado dentro del ScrollView
+                    Rect scrollBounds = new Rect();
+                    scrollView.getDrawingRect(scrollBounds);
+
+                    // Obtener coordenadas relativas al ScrollView
+                    int scrollViewHeight = scrollView.getHeight();
+                    int[] location = new int[2];
+                    focusedView.getLocationInWindow(location);
+                    int[] scrollLocation = new int[2];
+                    scrollView.getLocationInWindow(scrollLocation);
+
+                    // Calcular la posición Y dentro del ScrollView
+                    int relativeY = location[1] - scrollLocation[1];
+
+                    // Si el elemento está fuera de vista o muy cerca del borde inferior
+                    if (relativeY + focusedView.getHeight() > scrollBounds.bottom - 50) {
+                        int scrollTo = relativeY - (scrollViewHeight / 2);
+                        if (scrollTo > 0) {
+                            scrollView.smoothScrollTo(0, scrollTo);
+                        }
+                    }
+                });
+            }
+
+            return insets;
+        });
+
+        // Complementamos con el listener de layout para mayor robustez
+        scrollView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            Rect visibleArea = new Rect();
+            scrollView.getWindowVisibleDisplayFrame(visibleArea);
+            int screenHeight = scrollView.getRootView().getHeight();
+
+            // Si la diferencia es mayor al 15% de la altura, el teclado probablemente está visible
+            if (screenHeight - visibleArea.bottom > screenHeight * 0.15) {
+                View focusedView = getCurrentFocus();
+                if (focusedView != null) {
+                    // Añadir un pequeño offset para que el campo quede bien visible
+                    int offset = 150; // Puedes ajustar este valor
+
+                    int[] location = new int[2];
+                    focusedView.getLocationOnScreen(location);
+
+                    // Calcular si el campo está parcialmente oculto por el teclado
+                    int fieldBottom = location[1] + focusedView.getHeight();
+                    int visibleBottom = visibleArea.bottom;
+
+                    if (fieldBottom > visibleBottom - offset) {
+                        int scrollY = (fieldBottom - visibleBottom) + offset;
+                        scrollView.smoothScrollBy(0, scrollY);
+                    }
+                }
+            }
+        });
     }
 
-    @Override
-    public void onBackPressed() {
-        setResult(RESULT_CANCELED);
-        super.onBackPressed();
-    }
+//    private void showProgress(boolean show) {
+//        progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+//        btnUpdate.setEnabled(!show);
+//        btnLogout.setEnabled(!show);
+//    }
 }

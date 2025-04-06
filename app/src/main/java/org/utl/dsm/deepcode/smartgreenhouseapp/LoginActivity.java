@@ -222,16 +222,36 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
+
     /**
-     * Ajusta el scroll para que el campo enfocado sea visible al aparecer el teclado.
+     * Ajusta el scroll para que el campo enfocado sea visible al aparecer el teclado
+     * y gestiona el espacio adecuadamente.
      */
-        // En lugar de tu método setupScrollView actual
-        private void setupScrollView() {
-            ViewCompat.setOnApplyWindowInsetsListener(scrollView, (v, insets) -> {
-                // Ajusta el padding inferior del ScrollView para dar espacio al teclado
-                int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                scrollView.setPadding(0, 0, 0, imeHeight);
-                return insets;
-            });
-        }
+    private void setupScrollView() {
+        // Método 1: Ajusta el padding cuando aparece el teclado
+        ViewCompat.setOnApplyWindowInsetsListener(scrollView, (v, insets) -> {
+            // Ajusta el padding inferior del ScrollView para dar espacio al teclado
+            int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+            scrollView.setPadding(0, 0, 0, imeHeight);
+            return insets;
+        });
+
+        // Método 2: Asegura que el elemento enfocado sea visible
+        scrollView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            Rect visibleArea = new Rect();
+            scrollView.getWindowVisibleDisplayFrame(visibleArea);
+            int screenHeight = scrollView.getRootView().getHeight();
+
+            // Si la diferencia es mayor al 15% de la altura, se asume que el teclado está visible.
+            if (screenHeight - visibleArea.bottom > screenHeight * 0.15) {
+                View focusedView = getCurrentFocus();
+                if (focusedView != null) {
+                    int[] location = new int[2];
+                    focusedView.getLocationOnScreen(location);
+                    int scrollY = (location[1] + focusedView.getHeight()) - visibleArea.height();
+                    if (scrollY > 0) scrollView.smoothScrollTo(0, scrollY);
+                }
+            }
+        });
+    }
 }
