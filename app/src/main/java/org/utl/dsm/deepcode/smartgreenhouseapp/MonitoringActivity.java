@@ -1,7 +1,6 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -9,7 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import org.utl.dsm.deepcode.smartgreenhouseapp.api.ApiService;
+import com.google.android.material.button.MaterialButton;
+
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.SensorApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.SensorDTO;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.SensorResponse;
@@ -27,6 +27,7 @@ public class MonitoringActivity extends AppCompatActivity {
 
     private TextView txtTemperatura, txtHumedad, txtContaminacion, txtUltimaModificacion;
     private Button btnActualizarDatos;
+    private MaterialButton iconButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,16 @@ public class MonitoringActivity extends AppCompatActivity {
         txtContaminacion = findViewById(R.id.txtContaminacion);
         txtUltimaModificacion = findViewById(R.id.txtUltimaModificacion);
         btnActualizarDatos = findViewById(R.id.btnActualizarDatos);
+        iconButton = findViewById(R.id.iconButton);
+        iconButton.setOnClickListener(v -> finish());
 
         btnActualizarDatos.setOnClickListener(v -> obtenerDatosSensores());
+        obtenerDatosSensores();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         obtenerDatosSensores();
     }
 
@@ -124,7 +133,7 @@ public class MonitoringActivity extends AppCompatActivity {
     }
 
     private void actualizarFechaModificacion() {
-        String fecha = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault())
+        String fecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
                 .format(new Date());
         txtUltimaModificacion.setText("Última actualización: " + fecha);
     }
