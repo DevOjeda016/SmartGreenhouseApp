@@ -14,6 +14,10 @@ import retrofit2.http.Path;
 public interface UsuarioApiService {
     @GET("usuarios")
     Call<ApiResponse<List<UsuarioData>>> getUsuarios();
+
+    @GET("usuarios/{id}")
+    Call<ApiResponse<UsuarioData>> findUserById(@Path("id") int idUsuario);
+
     @POST("usuarios/delete/{id}")
     Call<ApiResponse<Void>> deleteUsuario(@Path("id") int idUsuario);
     @POST("usuarios/update")

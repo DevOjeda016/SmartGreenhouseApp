@@ -52,6 +52,7 @@ public class PerfilActivity extends AppCompatActivity {
     private UsuarioApiService apiService;
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private boolean isEditing = false;
+    UsuarioData usuarioLogged = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,7 @@ public class PerfilActivity extends AppCompatActivity {
         if (getIntent().hasExtra("usuario")) {
             usuario = (UsuarioData) getIntent().getSerializableExtra("usuario");
             isEditing = getIntent().getBooleanExtra("isEditing", false);
+            usuarioLogged = (UsuarioData) getIntent().getSerializableExtra("usuarioLogged");
 
             // Cargar los datos del usuario recibido
             if (usuario != null) {
@@ -90,6 +92,17 @@ public class PerfilActivity extends AppCompatActivity {
 
         // 4. Configurar listeners
         setupListeners();
+        if (usuarioLogged != null) {
+            if (usuarioLogged.getId() != usuario.getId()) {
+                btnLogout.setVisibility(View.GONE);
+            }
+
+            if (!usuario.getRol().equals("ADMINISTRADOR")) {
+                etGreenhouseName.setEnabled(false);
+                etSerialNumber.setEnabled(false);
+                etModel.setEnabled(false);
+            }
+        }
     }
 
     private void setupRetrofit() {
@@ -185,12 +198,6 @@ public class PerfilActivity extends AppCompatActivity {
             etModel.setText(usuario.getInvernadero().getModelo());
         } else {
             Log.w(TAG, "Objeto Invernadero es null para usuario ID: " + usuario.getId());
-        }
-
-        // Actualizar título o indicador si estamos en modo edición
-        if (isEditing) {
-            setTitle("Editar Usuario");
-            btnUpdate.setText("Guardar Cambios");
         }
     }
 

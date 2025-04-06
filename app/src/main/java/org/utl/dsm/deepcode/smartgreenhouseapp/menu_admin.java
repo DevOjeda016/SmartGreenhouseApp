@@ -11,11 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.SensorApiService;
+import org.utl.dsm.deepcode.smartgreenhouseapp.api.UsuarioApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.ApiResponse;
 import org.utl.dsm.deepcode.smartgreenhouseapp.model.MeasureResponse;
+import org.utl.dsm.deepcode.smartgreenhouseapp.model.UsuarioData;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,12 +35,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class menu_admin extends AppCompatActivity {
     private TextView textView2;
+    private MaterialButton iconButton, iconButton3;
     private TextView percentageText;  // Temperatura
     private TextView percentageText1; // Humedad
     private TextView percentageText2; // Gas
     private String ultimaFechaActualizacion = "-";
 
     private TextView txtTitle;
+    private int id;
+    private UsuarioData usuario;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -53,7 +61,7 @@ public class menu_admin extends AppCompatActivity {
         Intent intent = getIntent();
         String nombre = intent.getStringExtra("nombre");
         String aPaterno = intent.getStringExtra("aPaterno");
-        int id = intent.getIntExtra("id", 0);
+        id = intent.getIntExtra("id", 0);
 
 
         setupSmallCards();
@@ -64,8 +72,12 @@ public class menu_admin extends AppCompatActivity {
         percentageText = findViewById(R.id.percentageText);
         percentageText1 = findViewById(R.id.percentageText1);
         percentageText2 = findViewById(R.id.percentageText2);
+        iconButton = findViewById(R.id.iconButton);
+        iconButton.setOnClickListener(v -> goToProfileActivity());
+        iconButton3 = findViewById(R.id.iconButton3);
+        iconButton3.setOnClickListener(v -> logout());
+        loadDataUser();
         txtTitle = findViewById(R.id.txtTitle);
-        txtTitle.setText(nombre + " " + aPaterno);
     }
 
     @Override
@@ -77,6 +89,7 @@ public class menu_admin extends AppCompatActivity {
                 .build();
         SensorApiService apiService = retrofit.create(SensorApiService.class);
         actualizarDatos(apiService);
+        loadDataUser();
     }
 
     private void setupSmallCards() {
@@ -84,6 +97,15 @@ public class menu_admin extends AppCompatActivity {
         MaterialCardView smallCard1 = findViewById(R.id.smallCard1);
         MaterialCardView smallCard2 = findViewById(R.id.smallCard2);
         // Puedes añadir listeners si es necesario
+    }
+
+    private void logout() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+        finishAffinity();
     }
 
     private void actualizarDatos(SensorApiService apiService) {
@@ -141,6 +163,66 @@ public class menu_admin extends AppCompatActivity {
         callGas.enqueue(callback);
     }
 
+    private void loadDataUser() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Globals.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        UsuarioApiService apiService = retrofit.create(UsuarioApiService.class);
+        Call<ApiResponse<UsuarioData>> call = apiService.findUserById(id);
+        call.enqueue(new Callback<ApiResponse<UsuarioData>>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(Call<ApiResponse<UsuarioData>> call, Response<ApiResponse<UsuarioData>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    ApiResponse<UsuarioData> apiResponse = response.body();
+                    if (apiResponse.getStatus() == 200 && apiResponse.getData() != null) {
+                        usuario = apiResponse.getData();
+                        System.out.println(usuario.getPersona().getAPaterno());
+                        String[] names = usuario.getPersona().getNombre().split(" ");
+                        txtTitle.setText(names[0] + " " + usuario.getPersona().getAPaterno());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<UsuarioData>> call, Throwable t) {
+                Toast.makeText(menu_admin.this, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+            }
+        });
+    }
+    private void goToProfileActivity() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Globals.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        UsuarioApiService apiService = retrofit.create(UsuarioApiService.class);
+        Call<ApiResponse<UsuarioData>> call = apiService.findUserById(id);
+        call.enqueue(new Callback<ApiResponse<UsuarioData>>() {
+            @Override
+            public void onResponse(Call<ApiResponse<UsuarioData>> call, Response<ApiResponse<UsuarioData>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    ApiResponse<UsuarioData> apiResponse = response.body();
+                    if (apiResponse.getStatus() == 200 && apiResponse.getData() != null) {
+                        UsuarioData usuarioFound = apiResponse.getData();
+                        Intent intent = new Intent(menu_admin.this, PerfilActivity.class);
+                        intent.putExtra("usuario", usuarioFound);
+                        intent.putExtra("isProfile", true);
+                        intent.putExtra("usuarioLogged", usuario);
+                        startActivity(intent);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse<UsuarioData>> call, Throwable t) {
+                Toast.makeText(menu_admin.this, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+            }
+        });
+    }
+
     private void setupLargeCards() {
         // Tarjeta de plantación
         MaterialCardView plantingCard = findViewById(R.id.materialCardView5);
@@ -169,7 +251,9 @@ public class menu_admin extends AppCompatActivity {
         // Tarjeta de usuarios
         MaterialCardView usersCard = findViewById(R.id.materialCardView12);
         usersCard.setOnClickListener(v -> {
-            startActivity(new Intent(this, UsuariosActivity.class));
+            Intent intent = new Intent(this, UsuariosActivity.class);
+            intent.putExtra("usuarioLogged", usuario);
+            startActivity(intent);
         });
     }
 }

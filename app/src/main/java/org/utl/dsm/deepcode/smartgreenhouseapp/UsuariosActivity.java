@@ -47,6 +47,7 @@ public class UsuariosActivity extends AppCompatActivity {
     private UsuarioAdapter adapter;
     private UsuarioApiService apiService;
     private List<UsuarioData> usuarios = new ArrayList<>();
+    UsuarioData usuarioLogged = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,10 @@ public class UsuariosActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent intent = getIntent();
+        if (intent != null) {
+            usuarioLogged = (UsuarioData) intent.getSerializableExtra("usuarioLogged");
+        }
 
         initViews();
         setupRetrofit();
@@ -187,6 +192,7 @@ public class UsuariosActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PerfilActivity.class);
         intent.putExtra("usuario", usuario);
         intent.putExtra("isEditing", true); // Indicador de edición
+        intent.putExtra("usuarioLogged", usuarioLogged);
         startActivityForResult(intent, REQUEST_EDIT_USER);
     }
 
@@ -274,6 +280,9 @@ public class UsuariosActivity extends AppCompatActivity {
             }
 
             holder.btnEdit.setOnClickListener(v -> listener.onEditClick(usuario));
+            if (usuario.getRol().equals("ADMINISTRADOR")) {
+                holder.btnDelete.setVisibility(View.GONE);
+            }
             holder.btnDelete.setOnClickListener(v -> listener.onDeleteClick(usuario));
         }
 
