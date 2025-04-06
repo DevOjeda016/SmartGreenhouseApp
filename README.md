@@ -59,7 +59,6 @@
 |----------|-----------|---------|-------------|
 | ![SmartGreenhouse Login](./app/src/main/assets/login.jpg) | ![SmartGreenhouse CultivaIA](./app/src/main/assets/chat.jpg) | ![SmartGreenhouse Graphics](./app/src/main/assets/graphics.jpg) | ![SmartGreenhouse Login](./app/src/main/assets/panel.jpg) |
 
-> ¿Tienes capturas o un video real? Puedes reemplazar los enlaces para mostrar la app real.
 
 ---
 
