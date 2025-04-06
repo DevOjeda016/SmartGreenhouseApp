@@ -213,15 +213,6 @@
                     </LinearLayout>
 
                     <!-- Texto de última modificación -->
-                    <TextView
-                        android:id="@+id/txtUltimaModificacion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/last_update"
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -280,6 +271,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/off"
+                            android:textColor="@color/md_theme_error"
                             android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -311,21 +303,13 @@
                             android:id="@+id/txtEstadoVentilacion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/level_1"
+                            android:text="@string/off"
+                            android:textColor="@color/md_theme_error"
                             android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                     <!-- Texto de última modificación -->
-                    <TextView
-                        android:id="@+id/txtUltimaModificacionActuadores"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/last_update"
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -456,15 +440,6 @@
                     </LinearLayout>
 
                     <!-- Texto de última modificación -->
-                    <TextView
-                        android:id="@+id/txtUltimaModificacionAlarmas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/last_update"
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -475,13 +450,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/md_theme_primary"
                 android:padding="12dp"
                 android:text="@string/refresh_data"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 app:cornerRadius="24dp" />
+
+            <TextView
+                android:id="@+id/txtUltimaModificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="24dp"
+                android:text="@string/last_update"
+                android:textAlignment="center" />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
