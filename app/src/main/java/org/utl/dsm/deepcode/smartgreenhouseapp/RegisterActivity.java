@@ -207,7 +207,7 @@ public class RegisterActivity extends AppCompatActivity {
         return validateField(etNombre, txtNombre, "Por favor, ingrese su nombre") &&
                 validateField(etApellidos, txtApellidos, "Por favor, ingrese sus apellidos") &&
                 validateField(etAdmin, txtAdmin, "Por favor, ingrese su nombre de usuario") &&
-                validatePassword() &&
+                validatePassword() && validateGreenhouseInfo() &&
                 validateField(etInvernadero, txtInvernadero, "Por favor, ingrese el nombre de su invernadero") &&
                 validateField(etNumSerie, txtNumSerie, "Por favor, ingrese el número de serie");
     }
@@ -242,6 +242,24 @@ public class RegisterActivity extends AppCompatActivity {
         }
         txtContrasenia.setError(null);
         return true;
+    }
+
+    private boolean validateGreenhouseInfo() {
+        String invernadero = etInvernadero.getText().toString().trim();
+        String numSerie = etNumSerie.getText().toString().trim();
+        if (!invernadero.equals("Invernadero Central")) {
+            txtInvernadero.setError("Invernadero no registrado");
+            return false;
+        } else {
+            txtInvernadero.setError(null);
+        }
+        if (!numSerie.equals("DCSGH-001")) {
+            txtNumSerie.setError("Número de serie no coincide");
+            return false;
+        } else {
+            txtNumSerie.setError(null);
+            return true;
+        }
     }
 
     /**

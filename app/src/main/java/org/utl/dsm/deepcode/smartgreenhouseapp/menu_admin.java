@@ -178,9 +178,9 @@ public class menu_admin extends AppCompatActivity {
                     ApiResponse<UsuarioData> apiResponse = response.body();
                     if (apiResponse.getStatus() == 200 && apiResponse.getData() != null) {
                         usuario = apiResponse.getData();
-                        System.out.println(usuario.getPersona().getAPaterno());
                         String[] names = usuario.getPersona().getNombre().split(" ");
-                        txtTitle.setText(names[0] + " " + usuario.getPersona().getAPaterno());
+                        String[] apellidos = usuario.getPersona().getAPaterno().split(" ");
+                        txtTitle.setText(names[0] + " " + apellidos[0]);
                     }
                 }
             }
