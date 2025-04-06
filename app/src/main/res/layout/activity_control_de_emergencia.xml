@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/md_theme_surfaceBright_mediumContrast">
 
+    <!-- Header (AppBar) -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="0dp"
@@ -18,11 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Contenedor principal personalizado -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="8dp">
+            android:paddingHorizontal="8dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="7dp">
 
+            <!-- Título principal (UserAdmin) -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/iconButton"
                 android:layout_width="33dp"
@@ -39,6 +44,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <!-- Contenedor para iconos derecha -->
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="0dp"
