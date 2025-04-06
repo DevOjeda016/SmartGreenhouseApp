@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Smart Greenhouse</string>
-    <string name="app_version">1.1.10</string>
+    <string name="app_version">1.1.12</string>
     <string name="app_description">Smart Greenhouse App</string>
     <string name="app_author">DeepCode</string>
     <string name="UserAdmin">Usuario Admin</string>
