@@ -41,6 +41,7 @@ public class PerfilActivity extends AppCompatActivity {
 
     // Views
     private ImageView profileImage;
+    private TextView txtTitle;
     private TextView tvUsername, tvRole;
     private TextInputEditText etFirstName, etLastName, etUsername,
             etGreenhouseName, etSerialNumber, etModel;
@@ -64,6 +65,7 @@ public class PerfilActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        txtTitle = findViewById(R.id.txtTitle);
 
         // 1. Configurar Retrofit
         setupRetrofit();
@@ -95,6 +97,7 @@ public class PerfilActivity extends AppCompatActivity {
         if (usuarioLogged != null) {
             if (usuarioLogged.getId() != usuario.getId()) {
                 btnLogout.setVisibility(View.GONE);
+                txtTitle.setText(getString(R.string.UserUser));
             }
 
             if (!usuario.getRol().equals("ADMINISTRADOR")) {
@@ -209,10 +212,12 @@ public class PerfilActivity extends AppCompatActivity {
         });
 
         btnLogout.setOnClickListener(v -> {
-            Intent intent = new Intent(PerfilActivity.this, LoginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-            //setResult(RESULT_CANCELED);
             finish();
+            finishAffinity();
         });
     }
 
