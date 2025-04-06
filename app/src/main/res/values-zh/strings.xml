@@ -95,7 +95,8 @@
     <string name="serial_number">序列号</string>
     <string name="login_with_account">用您的账号登录</string>
     <string name="create_new_account">创建新账户</string>
-    <string name="greenhouse_not_registered">尚未注册您的温室？点击此处注册</string>
+    <string name="greenhouse_not_registered">还没有账户？</string>
+    <string name="already_have_account">点击这里创建</string>
     <string name="username">用户名</string>
     <string name="sign_in">登录</string>
     <string name="sign_up">注册</string>

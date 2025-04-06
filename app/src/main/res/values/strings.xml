@@ -94,7 +94,8 @@
     <string name="serial_number">Número de serie</string>
     <string name="login_with_account">Iniciar sesión con tu cuenta</string>
     <string name="create_new_account">Crear una nueva cuenta</string>
-    <string name="greenhouse_not_registered">¿Aún no registras tu invernadero? Regístralo aquí</string>
+    <string name="greenhouse_not_registered">¿Aún no tienes cuenta?</string>
+    <string name="already_have_account">Crea una aquí</string>
     <string name="username">Nombre de usuario</string>
     <string name="sign_in">Iniciar sesión</string>
     <string name="sign_up">Registrarse</string>

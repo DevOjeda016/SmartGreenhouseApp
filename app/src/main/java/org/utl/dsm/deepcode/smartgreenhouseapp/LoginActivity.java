@@ -1,9 +1,12 @@
 package org.utl.dsm.deepcode.smartgreenhouseapp;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText etUsername, etPassword;
     private Button btnLogin;
     private TextView txtRegisterNewUser;
+    private ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = (TextInputEditText) passwordLayout.getEditText();
 
         btnLogin = findViewById(R.id.btnLogin);
+        scrollView = findViewById(R.id.scrollview);
         txtRegisterNewUser = findViewById(R.id.txtRegisterNewUser);
 
         // Configurar el botón de login
@@ -77,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
+        setupScrollView();
     }
 
     private void performLogin(String username, String password) {
@@ -152,4 +158,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Ajusta el scroll para que el campo enfocado sea visible al aparecer el teclado.
+     */
+        // En lugar de tu método setupScrollView actual
+        private void setupScrollView() {
+            ViewCompat.setOnApplyWindowInsetsListener(scrollView, (v, insets) -> {
+                // Ajusta el padding inferior del ScrollView para dar espacio al teclado
+                int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                scrollView.setPadding(0, 0, 0, imeHeight);
+                return insets;
+            });
+        }
 }

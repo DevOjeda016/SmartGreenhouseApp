@@ -85,7 +85,8 @@
     <string name="serial_number">Serial Number</string>
     <string name="login_with_account">Sign in with your account</string>
     <string name="create_new_account">Create a new account</string>
-    <string name="greenhouse_not_registered">Haven\'t registered your greenhouse yet? Register it here</string>
+    <string name="greenhouse_not_registered">Don\'t have an account yet?</string>
+    <string name="already_have_account">Create one here</string>
     <string name="username">Username</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
