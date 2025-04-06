@@ -2,7 +2,6 @@
 <resources>
     <!-- App Information -->
     <string name="app_name">Smart Greenhouse</string>
-    <string name="app_version">1.0</string>
     <string name="app_description">Smart Greenhouse App</string>
     <string name="app_author">DeepCode</string>
     <string name="UserAdmin">Admin User</string>
@@ -165,7 +164,7 @@
 
     <!-- Splash Screen -->
     <string name="developed_by">Developed by Deep Code</string>
-    <string name="app_versio">Version 1.0.0</string>
+    <string name="app_versio">Version </string>
     <string name="start">Start</string>
 
 </resources>
