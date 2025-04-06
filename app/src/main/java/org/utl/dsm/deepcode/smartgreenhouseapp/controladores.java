@@ -94,22 +94,71 @@ public class controladores extends AppCompatActivity {
         btnUpdateHumidityLimits.setOnClickListener(v -> sendLimitsHumidity());
         btnUpdateGasLimits.setOnClickListener(v -> sendLimitsGas());
         iconButton.setOnClickListener(v -> finish());
+        scrollView = findViewById(R.id.scrollView);
     }
 
     private void setupScrollView() {
-        scrollView = findViewById(R.id.scrollView);
+        // Ajusta el padding para dar espacio al teclado
+        ViewCompat.setOnApplyWindowInsetsListener(scrollView, (v, insets) -> {
+            int imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+            scrollView.setPadding(0, 0, 0, imeHeight);
+
+            // Forzar scroll al elemento enfocado después de aplicar el padding
+            View focusedView = getCurrentFocus();
+            if (focusedView != null) {
+                // Añadir una pequeña demora para que se aplique el padding primero
+                focusedView.post(() -> {
+                    // Calcular la posición del campo enfocado dentro del ScrollView
+                    Rect scrollBounds = new Rect();
+                    scrollView.getDrawingRect(scrollBounds);
+
+                    // Obtener coordenadas relativas al ScrollView
+                    int scrollViewHeight = scrollView.getHeight();
+                    int[] location = new int[2];
+                    focusedView.getLocationInWindow(location);
+                    int[] scrollLocation = new int[2];
+                    scrollView.getLocationInWindow(scrollLocation);
+
+                    // Calcular la posición Y dentro del ScrollView
+                    int relativeY = location[1] - scrollLocation[1];
+
+                    // Si el elemento está fuera de vista o muy cerca del borde inferior
+                    if (relativeY + focusedView.getHeight() > scrollBounds.bottom - 50) {
+                        int scrollTo = relativeY - (scrollViewHeight / 2);
+                        if (scrollTo > 0) {
+                            scrollView.smoothScrollTo(0, scrollTo);
+                        }
+                    }
+                });
+            }
+
+            return insets;
+        });
+
+        // Complementamos con el listener de layout para mayor robustez
         scrollView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
             Rect visibleArea = new Rect();
             scrollView.getWindowVisibleDisplayFrame(visibleArea);
             int screenHeight = scrollView.getRootView().getHeight();
 
+            // Si la diferencia es mayor al 15% de la altura, el teclado probablemente está visible
             if (screenHeight - visibleArea.bottom > screenHeight * 0.15) {
                 View focusedView = getCurrentFocus();
                 if (focusedView != null) {
+                    // Añadir un pequeño offset para que el campo quede bien visible
+                    int offset = 150; // Puedes ajustar este valor
+
                     int[] location = new int[2];
                     focusedView.getLocationOnScreen(location);
-                    int scrollY = (location[1] + focusedView.getHeight()) - visibleArea.height();
-                    if (scrollY > 0) scrollView.smoothScrollTo(0, scrollY);
+
+                    // Calcular si el campo está parcialmente oculto por el teclado
+                    int fieldBottom = location[1] + focusedView.getHeight();
+                    int visibleBottom = visibleArea.bottom;
+
+                    if (fieldBottom > visibleBottom - offset) {
+                        int scrollY = (fieldBottom - visibleBottom) + offset;
+                        scrollView.smoothScrollBy(0, scrollY);
+                    }
                 }
             }
         });
