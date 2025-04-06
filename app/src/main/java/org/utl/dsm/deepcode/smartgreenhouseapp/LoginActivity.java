@@ -3,6 +3,8 @@ package org.utl.dsm.deepcode.smartgreenhouseapp;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +38,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputEditText etUsername, etPassword;
+    private TextInputLayout userLayout, passwordLayout;
     private Button btnLogin;
     private TextView txtRegisterNewUser;
     private ScrollView scrollView;
@@ -54,8 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // Obtener los layouts primero
-        TextInputLayout userLayout = findViewById(R.id.txtNombreUsu);
-        TextInputLayout passwordLayout = findViewById(R.id.txtContrasenia);
+        userLayout = findViewById(R.id.txtNombreUsu);
+        passwordLayout = findViewById(R.id.txtContrasenia);
 
         // Luego obtener los EditText dentro de los layouts
         etUsername = (TextInputEditText) userLayout.getEditText();
@@ -65,16 +68,24 @@ public class LoginActivity extends AppCompatActivity {
         scrollView = findViewById(R.id.scrollview);
         txtRegisterNewUser = findViewById(R.id.txtRegisterNewUser);
 
+
         // Configurar el botón de login
         btnLogin.setOnClickListener(view -> {
             String username = etUsername.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
-
-            if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(LoginActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+            if (username.isEmpty()) {
+                userLayout.setError("Por favor, ingresa un nombre de usuario");
+                return;
             } else {
-                performLogin(username, password);
+                userLayout.setError(null);
             }
+            if (password.isEmpty()) {
+                passwordLayout.setError("Por favor, ingresa una contraseña");
+                return;
+            } else {
+                passwordLayout.setError(null);
+            }
+            performLogin(username, password);
         });
 
         // Configurar el texto de registro
@@ -83,6 +94,38 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
         setupScrollView();
+        setupErrorCleaner(etUsername, userLayout);
+        setupErrorCleaner(etPassword, passwordLayout);
+        inputChanged(etUsername, userLayout);
+        inputChanged(etPassword, passwordLayout);
+    }
+
+    private void inputChanged(TextInputEditText editText, TextInputLayout layout) {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // No se requiere acción antes del cambio.
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // No se requiere acción durante el cambio.
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Validación en tiempo real del campo
+                validateSingleField(s.toString(), layout);
+            }
+        });
+    }
+
+    private void validateSingleField(String value, TextInputLayout layout) {
+        if (value.isEmpty()) {
+            layout.setError("Este campo es obligatorio");
+        } else {
+            layout.setError(null);
+        }
     }
 
     private void performLogin(String username, String password) {
@@ -142,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                         String errorBody = response.errorBody() != null ?
                                 response.errorBody().string() : "Error desconocido";
                         Log.e("LoginActivity", "Error del servidor: " + errorBody);
-                        Toast.makeText(LoginActivity.this, "Error: " + errorBody, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         Log.e("LoginActivity", "Error al leer respuesta", e);
                         Toast.makeText(LoginActivity.this, "Error al procesar respuesta", Toast.LENGTH_SHORT).show();
@@ -157,6 +200,26 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Error de conexión. Verifica tu internet.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void setupErrorCleaner(TextInputEditText editText, TextInputLayout layout) {
+        editText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                layout.setError(null);
+            } else {
+                validateField(editText, layout, "Este campo es obligatorio");
+            }
+        });
+    }
+
+    private boolean validateField(TextInputEditText editText, TextInputLayout layout, String errorMessage) {
+        String value = editText.getText().toString().trim();
+        if (value.isEmpty()) {
+            layout.setError(errorMessage);
+            return false;
+        }
+        layout.setError(null);
+        return true;
     }
 
     /**

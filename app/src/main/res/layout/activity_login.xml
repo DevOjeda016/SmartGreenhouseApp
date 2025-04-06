@@ -49,12 +49,15 @@
             app:layout_constraintWidth_percent="0.8"
             app:placeholderText="@string/example_admin_greenhouse"
             app:startIconDrawable="@drawable/icon_field"
-            app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
+            app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:textColorLink="@color/md_theme_onPrimaryContainer" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,13 +75,15 @@
             app:layout_constraintWidth_percent="0.8"
             app:placeholderText="@string/example_admin_greenhouse"
             app:startIconDrawable="@drawable/icons_contra"
-            app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast">
+            app:startIconTint="@color/md_theme_tertiaryFixed_mediumContrast"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:imeOptions="actionDone"
                 android:textColorLink="@color/md_theme_onPrimaryContainer" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +91,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:text="@string/sign_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +99,7 @@
             app:layout_constraintWidth_percent="0.8" />
 
         <TextView
-            android:id="@+id/txtRegisterNewUser"
+            android:id="@+id/textView6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -107,13 +112,13 @@
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtRegisterNewUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/already_have_account"
             android:textColor="@color/md_theme_onPrimaryFixedVariant"
-            app:layout_constraintEnd_toEndOf="@+id/txtRegisterNewUser"
-            app:layout_constraintStart_toStartOf="@+id/txtRegisterNewUser"
-            app:layout_constraintTop_toBottomOf="@+id/txtRegisterNewUser" />
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
