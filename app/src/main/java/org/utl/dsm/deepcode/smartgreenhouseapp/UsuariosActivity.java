@@ -3,6 +3,7 @@ package org.utl.dsm.deepcode.smartgreenhouseapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.utl.dsm.deepcode.smartgreenhouseapp.api.UsuarioApiService;
 import org.utl.dsm.deepcode.smartgreenhouseapp.globals.Globals;
@@ -142,12 +142,21 @@ public class UsuariosActivity extends AppCompatActivity {
     }
 
     private void showDeleteConfirmation(UsuarioData usuario) {
-        new AlertDialog.Builder(this)
-                .setTitle("Confirmar eliminación")
-                .setMessage("¿Estás seguro de eliminar al usuario " + usuario.getNombreUsuario() + "?")
-                .setPositiveButton("Eliminar", (dialog, which) -> deleteUsuario(usuario))
-                .setNegativeButton("Cancelar", null)
-                .show();
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle("Confirmar eliminación");
+        builder.setMessage("¿Estás seguro de eliminar al usuario " + usuario.getNombreUsuario() + "?");
+        builder.setPositiveButton("Eliminar", (dialog, which) -> deleteUsuario(usuario));
+        builder.setNegativeButton("Cancelar", null);
+
+        // Crear el diálogo para poder modificar el título
+        androidx.appcompat.app.AlertDialog dialog = builder.create();
+        dialog.show();
+
+        // Modificar el tamaño del título
+        TextView titleView = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
+        if (titleView != null) {
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20); // Aumentar el tamaño a 20sp
+        }
     }
 
     private void deleteUsuario(UsuarioData usuario) {
@@ -159,9 +168,19 @@ public class UsuariosActivity extends AppCompatActivity {
                 showLoading(false);
 
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(UsuariosActivity.this,
-                            "Usuario eliminado correctamente",
-                            Toast.LENGTH_SHORT).show();
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(UsuariosActivity.this);
+                    builder.setTitle("Éxito");
+                    builder.setMessage("Usuario eliminado correctamente");
+                    builder.setPositiveButton("Entendido", (dialog, which) -> dialog.dismiss());
+
+                    androidx.appcompat.app.AlertDialog dialog = builder.create();
+                    dialog.show();
+
+                    // Modificar el tamaño del título
+                    TextView titleView = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
+                    if (titleView != null) {
+                        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                    }
 
                     // Eliminar localmente sin recargar toda la lista
                     int position = findUsuarioPosition(usuario.getId());
@@ -175,14 +194,39 @@ public class UsuariosActivity extends AppCompatActivity {
                         }
                     }
                 } else {
-                    showError("Error al eliminar usuario: " + response.code());
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(UsuariosActivity.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("Error al eliminar usuario: " + response.code());
+                    builder.setPositiveButton("Entendido", (dialog, which) -> dialog.dismiss());
+
+                    androidx.appcompat.app.AlertDialog dialog = builder.create();
+                    dialog.show();
+
+                    // Modificar el tamaño del título
+                    TextView titleView = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
+                    if (titleView != null) {
+                        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<ApiResponse<Void>> call, Throwable t) {
                 showLoading(false);
-                showError("Error de conexión: " + t.getMessage());
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(UsuariosActivity.this);
+                builder.setTitle("Error de conexión");
+                builder.setMessage(t.getMessage());
+                builder.setPositiveButton("Entendido", (dialog, which) -> dialog.dismiss());
+
+                androidx.appcompat.app.AlertDialog dialog = builder.create();
+                dialog.show();
+
+                // Modificar el tamaño del título
+                TextView titleView = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
+                if (titleView != null) {
+                    titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                }
+
                 Log.e("UsuariosActivity", "Error al eliminar usuario", t);
             }
         });
@@ -226,6 +270,19 @@ public class UsuariosActivity extends AppCompatActivity {
 
     private void showError(String message) {
         recyclerView.setVisibility(View.GONE);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle("Error");
+        builder.setMessage(message);
+        builder.setPositiveButton("Entendido", (dialog, which) -> dialog.dismiss());
+
+        androidx.appcompat.app.AlertDialog dialog = builder.create();
+        dialog.show();
+
+        // Modificar el tamaño del título
+        TextView titleView = dialog.findViewById(androidx.appcompat.R.id.alertTitle);
+        if (titleView != null) {
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        }
     }
 
     // Clase Adapter interna
