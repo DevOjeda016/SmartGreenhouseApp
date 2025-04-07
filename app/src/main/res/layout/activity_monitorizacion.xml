@@ -106,16 +106,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de temperatura"
-                            android:src="@drawable/image" />
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
@@ -144,16 +137,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de humedad"
-                            android:src="@drawable/image" />
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
@@ -182,16 +168,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de gas"
-                            android:src="@drawable/image" />
-
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
@@ -213,15 +192,6 @@
                     </LinearLayout>
 
                     <!-- Texto de última modificación -->
-                    <TextView
-                        android:id="@+id/txtUltimaModificacion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/last_update"
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -260,16 +230,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de humidificador"
-                            android:src="@drawable/image" />
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:text="Humidificador"
                             android:textSize="16sp"
@@ -280,6 +243,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/off"
+                            android:textColor="@color/md_theme_error"
                             android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -292,16 +256,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de ventilación"
-                            android:src="@drawable/image" />
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:text="Ventilación"
                             android:textSize="16sp"
@@ -311,21 +268,13 @@
                             android:id="@+id/txtEstadoVentilacion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/level_1"
+                            android:text="@string/off"
+                            android:textColor="@color/md_theme_error"
                             android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                     <!-- Texto de última modificación -->
-                    <TextView
-                        android:id="@+id/txtUltimaModificacionActuadores"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/last_update"
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -364,16 +313,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de alarma de temperatura"
-                            android:src="@drawable/image" />
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:text="@string/header_temperature"
                             android:textSize="16sp"
@@ -397,16 +339,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de alarma de humedad"
-                            android:src="@drawable/image" />
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:text="@string/header_humidity"
                             android:textSize="16sp"
@@ -430,16 +365,9 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:contentDescription="Icono de alarma de gas"
-                            android:src="@drawable/image" />
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:text="@string/gas_header"
                             android:textSize="16sp"
@@ -456,15 +384,6 @@
                     </LinearLayout>
 
                     <!-- Texto de última modificación -->
-                    <TextView
-                        android:id="@+id/txtUltimaModificacionAlarmas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/last_update"
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="12sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -475,13 +394,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/md_theme_primary"
                 android:padding="12dp"
                 android:text="@string/refresh_data"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 app:cornerRadius="24dp" />
+
+            <TextView
+                android:id="@+id/txtUltimaModificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="24dp"
+                android:text="@string/last_update"
+                android:textAlignment="center" />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

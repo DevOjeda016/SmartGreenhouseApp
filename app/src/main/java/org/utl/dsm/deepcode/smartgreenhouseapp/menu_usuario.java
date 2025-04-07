@@ -120,7 +120,8 @@ public class menu_usuario extends AppCompatActivity {
                         usuario = apiResponse.getData();
                         System.out.println(usuario.getPersona().getAPaterno());
                         String[] names = usuario.getPersona().getNombre().split(" ");
-                        txtTitle.setText(names[0] + " " + usuario.getPersona().getAPaterno());
+                        String[] apellidos = usuario.getPersona().getAPaterno().split(" ");
+                        txtTitle.setText(names[0] + " " + apellidos[0]);
                     }
                 }
             }
