@@ -50,9 +50,9 @@ public class control_de_emergencia extends AppCompatActivity {
     private void showEmergencyButtonDisabledMessage() {
         // Mostrar un diálogo de alerta
         new MaterialAlertDialogBuilder(this)
-                .setTitle("Botón Inhabilitado")
-                .setMessage("Por seguridad, el botón de paro de emergencia se encuentra temporalmente inhabilitado.")
-                .setPositiveButton("Entendido", (dialog, which) -> dialog.dismiss())
+                .setTitle(getString(R.string.dialog_title_disabled_button))
+                .setMessage(getString(R.string.dialog_message_disabled_button))
+                .setPositiveButton(getString(R.string.dialog_button_ok), (dialog, which) -> dialog.dismiss())
                 .show();
 
         // Alternativamente, puedes usar un Toast

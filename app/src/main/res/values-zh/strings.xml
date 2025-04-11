@@ -176,5 +176,51 @@
     <string name="app_versio">版本 </string>
     <string name="start">开始</string>
 
+    <string name="dialog_title_disabled_button">按钮已禁用</string>
+    <string name="dialog_message_disabled_button">出于安全考虑，紧急停止按钮暂时禁用。</string>
+    <string name="dialog_button_ok">知道了</string>
 
+
+
+
+    <!-- 温度限制 -->
+    <string name="current_lower_limit_temperature">当前下限: %.1f °C</string>
+    <string name="current_upper_limit_temperature">当前上限: %.1f °C</string>
+
+    <!-- 湿度限制 -->
+    <string name="current_lower_limit_humidity">当前下限: %.1f %%</string>
+    <string name="current_upper_limit_humidity">当前上限: %.1f %%</string>
+
+    <!-- 气体限制 -->
+    <string name="current_lower_limit_gas">当前下限: %.1f ppm</string>
+    <string name="current_upper_limit_gas">当前上限: %.1f ppm</string>
+
+
+    <!-- 无效数值的错误提示 -->
+    <string name="error_invalid_temperature_values">温度数值无效</string>
+    <string name="error_invalid_humidity_values">湿度数值无效</string>
+    <string name="error_invalid_gas_values">气体数值无效</string>
+
+
+
+    <string name="username_required">用户名是必填项。</string>
+    <string name="first_name_required">名字是必填项。</string>
+    <string name="last_name_required">姓氏是必填项。</string>
+    <string name="greenhouse_name_required">温室名称是必填项。</string>
+    <string name="serial_number_required">序列号是必填项。</string>
+    <string name="model_required">型号是必填项。</string>
+
+
+    <string name="required_field">必填字段</string>
+
+    <string name="strUltimaActualizacion">最后更新：</string>
+
+
+    <string name="confirm_deletion">确认删除</string>
+    <string name="confirm_delete_message">您确定要删除 %1$s 吗？</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+
+
+    <string name="user_deleted_successfully">用户已成功删除</string>
 </resources>

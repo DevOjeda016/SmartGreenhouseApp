@@ -255,32 +255,32 @@ public class PerfilActivity extends AppCompatActivity {
         boolean isValid = true;
 
         if (etUsername.getText().toString().trim().isEmpty()) {
-            tilUsername.setError("Nombre de usuario requerido");
+            tilUsername.setError(getString(R.string.username_required));
             isValid = false;
         }
 
         if (etFirstName.getText().toString().trim().isEmpty()) {
-            tilFirstName.setError("Nombre requerido");
+            tilFirstName.setError(getString(R.string.first_name_required));
             isValid = false;
         }
 
         if (etLastName.getText().toString().trim().isEmpty()) {
-            tilLastName.setError("Apellidos requeridos");
+            tilLastName.setError(getString(R.string.last_name_required));
             isValid = false;
         }
 
         if (etGreenhouseName.getText().toString().trim().isEmpty()) {
-            tilGreenhouseName.setError("Nombre del invernadero requerido");
+            tilGreenhouseName.setError(getString(R.string.greenhouse_name_required));
             isValid = false;
         }
 
         if (etSerialNumber.getText().toString().trim().isEmpty()) {
-            tilSerialNumber.setError("Número de serie requerido");
+            tilSerialNumber.setError(getString(R.string.serial_number_required));
             isValid = false;
         }
 
         if (etModel.getText().toString().trim().isEmpty()) {
-            tilModel.setError("Modelo requerido");
+            tilModel.setError(getString(R.string.model_required));
             isValid = false;
         }
 
@@ -309,7 +309,7 @@ public class PerfilActivity extends AppCompatActivity {
 
     private void validateSingleField(String value, TextInputLayout layout) {
         if (value.isEmpty()) {
-            layout.setError("Este campo es obligatorio");
+            layout.setError(getString(R.string.required_field));
         } else {
             layout.setError(null);
         }
@@ -320,7 +320,7 @@ public class PerfilActivity extends AppCompatActivity {
             if (hasFocus) {
                 layout.setError(null);
             } else {
-                validateField(editText, layout, "Este campo es obligatorio");
+                validateField(editText, layout, getString(R.string.required_field));
             }
         });
     }

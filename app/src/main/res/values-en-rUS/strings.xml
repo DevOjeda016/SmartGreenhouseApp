@@ -12,7 +12,7 @@
     <string name="cultivaAI">CultivaIA</string>
     <string name="ventilation">Ventilation</string>
     <string name="emergency_control">Emergency Control</string>
-    <string name="ficha_plantacion">plantation sheet</string>
+    <string name="ficha_plantacion">Plantation sheet</string>
     <string name="graphics">Graphics</string>
     <string name="users">Users</string>
     <string name="new_users">New User</string>
@@ -166,5 +166,54 @@
     <string name="developed_by">Developed by Deep Code</string>
     <string name="app_versio">Version </string>
     <string name="start">Start</string>
+
+    <string name="dialog_title_disabled_button">Button Disabled</string>
+    <string name="dialog_message_disabled_button">For safety reasons, the emergency stop button is temporarily disabled.</string>
+    <string name="dialog_button_ok">OK</string>
+
+
+
+    <!-- Temperature limits -->
+    <string name="current_lower_limit_temperature">Current lower limit: %.1f °C</string>
+    <string name="current_upper_limit_temperature">Current upper limit: %.1f °C</string>
+
+    <!-- Humidity limits -->
+    <string name="current_lower_limit_humidity">Current lower limit: %.1f %%</string>
+    <string name="current_upper_limit_humidity">Current upper limit: %.1f %%</string>
+
+    <!-- Gas limits -->
+    <string name="current_lower_limit_gas">Current lower limit: %.1f ppm</string>
+    <string name="current_upper_limit_gas">Current upper limit: %.1f ppm</string>
+
+
+    <!-- Error messages for invalid values -->
+    <!-- Error messages for invalid values -->
+    <string name="error_invalid_temperature_values">Invalid numeric values for temperature</string>
+    <string name="error_invalid_humidity_values">Invalid numeric values for humidity</string>
+    <string name="error_invalid_gas_values">Invalid numeric values for gas</string>
+
+
+
+
+    <string name="username_required">Username is required.</string>
+    <string name="first_name_required">First name is required.</string>
+    <string name="last_name_required">Last name is required.</string>
+    <string name="greenhouse_name_required">Greenhouse name is required.</string>
+    <string name="serial_number_required">Serial number is required.</string>
+    <string name="model_required">Model is required.</string>
+
+
+    <string name="required_field">Required field</string>
+
+
+    <string name="strUltimaActualizacion">Last Updated: </string>
+
+
+    <string name="confirm_deletion">Confirm Deletion</string>
+    <string name="confirm_delete_message">Are you sure you want to delete %1$s?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="user_deleted_successfully">User deleted successfully</string>
 
 </resources>

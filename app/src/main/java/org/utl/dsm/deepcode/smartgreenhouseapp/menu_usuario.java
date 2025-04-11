@@ -207,7 +207,7 @@ public class menu_usuario extends AppCompatActivity {
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
                     sdf.setTimeZone(TimeZone.getDefault());
                     ultimaFechaActualizacion = sdf.format(new Date());
-                    textView2.setText("Última actualización: " + ultimaFechaActualizacion);
+                    textView2.setText(getString(R.string.strUltimaActualizacion) + ultimaFechaActualizacion);
                 }
             }
 

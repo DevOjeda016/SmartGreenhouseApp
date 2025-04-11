@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validateSingleField(String value, TextInputLayout layout) {
         if (value.isEmpty()) {
-            layout.setError("Este campo es obligatorio");
+            layout.setError(getString(R.string.required_field));
         } else {
             layout.setError(null);
         }
@@ -207,7 +207,7 @@ public class LoginActivity extends AppCompatActivity {
             if (hasFocus) {
                 layout.setError(null);
             } else {
-                validateField(editText, layout, "Este campo es obligatorio");
+                validateField(editText, layout, getString(R.string.required_field));
             }
         });
     }

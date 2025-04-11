@@ -143,10 +143,10 @@ public class UsuariosActivity extends AppCompatActivity {
 
     private void showDeleteConfirmation(UsuarioData usuario) {
         new AlertDialog.Builder(this)
-                .setTitle("Confirmar eliminación")
-                .setMessage("¿Estás seguro de eliminar al usuario " + usuario.getNombreUsuario() + "?")
-                .setPositiveButton("Eliminar", (dialog, which) -> deleteUsuario(usuario))
-                .setNegativeButton("Cancelar", null)
+                .setTitle(getString(R.string.confirm_deletion))
+                .setMessage(getString(R.string.confirm_delete_message, usuario.getNombreUsuario()))
+                .setPositiveButton(getString(R.string.delete), (dialog, which) -> deleteUsuario(usuario))
+                .setNegativeButton(getString(R.string.cancel), null)
                 .show();
     }
 
@@ -159,8 +159,7 @@ public class UsuariosActivity extends AppCompatActivity {
                 showLoading(false);
 
                 if (response.isSuccessful() && response.body() != null) {
-                    Toast.makeText(UsuariosActivity.this,
-                            "Usuario eliminado correctamente",
+                    Toast.makeText(UsuariosActivity.this, getString(R.string.user_deleted_successfully),
                             Toast.LENGTH_SHORT).show();
 
                     // Eliminar localmente sin recargar toda la lista
@@ -265,7 +264,7 @@ public class UsuariosActivity extends AppCompatActivity {
 
             // Mostrar el rol del usuario si existe
             if (usuario.getRol() != null && usuario.getRol() != null) {
-                holder.tvRol.setText("Rol: " + usuario.getRol());
+                holder.tvRol.setText(usuario.getRol());
                 holder.tvRol.setVisibility(View.VISIBLE);
             } else {
                 holder.tvRol.setVisibility(View.GONE);
@@ -273,7 +272,7 @@ public class UsuariosActivity extends AppCompatActivity {
 
             // Mostrar el nombre del invernadero si existe
             if (usuario.getInvernadero() != null && usuario.getInvernadero().getNombre() != null) {
-                holder.tvInvernadero.setText("Invernadero: " + usuario.getInvernadero().getNombre());
+                holder.tvInvernadero.setText(usuario.getInvernadero().getNombre());
                 holder.tvInvernadero.setVisibility(View.VISIBLE);
             } else {
                 holder.tvInvernadero.setVisibility(View.GONE);

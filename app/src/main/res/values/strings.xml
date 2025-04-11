@@ -178,5 +178,53 @@
     <string name="start">Comenzar</string>
 
 
+    <string name="dialog_title_disabled_button">Botón Inhabilitado</string>
+    <string name="dialog_message_disabled_button">Por seguridad, el botón de paro de emergencia se encuentra temporalmente inhabilitado.</string>
+    <string name="dialog_button_ok">Entendido</string>
+
+
+
+    <!-- Límites de temperatura -->
+    <string name="current_lower_limit_temperature">Límite inferior actual: %.1f °C</string>
+    <string name="current_upper_limit_temperature">Límite superior actual: %.1f °C</string>
+
+    <!-- Límites de humedad -->
+    <string name="current_lower_limit_humidity">Límite inferior actual: %.1f %%</string>
+    <string name="current_upper_limit_humidity">Límite superior actual: %.1f %%</string>
+
+    <!-- Límites de gas -->
+    <string name="current_lower_limit_gas">Límite inferior actual: %.1f ppm</string>
+    <string name="current_upper_limit_gas">Límite superior actual: %.1f ppm</string>
+
+    <!-- Spanish -->
+    <!-- Mensajes de error para valores inválidos -->
+    <string name="error_invalid_temperature_values">Valores numéricos inválidos para temperatura</string>
+    <string name="error_invalid_humidity_values">Valores numéricos inválidos para humedad</string>
+    <string name="error_invalid_gas_values">Valores numéricos inválidos para gas</string>
+
+
+
+    <string name="username_required">El nombre de usuario es obligatorio.</string>
+    <string name="first_name_required">El nombre es obligatorio.</string>
+    <string name="last_name_required">El apellido es obligatorio.</string>
+    <string name="greenhouse_name_required">El nombre del invernadero es obligatorio.</string>
+    <string name="serial_number_required">El número de serie es obligatorio.</string>
+    <string name="model_required">El modelo es obligatorio.</string>
+
+
+    <string name="required_field">Campo obligatorio</string>
+
+
+    <string name="strUltimaActualizacion">Última actualización: </string>
+
+
+    <string name="confirm_deletion">Confirmar Eliminación</string>
+    <string name="confirm_delete_message">¿Estás seguro de que quieres eliminar a %1$s?</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="user_deleted_successfully">Usuario eliminado correctamente</string>
+
+
 
 </resources>

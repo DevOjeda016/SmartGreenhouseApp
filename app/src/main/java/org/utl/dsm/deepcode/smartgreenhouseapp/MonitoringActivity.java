@@ -244,6 +244,6 @@ public class MonitoringActivity extends AppCompatActivity {
     private void actualizarFechaModificacion() {
         String fecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
                 .format(new Date());
-        txtUltimaModificacion.setText("Última actualización: " + fecha);
+        txtUltimaModificacion.setText(getString(R.string.strUltimaActualizacion) + fecha);
     }
 }

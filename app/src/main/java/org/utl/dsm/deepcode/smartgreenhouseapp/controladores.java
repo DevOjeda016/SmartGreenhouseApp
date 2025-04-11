@@ -195,22 +195,37 @@ public class controladores extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void updateUIWithCurrentLimits() {
         // Temperatura
-        txtCurrentLowerLimitTemperature.setText("Límite inferior actual: "
-                + sensorResponse.getData().get(0).getLimiteInferior() + " °C");
-        txtCurrentUpperLimitTemperature.setText("Límite superior actual: "
-                + sensorResponse.getData().get(0).getLimiteSuperior() + " °C");
+        txtCurrentLowerLimitTemperature.setText(
+                String.format(getString(R.string.current_lower_limit_temperature),
+                        sensorResponse.getData().get(0).getLimiteInferior())
+        );
 
-        // Humedad
-        txtCurrentLowerLimitHumidity.setText("Límite inferior actual: "
-                + sensorResponse.getData().get(1).getLimiteInferior() + " %");
-        txtCurrentUpperLimitHumidity.setText("Límite superior actual: "
-                + sensorResponse.getData().get(1).getLimiteSuperior() + " %");
+        txtCurrentUpperLimitTemperature.setText(
+                String.format(getString(R.string.current_upper_limit_temperature),
+                        sensorResponse.getData().get(0).getLimiteSuperior())
+        );
 
-        // Gas
-        txtCurrentLowerLimitGas.setText("Límite inferior actual: "
-                + sensorResponse.getData().get(2).getLimiteInferior() + " ppm");
-        txtCurrentUpperLimitGas.setText("Límite superior actual: "
-                + sensorResponse.getData().get(2).getLimiteSuperior() + " ppm");
+// Humedad
+        txtCurrentLowerLimitHumidity.setText(
+                String.format(getString(R.string.current_lower_limit_humidity),
+                        sensorResponse.getData().get(1).getLimiteInferior())
+        );
+
+        txtCurrentUpperLimitHumidity.setText(
+                String.format(getString(R.string.current_upper_limit_humidity),
+                        sensorResponse.getData().get(1).getLimiteSuperior())
+        );
+
+// Gas
+        txtCurrentLowerLimitGas.setText(
+                String.format(getString(R.string.current_lower_limit_gas),
+                        sensorResponse.getData().get(2).getLimiteInferior())
+        );
+
+        txtCurrentUpperLimitGas.setText(
+                String.format(getString(R.string.current_upper_limit_gas),
+                        sensorResponse.getData().get(2).getLimiteSuperior())
+        );
     }
 
     private void sendLimitsTemperature() {
@@ -225,7 +240,7 @@ public class controladores extends AppCompatActivity {
 
             updateLimits("TEMPERATURA", newLower, newUpper);
         } catch (NumberFormatException e) {
-            showToast("Valores numéricos inválidos para temperatura");
+            showToast(getString(R.string.error_invalid_temperature_values));
         }
     }
 
@@ -241,7 +256,7 @@ public class controladores extends AppCompatActivity {
 
             updateLimits("HUMEDAD", newLower, newUpper);
         } catch (NumberFormatException e) {
-            showToast("Valores numéricos inválidos para humedad");
+            showToast(getString(R.string.error_invalid_humidity_values));
         }
     }
 
@@ -257,7 +272,7 @@ public class controladores extends AppCompatActivity {
 
             updateLimits("GAS", newLower, newUpper);
         } catch (NumberFormatException e) {
-            showToast("Valores numéricos inválidos para gas");
+            showToast(getString(R.string.error_invalid_gas_values));
         }
     }
 
