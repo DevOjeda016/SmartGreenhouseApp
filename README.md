@@ -89,3 +89,13 @@ Equipo de estudiantes de Desarrollo de Software Multiplataforma.
 
 ## 📄 Licencia
 MIT License – LICENSE
+
+---
+
+## 🔑 Configuración de la API key
+
+La clave de DeepSeek ya no vive en el código. Agrégala en `local.properties` (archivo ignorado por git) en la raíz del proyecto:
+
+```properties
+DEEPSEEK_API_KEY=tu_clave_aqui
+```
